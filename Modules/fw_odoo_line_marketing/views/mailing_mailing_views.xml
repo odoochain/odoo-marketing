@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <record model="ir.ui.view" id="mailing_mailing_view_search_line">
+        <field name="name">mailing_mailing_view_search_line</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_search"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='assigned_to_me']" position="attributes">
+                <attribute name="string">My LINE Marketing</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_form_line" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.form.inherit.line</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_put_in_queue']" position="after">
+                <button name="action_put_in_queue_line" type="object"
+                    class="oe_highlight" string="Put in Queue"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('in_queue', 'done'))]}"
+                    confirm="This will schedule an LINE marketing to all group. Do you still want to proceed ?"/>
+                <button name="action_send_now_line" type="object"
+                    string="Send Now"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('done'))]}"
+                    confirm="This will send LINE to all group now. Do you still want to proceed ?"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_form_mixed_line" model="ir.ui.view">
+        <!-- View allowign to display the mailing type and therefore choosing
+        the way of mailing: not prioritized one, used in some specific cases
+        like "contacting people" without predefining mail or line or line -->
+        <field name="name">mailing.mailing.view.form.mixed.line</field>
+        <field name="model">mailing.mailing</field>
+        <field name="mode">primary</field>
+        <field name="priority">30</field>
+        <field name="inherit_id" ref="fw_odoo_line_marketing.mailing_mailing_view_form_line"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mailing_type']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_kanban_line" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.kanban.inherit.line</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='stat_opened']" position="attributes">
+                <attribute name="attrs">{'invisible': [('mailing_type', '!=', 'line')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_tree_line" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.tree.line</field>
+        <field name="model">mailing.mailing</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <tree string="LINE Marketing" sample="1">
+                <field name="mailing_type" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_action_line" model="ir.actions.act_window">
+        <field name="name">LINE Marketing</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+        <field name="search_view_id" ref="mailing_mailing_view_search_line"/>
+        <field name="domain">[('mailing_type', '=', 'line')]</field>
+        <field name="context">{
+                'search_default_assigned_to_me': 1,
+                'default_user_id': uid,
+                'default_mailing_type': 'line',
+                'mailing_line': True
+        }</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new LINE Marketing
+          </p><p>
+            You can easily send LINE to any contact saved in other Odoo apps.
+          </p>
+        </field>
+    </record>
+    <record id="mailing_mailing_action_line_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="mailing_mailing_view_kanban_line"/>
+        <field name="act_window_id" ref="mailing_mailing_action_line"/>
+    </record>
+    <record id="mailing_mailing_action_line_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence">2</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="mailing_mailing_view_tree_line"/>
+        <field name="act_window_id" ref="mailing_mailing_action_line"/>
+    </record>
+
+    <!-- LINE Marketing / LINE Marketing -->
+    <record id="mass_mailing_line_menu_mass_line" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_line"/>
+    </record>
+
+</data
+
+></odoo>

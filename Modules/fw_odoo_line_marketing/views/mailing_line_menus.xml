@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- LINE Marketing -->
+    <menuitem id="mass_mailing_line_menu_root"
+        name="LINE Marketing"
+        sequence="60"
+        web_icon="mass_mailing_line,static/description/icon.png"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <!-- LINE Marketing / LINE Marketing -->
+    <menuitem id="mass_mailing_line_menu_mass_line"
+        name="LINE Marketing"
+        parent="mass_mailing_line_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <!-- LINE Marketing / Configuration -->
+    <menuitem id="mass_mailing_line_menu_configuration"
+        name="Configuration"
+        parent="mass_mailing_line_menu_root"
+        sequence="100"
+        groups="mass_mailing.group_mass_mailing_user"/>
+</odoo>
