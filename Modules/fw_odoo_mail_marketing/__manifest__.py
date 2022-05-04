@@ -2,18 +2,16 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'LINE Marketing',
-    'summary': 'Design, send LINE group',
+    'name': 'Mail Marketing customize',
+    'summary': 'fix mail to work with other type',
     'description': '',
     'version': '1.0',
-    'category': 'Marketing/LINE Marketing',
+    'category': 'Marketing/Mail Marketing',
     'sequence': 245,
     'depends': [
-        'fw_odoo_mail_marketing'
+        'mass_mailing'
     ],
     'data': [
-        'security/ir.model.access.csv',
-        'views/mailing_line_menus.xml',
         'views/mailing_mailing_views.xml',
     ],
     'application': True,

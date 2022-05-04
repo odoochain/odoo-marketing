@@ -12,16 +12,16 @@
             <xpath expr="//button[@name='action_send_now_sms']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('mailing_type', '!=', 'sms'), ('state', 'in', ('in_queue', 'done'))]}</attribute>
             </xpath>
-
+            <xpath expr="//label[@for='mailing_model_id']" position="attributes">
+                <attribute name="attrs">{'invisible': [('mailing_type', 'not in', ['mail','sms'])]}</attribute>
+            </xpath>
             <xpath expr="//div[@name='mailing_model_id_container']" position="attributes">
                 <attribute name="attrs">{'invisible': [('mailing_type', 'not in', ['mail','sms'])]}</attribute>
             </xpath>
             <xpath expr="//field[@name='contact_list_ids']" position="attributes">
                 <attribute name="attrs">{'invisible': [('mailing_type', 'not in', ['mail','sms'])]}</attribute>
             </xpath>
-
         </field>
     </record>
-</data
-
-></odoo>
+    
+</data></odoo>
