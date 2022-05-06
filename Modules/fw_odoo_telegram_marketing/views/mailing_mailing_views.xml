@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <record model="ir.ui.view" id="mailing_mailing_view_search_telegram">
+        <field name="name">mailing_mailing_view_search_telegram</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_search"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='assigned_to_me']" position="attributes">
+                <attribute name="string">My telegram Marketing</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_form_telegram" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.form.inherit.telegram</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+        <field name="arch" type="xml">          
+            <xpath expr="//field[@name='subject']" position="after">
+                <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'telegram')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'telegram')]}"/>
+            </xpath>             
+            <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
+            <page string="Telegram settings" attrs="{'invisible': [('mailing_type', '!=', 'telegram')]}">
+                <field name="channel_group" >
+                    <tree>
+                        <field name="channel" string="channel : "/>
+                        <field name="Api_key" string="API KEY : "/>
+                    </tree>
+                </field>
+                <field name="body_plaintext" string="Message"/>
+            </page>
+            </xpath>
+            <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_put_in_queue']" position="after">
+                <button name="action_put_in_queue_telegram" type="object"
+                    class="oe_highlight" string="Put in Queue"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'telegram'), ('state', 'in', ('in_queue', 'done'))]}"
+                    confirm="This will schedule an telegram marketing to all group. Do you still want to proceed ?"/>
+                <button name="action_send_now_telegram" type="object"
+                    class="oe_highlight" string="Send Now"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'telegram'), ('state', 'in', ('done'))]}"
+                    confirm="This will send telegram to all group now. Do you still want to proceed ?"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_form_mixed_telegram" model="ir.ui.view">
+        <!-- View allowign to display the mailing type and therefore choosing
+        the way of mailing: not prioritized one, used in some specific cases
+        like "contacting people" without predefining mail or telegram or telegram -->
+        <field name="name">mailing.mailing.view.form.mixed.telegram</field>
+        <field name="model">mailing.mailing</field>
+        <field name="mode">primary</field>
+        <field name="priority">30</field>
+        <field name="inherit_id" ref="fw_odoo_telegram_marketing.mailing_mailing_view_form_telegram"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mailing_type']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_kanban_telegram" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.kanban.inherit.telegram</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='stat_opened']" position="attributes">
+                <attribute name="attrs">{'invisible': [('mailing_type', '!=', 'telegram')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_tree_telegram" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.tree.telegram</field>
+        <field name="model">mailing.mailing</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <tree string="telegram Marketing" sample="1">
+                <field name="mailing_type" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_action_telegram" model="ir.actions.act_window">
+        <field name="name">telegram Marketing</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+        <field name="search_view_id" ref="mailing_mailing_view_search_telegram"/>
+        <field name="domain">[('mailing_type', '=', 'telegram')]</field>
+        <field name="context">{
+                'search_default_assigned_to_me': 1,
+                'default_user_id': uid,
+                'default_mailing_type': 'telegram',
+                'mailing_telegram': True
+        }</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new telegram Marketing
+          </p><p>
+            You can easily send telegram to any contact saved in other Odoo apps.
+          </p>
+        </field>
+    </record>
+    
+    <record id="mailing_mailing_action_telegram_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="mailing_mailing_view_kanban_telegram"/>
+        <field name="act_window_id" ref="mailing_mailing_action_telegram"/>
+    </record>
+    <record id="mailing_mailing_action_telegram_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence">2</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="mailing_mailing_view_tree_telegram"/>
+        <field name="act_window_id" ref="mailing_mailing_action_telegram"/>
+    </record>
+
+    <!-- telegram Marketing / telegram Marketing -->
+    <record id="mass_mailing_telegram_menu_mass_telegram" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_telegram"/>
+    </record>
+    
+</data
+
+></odoo>
