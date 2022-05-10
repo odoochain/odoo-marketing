@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo><data>
 
+
+        <!-- searching view -->
     <record model="ir.ui.view" id="mailing_mailing_view_search_telegram">
         <field name="name">mailing_mailing_view_search_telegram</field>
         <field name="model">mailing.mailing</field>
@@ -13,6 +15,7 @@
         </field>
     </record>
 
+        <!-- inharited form view -->
     <record id="mailing_mailing_view_form_telegram" model="ir.ui.view">
         <field name="name">mailing.mailing.view.form.inherit.telegram</field>
         <field name="model">mailing.mailing</field>
@@ -48,6 +51,8 @@
         </field>
     </record>
 
+
+
     <record id="mailing_mailing_view_form_mixed_telegram" model="ir.ui.view">
         <!-- View allowign to display the mailing type and therefore choosing
         the way of mailing: not prioritized one, used in some specific cases
@@ -63,6 +68,7 @@
             </xpath>
         </field>
     </record>
+
 
     <record id="mailing_mailing_view_kanban_telegram" model="ir.ui.view">
         <field name="name">mailing.mailing.view.kanban.inherit.telegram</field>
@@ -86,6 +92,10 @@
         </field>
     </record>
 
+
+        <!-- actions -->
+
+
     <record id="mailing_mailing_action_telegram" model="ir.actions.act_window">
         <field name="name">telegram Marketing</field>
         <field name="res_model">mailing.mailing</field>
@@ -107,12 +117,15 @@
         </field>
     </record>
     
+
     <record id="mailing_mailing_action_telegram_view_kanban" model="ir.actions.act_window.view">
         <field name="sequence">1</field>
         <field name="view_mode">kanban</field>
         <field name="view_id" ref="mailing_mailing_view_kanban_telegram"/>
         <field name="act_window_id" ref="mailing_mailing_action_telegram"/>
     </record>
+
+
     <record id="mailing_mailing_action_telegram_view_tree" model="ir.actions.act_window.view">
         <field name="sequence">2</field>
         <field name="view_mode">tree</field>
@@ -120,7 +133,7 @@
         <field name="act_window_id" ref="mailing_mailing_action_telegram"/>
     </record>
 
-    <!-- telegram Marketing / telegram Marketing -->
+        <!-- telegram Marketing / telegram Marketing -->
     <record id="mass_mailing_telegram_menu_mass_telegram" model="ir.ui.menu">
         <field name="action" ref="mailing_mailing_action_telegram"/>
     </record>
