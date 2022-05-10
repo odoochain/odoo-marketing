@@ -37,7 +37,6 @@ class Mailing(models.Model):
 
    
 
-
     def action_put_in_queue_whatsapp(self):
         res = self.action_put_in_queue()
         if self.whatsapp_force_send:
