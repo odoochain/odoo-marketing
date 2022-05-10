@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- whatsapp Marketing -->
+    <menuitem id="mass_mailing_whatsapp_menu_root"
+        name="Whatsapp Marketing"
+        sequence="70"
+        web_icon="fw_odoo_whatsapp_marketing,static/description/icon.png"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <!-- whatsapp Marketing / whatsapp Marketing -->
+    <menuitem id="mass_mailing_whatsapp_menu_mass_whatsapp"
+        name="Whatsapp Marketing"
+        parent="mass_mailing_whatsapp_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <!-- whatsapp Marketing / Configuration -->
+    <menuitem id="mass_mailing_whatsapp_menu_configuration"
+        name="Configuration"
+        parent="mass_mailing_whatsapp_menu_root"
+        sequence="100"
+        groups="mass_mailing.group_mass_mailing_user"/>
+</odoo>

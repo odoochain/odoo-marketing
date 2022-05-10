@@ -63,7 +63,7 @@ class Mailing(models.Model):
         response = requests.post('https://notify-api.line.me/api/notify',
                                 headers={
                                     'content-type': 'application/x-www-form-urlencoded',
-                                    'Authorization': 'Bearer ' + each.line_token
+                                    'Authorization': 'Bearer ' 
                                 }, data={
                                     'message': msg
                                 }
@@ -75,6 +75,8 @@ class Mailing(models.Model):
         
         self._message_log(body=_('send notification to LINE: %s') % msg)
         return err
+        
+
         
 
 class channel(models.Model):

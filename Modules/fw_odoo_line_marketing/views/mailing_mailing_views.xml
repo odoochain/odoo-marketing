@@ -45,7 +45,7 @@
                     attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('in_queue', 'done'))]}"
                     confirm="This will schedule an LINE marketing to all group. Do you still want to proceed ?"/>
                 <button name="action_send_now_line" type="object"
-                    string="Send Now"
+                    class="oe_highlight" string="Send Now"
                     attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('done'))]}"
                     confirm="This will send LINE to all group now. Do you still want to proceed ?"/>
             </xpath>
