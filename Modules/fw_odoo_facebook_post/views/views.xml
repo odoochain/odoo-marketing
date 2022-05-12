@@ -8,17 +8,18 @@
       <field name="arch" type="xml">
         <form string="list">
           <header>
-            <button name="send_post" id="send_facebook_post" type="object" string="send post facebook" class="btn-primary"/>
+            <button name="send_post" id="send_facebook_post" type="object" string="post on facebook" class="btn-primary"/>
           </header>
           <sheet>
             <group>
-              <field name="msg" string="message"/>
+              <field name="msg" string="message : "/>
+              <field name="image" string="URL image : "/>
             </group>
             <group>
               <field name="fb_page_id">
                 <tree>
-                  <field name="page_id" string="Facebook Id Page"/>
-                  <field name="facebook_access_token" string="Facebook access token"/>
+                  <field name="page_id" string="Facebook Id Page : "/>
+                  <field name="facebook_access_token" string="Facebook access token : "/>
                 </tree>
               </field>
             </group>
