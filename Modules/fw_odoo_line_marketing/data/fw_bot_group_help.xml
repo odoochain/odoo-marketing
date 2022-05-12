@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <record model="fw_bot_group_help" id="fw_bot_group_help_1">
+        <field name="name">help</field>
+    </record>    
+
+</data></odoo>

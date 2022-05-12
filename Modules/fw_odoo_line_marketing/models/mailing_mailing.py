@@ -27,6 +27,8 @@ class Mailing(models.Model):
         ('line', 'LINE')
     ], ondelete={'line': 'set default'})
 
+    line_group_ids = fields.Many2many('fw_bot_group', 'fw_bot_group_mailing', string='Groups')
+    line_message = fields.Text(string='Message',help='limit 5000')
 
     def action_put_in_queue_line(self):
         pass

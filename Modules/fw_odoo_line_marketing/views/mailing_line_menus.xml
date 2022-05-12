@@ -4,7 +4,7 @@
     <menuitem id="mass_mailing_line_menu_root"
         name="LINE Marketing"
         sequence="70"
-        web_icon="mass_mailing_line,static/description/icon.png"
+        web_icon="fw_odoo_line_marketing,static/description/icon.png"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <!-- LINE Marketing / LINE Marketing -->
