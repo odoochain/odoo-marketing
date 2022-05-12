@@ -9,7 +9,7 @@
     'category': 'Marketing/Whatsapp Marketing',
     'sequence': 246,
     'depends': [
-        'fw_odoo_mail_marketing',
+        'fw_odoo_mail_marketing','sale','contacts'
     ],
     'data': [
         'security/ir.model.access.csv',

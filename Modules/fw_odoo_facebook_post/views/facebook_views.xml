@@ -1,0 +1,40 @@
+<odoo>
+    <record model="ir.ui.view" id="fw_odoo_facebook_post.list">
+      <field name="name">fw_odoo_facebook_post list</field>
+      <field name="model">fw_odoo_facebook_post.fw_odoo_facebook_post</field>
+      <field name="arch" type="xml">
+          <header>
+            <button name="send_post" id="send_facebook_post" type="object" string="send post facebook" class="btn-primary"/>
+          </header>
+          <sheet>
+            <group>
+              
+                <field name="msg"/>
+                <field name="facebook_access_token"/>
+                <field name="page_id"/>
+
+              
+            </group>
+          </sheet>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="fw_odoo_facebook_post_action_window">
+      <field name="name">fw_odoo_facebook_post window</field>
+      <field name="res_model">fw_odoo_facebook_post.fw_odoo_facebook_post</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+
+    <menuitem name="fw_odoo_facebook_post" id="fw_odoo_facebook_post.menu_root" web_icon="fw_odoo_facebook_post,static/description/icon.png"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="fw_odoo_facebook_post.menu_1" parent="fw_odoo_facebook_post.menu_root" action="fw_odoo_facebook_post_action_window"/>
+    <menuitem name="Menu 2" id="fw_odoo_facebook_post.menu_2" parent="fw_odoo_facebook_post.menu_root"/>
+
+
+
+</odoo>

@@ -14,6 +14,8 @@ _logger = logging.getLogger(__name__)
 
 class Mailing(models.Model):
     _inherit = 'mailing.mailing'
+
+
     
     mobile_group = fields.Many2many("whatsapp.group")
     message = fields.Text('whatsapp Body')
@@ -64,63 +66,9 @@ class Mailing(models.Model):
                     'res_id': self.id,
                 }
                 return send_msg
-"""
-    def send_direct_message(self):
-        record_phone = self.partner_id.mobile
-        if not record_phone:
-            view = self.env.ref('odoo_whatsapp_integration.warn_message_wizard')
-            view_id = view and view.id or False
-            context = dict(self._context or {})
-            context['message'] = "Please add a mobile number!"
-            return {
-                'name': 'Mobile Number Field Empty',
-                'type': 'ir.actions.act_window',
-                'view_type': 'form',
-                'view_mode': 'form',
-                'res_model': 'display.error.message',
-                'views': [(view.id, 'form')],
-                'view_id': view.id,
-                'target': 'new',
-                'context': context
-            }
-        if not record_phone[0] == "+":
-            view = self.env.ref('odoo_whatsapp_integration.warn_message_wizard')
-            view_id = view and view.id or False
-            context = dict(self._context or {})
-            context['message'] = "No Country Code! Please add a valid mobile number along with country code!"
-            return {
-                'name': 'Invalid Mobile Number',
-                'type': 'ir.actions.act_window',
-                'view_type': 'form',
-                'view_mode': 'form',
-                'res_model': 'display.error.message',
-                'views': [(view.id, 'form')],
-                'view_id': view.id,
-                'target': 'new',
-                'context': context
-            }
-        else:
-            prods = ""
-            for rec in self:
-                for id in rec.invoice_line_ids:
-                            prods = prods + "*" +str(id.product_id.name) + " : " + str(id.quantity) + "* \n"
 
-            custom_msg = "Hello *{}*, your Invoice *{}* with amount *{} {}* is ready. \nYour invoice contains following items:\n {}".format(str(self.partner_id.name),str(self.name),str(self.currency_id.symbol),str(self.amount_total),prods)
-            ph_no = [number for number in record_phone if number.isnumeric()]
-            ph_no = "".join(ph_no)
-            ph_no = "+" + ph_no
 
-            link = "https://web.whatsapp.com/send?phone=" + ph_no
-            message_string = parse.quote(custom_msg)
-
-            url_id = link + "&text=" + message_string
-            return {
-                'type': 'ir.actions.act_url',
-                'url': url_id,
-                'target': 'new',
-                'res_id': self.id,
-            }
- """       
+      
 class group(models.Model):
     _name="whatsapp.group"
     _description ="whatsapp group"
