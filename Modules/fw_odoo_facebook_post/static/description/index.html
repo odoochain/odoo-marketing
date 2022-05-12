@@ -1,0 +1,140 @@
+<html>
+    <header>
+        <h1>Help for Facebook Post</h1>
+    </header>
+    <br>
+    <body>
+        <p>
+            <h2>
+                Before using this modules, you must be administrator in the page you want to post on facebook! <br>
+                Then their are few step to use this modules : <br>
+                - First : create an apps on Facebook for developers <br>
+                - Second : connect your apps to your account <br>
+                - Third : try your apps <br>
+                - Four : Post on Facebook from odoo <br>
+            </h2>
+            <br>
+            <h2>
+                <div class="oe_slogan text-center"> 
+                    First : 
+                </div>
+            </h2>
+            <br>
+            <h3>
+                - go create your apps <br>
+                - connect you on Facebook for developers by clicking on this <a href= "https://www.facebook.com/login.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Fapps%2F" > link</a>  <br>
+                - login with your email address and password of your account <br>
+                - you will arrive on a page like that (without apps for you if you never been here before)
+                <div class="oe_slogan text-center"> 
+                    <img src="host.png" />        
+                </div>
+                - so click on create an app <br>
+                - you will arrive on this page 
+                <div class="oe_slogan text-center"> 
+                    <img src="choose.png" />        
+                </div>
+                - choose business type <br>
+                - it will ask a name for your app and your mail contact <br>
+                - usually it will ask your password account <br>
+                - then you have created your apps <br><br><br>
+
+            </h3>
+                <h2>
+                    <div class="oe_slogan text-center"> 
+                        Second :     
+                    </div>
+                </h2>
+                <br>
+            <h3>
+                - now click on <b>Tools</b> in the top <br>
+                - and click on <b>Graph API Explorer</b> 
+                <div class="oe_slogan text-center"> 
+                    <img src="tools.png" />        
+                </div>
+                - you will arrive here
+                <div class="oe_slogan text-center"> 
+                    <img src="explorer.png" />        
+                </div>
+                - click on <b>"Get the token"</b> :  choose  <b>"Obtain a Page acces token"</b> <br>
+                - then it will open a new window for choosing your account <br>
+                - next it ask which page where you are the administrator (you can choose several pages) <br>
+                - next you arrive on another page without importance click on done <br>
+                <div class="oe_slogan text-center"> 
+                    <img src="windows.png" />        
+                </div>
+                - then you have associated your apps to facebook <br><br>
+            </h3>
+                <h2>
+                    <div class="oe_slogan text-center"> 
+                        Third :       
+                    </div>
+                </h2>
+                <br>
+            <h3>
+                - Now you have another category on the right side :  <br>
+                - you can see that their are automatically three permissions : public_profile, pages_show_list and pages_read_engagement <br>
+                - click on "add permission" : "choose pages_manage_posts" <br>
+                - that's the only permissions we need (you can add others if you want) <br><br>
+                <div class="oe_slogan text-center"> 
+                    <img src="permissions.png" />        
+                </div>
+
+
+                - go on facebook an go on your page where you want to put your post <br>
+                - click on more and choos <b>"in regards to"</b> <br>
+                - go to the bottom of the page <br>
+                <div class="oe_slogan text-center"> 
+                    <img src="about.png" />        
+                </div>
+
+                - you will see your ID PAGE, copy it <br>
+                - go back on <b>Graph API Explorer</b> <br>
+                - test if your apps works <br>
+                <div class="oe_slogan text-center"> 
+                    <img src="test.png" />        
+                </div>
+                - then click on "send" <br>
+                - if you have the same message "id" : "......" means that your message has been send, else it will appear an error message <br>
+                - go on your Facebook Page
+                <div class="oe_slogan text-center"> 
+                    <img src="fb_page.png" />        
+                </div>
+                - So you see that your apps worked <br><br>
+            
+                - the problem is that the Access token  did not last long, so you must extend it <br>
+                - copy your Access token <br>
+                - now click on <b>Tools</b> in the top <br>
+                - and click on <b>Access token debugger</b>
+                <div class="oe_slogan text-center"> 
+                    <img src="tools_debug.png" />        
+                </div>
+                <div class="oe_slogan text-center"> 
+                    <img src="extend.png" />        
+                </div>
+                - another time they will ask your password <br>
+                - an then you have a new Access token with the expires date <br>
+            </h3>
+                <h2>
+                    <div class="oe_slogan text-center"> 
+                        Four :     
+                    </div>
+                </h2>
+            <h3>
+                <br>
+                - it's almost over <br>
+                - go on odoo    <br>
+                - go on your Facebook Post module <br>
+                - click on create
+                <div class="oe_slogan text-center"> 
+                    <img src="send.png" />        
+                </div>
+                <div class="oe_slogan text-center"> 
+                    <img src="facebook_send.png" />        
+                </div>
+            </h3>
+        </p>
+
+
+
+    </body>
+</html>
