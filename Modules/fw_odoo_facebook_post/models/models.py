@@ -57,5 +57,6 @@ class page_id(models.Model):
     _name="facebook.page_id"
     _description="Page Id"
 
+    page_name = fields.Char()
     page_id = fields.Char()
     facebook_access_token = fields.Text() 

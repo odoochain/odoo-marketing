@@ -12,7 +12,7 @@
             <field name="fb_page_id">
               <tree>
                 <field name="page_id" string="Facebook Id Page : "/>
-                <field name="facebook_access_token" string="Facebook access token : "/>
+                <field name="facebook_access_token" string="Facebook access token : " invisible="1"/>
               </tree>
             </field>
         </tree>
@@ -37,8 +37,9 @@
             <group>
               <field name="fb_page_id">
                 <tree>
+                  <field name="page_name" string = "Facebook name Page : "/>
                   <field name="page_id" string="Facebook Id Page : "/>
-                  <field name="facebook_access_token" string="Facebook access token : "/>
+                  <field name="facebook_access_token" string="Facebook access token : " invisible="1"/>
                 </tree>
               </field>
             </group>
