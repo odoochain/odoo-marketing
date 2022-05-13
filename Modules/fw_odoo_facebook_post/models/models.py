@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-#import json
-#from facebook import GraphAPI
 import requests
 
 
@@ -14,7 +12,15 @@ class fw_odoo_facebook_post(models.Model):
     msg = fields.Char()
     image = fields.Char()
 
-    
+    name = fields.Char(string="Reference", required=True, copy=False, readonly=True, default=lambda self: ('New'))  
+
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', ('New')) == ('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('fw_odoo_facebook_post') or ('New')
+        record = super(fw_odoo_facebook_post, self).create(vals)
+        return record
 
     def send_post(self):
         for i in range(len(self.fb_page_id)):
@@ -25,7 +31,6 @@ class fw_odoo_facebook_post(models.Model):
                 }
                 post_url = 'https://graph.facebook.com/{}/feed'.format(self.fb_page_id[i].page_id) 
                 r = requests.post(post_url, data=payload)
-                print(r.text)
             elif not self.msg:
                 image_url = 'https://graph.facebook.com/{}/photos'.format(self.fb_page_id[i].page_id)
                 image_location = self.image
@@ -34,7 +39,6 @@ class fw_odoo_facebook_post(models.Model):
                 'access_token': self.fb_page_id[i].facebook_access_token
                 }
                 r = requests.post(image_url, data=img_payload)
-                print(r.text) 
             else : 
                 image_url = 'https://graph.facebook.com/{}/photos'.format(self.fb_page_id[i].page_id)
                 image_location = self.image
@@ -44,13 +48,10 @@ class fw_odoo_facebook_post(models.Model):
                 'access_token': self.fb_page_id[i].facebook_access_token
                 }
                 r = requests.post(image_url, data=img_payload)
-                print(r.text)
+        print(r.text)
         return r
     
 
-
-
-#on ne peut pas mettre deux fois le même post sur la même page
 
 class page_id(models.Model):
     _name="facebook.page_id"

@@ -1,16 +1,35 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-
-    <record model="ir.ui.view" id="fw_odoo_facebook_post.list">
-      <field name="name">fw_odoo_facebook_post list</field>
+    <record model="ir.ui.view" id="fw_odoo_facebook_post.tree">
+      <field name="name">fw_odoo_facebook_post tree</field>
       <field name="model">fw_odoo_facebook_post</field>
       <field name="arch" type="xml">
-        <form string="list">
+        <tree string="FB Post">
+            <field name="name"/>
+            <field name="msg" string="message : "/>
+            <field name="image" string="URL image : "/>
+            <field name="fb_page_id">
+              <tree>
+                <field name="page_id" string="Facebook Id Page : "/>
+                <field name="facebook_access_token" string="Facebook access token : "/>
+              </tree>
+            </field>
+        </tree>
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="fw_odoo_facebook_post.form">
+      <field name="name">fw_odoo_facebook_post form</field>
+      <field name="model">fw_odoo_facebook_post</field>
+      <field name="arch" type="xml">
+        <form string="FB Post">
           <header>
             <button name="send_post" id="send_facebook_post" type="object" string="post on facebook" class="btn-primary"/>
           </header>
           <sheet>
+            <field name="name"/>
             <group>
               <field name="msg" string="message : "/>
               <field name="image" string="URL image : "/>
@@ -37,21 +56,7 @@
     </record>
 
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="fw_odoo_facebook_post.action_server">
-      <field name="name">fw_odoo_facebook_post server</field>
-      <field name="model_id" ref="model_fw_odoo_facebook_post_fw_odoo_facebook_post"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
+
 
     <!-- Top menu item -->
 
@@ -60,14 +65,7 @@
     <!-- menu categories -->
 
     <menuitem name="Menu 1" id="fw_odoo_facebook_post.menu_1" parent="fw_odoo_facebook_post.menu_root" action="fw_odoo_facebook_post.action_window"/>
-    <menuitem name="Menu 2" id="fw_odoo_facebook_post.menu_2" parent="fw_odoo_facebook_post.menu_root"/>
 
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="fw_odoo_facebook_post.menu_1_list" parent="fw_odoo_facebook_post.menu_1"
-              action="fw_odoo_facebook_post.action_window"/>
-    <menuitem name="Server to list" id="fw_odoo_facebook_post" parent="fw_odoo_facebook_post.menu_2"
-              action="fw_odoo_facebook_post.action_server"/>
--->
+
   </data>
 </odoo>
