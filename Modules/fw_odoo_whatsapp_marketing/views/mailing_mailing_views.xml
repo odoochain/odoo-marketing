@@ -17,12 +17,7 @@
         <field name="name">mailing.mailing.view.form.inherit.whatsapp</field>
         <field name="model">mailing.mailing</field>
         <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
-        <field name="arch" type="xml">  
-            <header>
-            <!--<button id="button_send_message_whatsapp" name="%(fw_odoo_whatsapp_marketing.mailing_whatsapp_message_action)d" type="action" string="send whatsapp multiple message" class="oe_highlight"/>
-            <button id="button_send_message_whatsapp1" name="send_message" type="object" string="send whatsapp  message" class="oe_highlight"/>
-            -->
-            </header>        
+        <field name="arch" type="xml">          
             <xpath expr="//field[@name='subject']" position="after">
                 <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'whatsapp')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'whatsapp')]}"/>
             </xpath>             

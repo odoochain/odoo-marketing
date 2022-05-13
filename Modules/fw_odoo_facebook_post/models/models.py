@@ -4,6 +4,8 @@ from odoo import models, fields, api
 import requests
 
 
+
+
 class fw_odoo_facebook_post(models.Model):
     _name = 'fw_odoo_facebook_post'
     _description = 'fw_odoo_facebook_post'
@@ -11,6 +13,7 @@ class fw_odoo_facebook_post(models.Model):
     fb_page_id = fields.Many2many("facebook.page_id")
     msg = fields.Char()
     image = fields.Char()
+    date = fields.Char()
 
     name = fields.Char(string="Reference", required=True, copy=False, readonly=True, default=lambda self: ('New'))  
 
@@ -51,6 +54,8 @@ class fw_odoo_facebook_post(models.Model):
         print(r.text)
         return r
     
+
+        
 
 
 class page_id(models.Model):

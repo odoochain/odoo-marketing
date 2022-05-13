@@ -5,97 +5,102 @@
     <br>
     <body>
         <p>
-            <h2>This module will be used to send message from odoo to telegram channel.</h2><br>
-
-
-                    <div class="page">
-                        <div class="oe_slogan text-center">
-                            <h2>Installation</h2>                          
-                        <b>You must for beginning install Email Marketing module.</b><br>
-                        To send message in telegram you must follow three steps.<br><br>
-                    </div> 
-                        <div class="oe_slogan text-center">
-                            <h3>#First :</h3> 
-                        </div>  
-                                <h4>                                                                        <br>
-                                - go on telegram                                                            <br>
-                                - in the research bar typing "BotFather"                                    <br> 
-                                <div class="oe_slogan text-center"> 
-                                    <img src="botfather.png" />        <br><br>
-                                </div>
-                                - click on the first link                                                   <br>
-                                - write "/start" as message                                                 <br>
-                                - the bot will respond a long message                                       <br>
-                                - click on newbot (or respond "/newbot")  
-                                <div class="oe_slogan text-center">                                   <br>
-                                    <img src="botfather_key.png" />                     <br>
-                                </div>
-                                - type your bot name ("...bot")<br>
-                                - a bot will be create with a <b>KEY</b> number !                           <br>
-                                - if you don't rememeber the  <b>KEY</b> number, type "/mybots"             <br>
-                                                                                                            <br>
-                                </h4>
-                        <div class="oe_slogan text-center">
-                            <h3>#Second:</h3>  
-                        </div>
-                                <h4>                                                                        <br>
-                                - go on telegram                                                            <br>
-                                - click on the option (next to the research bar)                            <br>
-                                <div class="oe_slogan text-center"> 
-                                    <img src="option_telegram.png" width="1000" />               <br><br>
-                                </div>
-                                - click on "new channel"                                                    <br>       
-                                - write a name for the channel                                              <br>
-                                - go in the channel option (right top corner)  : 
-                            </h4>      
-                            <div class="oe_slogan text-center">                                             <br>
-                                <img src="channel_manage.png" />   <br><br>
-                            </div>
-                                <h4>    - click on "manage channel"                                         <br>
-                                    - put the channel public (if it's not already done )                    <br>
-                                    - if it was private, create the link (choose a name that is not already taken)     <br>
-                                <div class="oe_slogan text-center"> 
-                                    <img src="edit_channel.png" />              <br><br>
-                                </div>
-                                    - click on administrator                                                <br>
-                                    - add your bot as administrator                                         <br>
-                                                                                                            <br>
-                                </h4>
-                        <div class="oe_slogan text-center">            
-                            <h3>#Third:</h3>
-                        </div>
-                                <h4>                                                                        <br>
-                                - go on odoo                                                                <br>
-                                - go in apps and install fw_odoo_telegram_marketing                         <br>
-                                - go in Telegram Marketing                                                  <br>
-                                - click on create                                                           <br>
-                                - you are not required to fill in Dynamic Placeholder Generator             <br>
-                                - go in the Telegram settings :
-                            </h4>                                                                           <br>
-                            <h6>     
-                                    - write the channels where you want to put your message (begin by "@")  <br>
-                                    - then write your text in the big field                                 <br>
-                                    - write the key of your bot                                            <br> 
-                            </h6>
-                            <div class="oe_slogan text-center"> 
-                                <img src="send_telegram.png" width="1000"/>    <br><br>
-                            </div>
-                                <h4>
-                                - go in the Settings :                                                  <br>
-                            </h4>
-                            <h6>
-                                    - you are required to fill the Medium field                 <br> 
-                            </h6>
-                            <h4>      
-                                - click on the button "send now" or "Put in Queue"                      <br>
-                            </h4>
-                            
-                        <br>
-                        <h3>Now, you can see your message you send with Odoo in all the telegram channel!</h3>
-                        <img src="frontware.png"/>
+            <h2>This module will be used to send message from odoo to telegram channel. <br>
+                Then their are few step to use this module : <br>
+                - First : create a bot on telegram to have an API_Key <br>
+                - Second : connect your bot to a channel <br>
+                - Third : sending a message with odoo <br>
+            </h2>
+            <br>
+            <div class="page">
+                <div class="oe_slogan text-center">
+                    <h2>Installation <br>                        
+                    <b>You must for beginning install Email Marketing module.</b>
+                </h2> 
+                <br>
+                </div> 
+                <div class="oe_slogan text-center">
+                    <h2>First :</h2> 
+                </div>  
+                <h4>                                                                        
+                <br>
+                    - go on telegram <br>
+                    - in the research bar typing "BotFather" <br> 
+                    <div class="oe_slogan text-center"> 
+                        <img src="bot.png" />        
                     </div>
-            
+                    - click on the first link <br>
+                    - write "/start" as message <br>
+                    - the bot will respond a long message <br>
+                    - click on newbot (or respond "/newbot")  
+                    <div class="oe_slogan text-center"> 
+                        <img src="botfather.png" />        
+                    </div>
+                    - type your bot name (should end by "bot") <br>
+                    - a bot will be create with a <b>KEY</b> number! <br>
+                    - if you don't remember the  <b>KEY</b> number, type "/mybots" <br>
+                    <br>
+                </h4>
+                <div class="oe_slogan text-center">
+                    <h2> Second:</h2>  
+                </div>
+                <h4>
+                <br>
+                    - go on telegram <br>
+                    - click on the option (next to the research bar) <br>
+                    <div class="oe_slogan text-center"> 
+                        <img src="option_telegram.png" width="1000" />               
+                    </div>
+                    - click on "new channel" <br>       
+                    - write a name for the channel <br>
+                    - go in the channel option (right top corner)  : 
+                </h4>      
+                <div class="oe_slogan text-center">                                            
+                    <img src="channel_manage.png" />   
+                </div>
+                <h4>
+                    - click on "manage channel" <br>
+                    - put the channel public (if it's not already done ) <br>
+                    - create the link <b>this link is important!</b> <br>
+                    <div class="oe_slogan text-center"> 
+                        <img src="link.png" />        
+                    </div>
+                    <div class="oe_slogan text-center"> 
+                        <img src="edit_channel.png" />              
+                    </div>
+                    - click on administrator <br>
+                    - add your bot as administrator 
+                    <br>
+                </h4>
+                <div class="oe_slogan text-center">            
+                    <h2>Third:</h2>
+                </div>
+                <h4> 
+                <br>
+                    - go on odoo <br>
+                    - go in Telegram Marketing <br>
+                    - click on create <br>
+                    - you are not required to fill in Dynamic Placeholder Generator <br>
+                    - go in the Telegram settings : <br>   
+                    -> write the <b>link of the channel</b> in channel (begin by "@")  <br>
+                    -> write the <b>key of your bot</b> in API_Key <br> 
+                    -> write your text in the big field <br>
+                    ->if you want to put an image write the URL in the big field <br>                                              
+                    <div class="oe_slogan text-center"> 
+                        <img src="send_telegram.png" width="1000"/>    
+                    </div>
+                    - go in the Settings : <br>
+                    - you are required to fill the <b>"Medium"</b> field <br>
+                    <div class="oe_slogan text-center"> 
+                        <img src="settings.png" width="1000"/>    
+                    </div> 
+                    - click on the button "send now" or "Put in Queue" <br>
+                    - you can send message to several channel 
+                </h4>
+                <br>
+                <h3>Now, you can see your message/image you send with Odoo in all the telegram channel!</h3>
+                <img src="frontware.png"/>
+            </div>
         </p>
     </body>
-
 </html>

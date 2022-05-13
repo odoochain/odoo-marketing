@@ -17,6 +17,7 @@ class Mailing(models.Model):
     body_plaintext = fields.Text('Telegram Body')
     
 
+
     telegram_force_send = fields.Boolean(
         'Send Directly', help='Use at your own risks.')
 

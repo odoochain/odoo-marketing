@@ -3,8 +3,7 @@
     'name': "fw_odoo_facebook_post",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Module used to Post on Facebook""",
 
     'description': """
         Long description of module's purpose
@@ -27,8 +26,6 @@
         'security/ir.model.access.csv',
         'data/data.xml',
         'views/views.xml',
-        #'views/templates.xml',
-        #'views/facebook_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
