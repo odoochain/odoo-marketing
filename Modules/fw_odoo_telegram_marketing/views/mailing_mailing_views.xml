@@ -32,7 +32,10 @@
                         <field name="Api_key" string="API KEY : "/>
                     </tree>
                 </field>
-                <field name="body_plaintext" string="Message"/>
+                <group>
+                    <field name="body_plaintext" string="Message"/>
+                    <field name="image" string="URL Image"/>
+                </group>
             </page>
             </xpath>
             <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
