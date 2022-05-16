@@ -7,6 +7,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
 import requests
+import re
 
 _logger = logging.getLogger(__name__)
 
@@ -15,7 +16,7 @@ class Mailing(models.Model):
     _inherit = 'mailing.mailing'
     channel_group= fields.Many2many("channel_group.telegram")
     body_plaintext = fields.Text('Telegram Body')
-    image = fields.Text('Telegram image')
+    image = fields.Char()
     
     
 
@@ -50,7 +51,7 @@ class Mailing(models.Model):
             self.send_to_tg(self.channel_group[i].Api_key,self.channel_group[i].channel,self.image,self.body_plaintext)
         return self.action_send_mail()
 
-    def send_to_tg(self, sender, recipients, img, msg):
+    def send_to_tg(self, sender, recipients,img, msg):
         """
         send message to tg 
         @recipients text separate by enter
@@ -59,9 +60,13 @@ class Mailing(models.Model):
         err = False
         if not recipients:
             err = _('no recipient')
-            return err
-           
-        #send_text = 'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text='
+            return err 
+            """
+        img=""
+        if (re.search("##(.+?)##", msg).group(1) is True):
+            img=re.search("##(.+?)##", msg).group(1)
+            msg=msg.replace("##"+img+"##","")         
+        """
         send_text = 'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=markdown&text='
         response = requests.get(send_text % (sender, recipients)+"[​​​​​​​​​​​]("+img+")"+msg)
   
@@ -75,7 +80,6 @@ class Mailing(models.Model):
         self._message_log(body=_('send notification to telegram: %s') % msg)                                   
         return err
 
-       
 
         
 class channel(models.Model):
@@ -85,5 +89,5 @@ class channel(models.Model):
     channel=fields.Char()
     Api_key = fields.Char()
     
-   
+
     
