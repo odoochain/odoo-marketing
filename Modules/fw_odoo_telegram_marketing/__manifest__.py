@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/mailing_telegram_menus.xml',
         'views/mailing_mailing_views.xml',
+        'views/help_views.xml',
     ],
     'application': True,
     'license': 'LGPL-3',
