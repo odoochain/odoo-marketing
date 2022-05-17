@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fw_odoo_twitter_post,fw_odoo_twitter_post,model_fw_odoo_twitter_post,base.group_user,1,1,1,1
+access_twitter_page_id,twitter.page_id,model_twitter_page_id,base.group_user,1,1,1,1
