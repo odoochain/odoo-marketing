@@ -48,6 +48,8 @@
       </field>
     </record>
 
+
+    
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="fw_odoo_facebook_post.action_window">
@@ -56,6 +58,7 @@
       <field name="view_mode">kanban,tree,form</field>
     </record>
 
+    
 
 
 
@@ -65,7 +68,8 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="fw_odoo_facebook_post.menu_1" parent="fw_odoo_facebook_post.menu_root" action="fw_odoo_facebook_post.action_window"/>
+    <menuitem name="Facebook Post" id="fw_odoo_facebook_post.menu_1" parent="fw_odoo_facebook_post.menu_root" action="fw_odoo_facebook_post.action_window"/>
+
 
 
   </data>

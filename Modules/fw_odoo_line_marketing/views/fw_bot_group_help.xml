@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <!-- save settings wizard -->
+    <record model="ir.ui.view" id="fw_bot_group_help_form">
+        <field name="name">fw_bot_group_help_form</field>
+        <field name="model">fw_bot_group_help</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="How to" edit="0" delete="0">
+                <sheet>
+                    <div>
+                        Following these steps:
+                    </div>
+                    <ul>
+                        <li>Create LINE Bot</li>
+                        <li>Setup webhook to LINE Bot</li>
+                        <li>Create LINE group</li>
+                    </ul>
+                    <notebook>
+                       <page string="create LINE bot">
+                           <div>                            
+                             <ul>
+                                <li>goto https://account.line.biz</li>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/bot/create.png"/>
+                                
+                                <p>create an account, verify and confirm your account</p>
+
+                                <li>goto https://account.line.biz</li>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/bot/signin.png"/>
+                                <p>sign in with your account</p>
+
+                                <li>create provider</li>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/bot/provider.png"/>
+                                
+                                <p>enter nescceary infomation</p>
+                             
+                                <li>create message API channel</li>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/bot/channel.png"/>
+                                
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/bot/channel_form.png"/>
+                                
+                                <p>choose your created provider</p>
+                                
+                                <li>after done, goto change bot setting to allow join group chat</li>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/bot/allow.png"/>
+                             </ul>
+                           </div>
+                        </page>
+
+                        <page string="Setup webhook at LINE bot">
+                           <div>                            
+                             <ul>
+                                <li>goto https://account.line.biz</li>
+                                <li>select your bot in channel, then goto tab "Messaging API"</li>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/webhook/webhook.png"/>
+                                <p>
+                                - put your webhook url<BR />
+                                - active "Use webhook"<BR />
+                                - then click "verify" to test connection<BR />
+                                <BR />
+                                you should receive success<BR />
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/webhook/webhook-ok.png"/>
+                                <BR />
+                                </p>
+                             </ul>
+                           </div>
+                        </page>
+
+                        <page string="Create LINE group">
+                           <div>                            
+                             <ul>
+                                <li>with your LINE application, create group</li>
+                                <li>add LINE bot to your group</li>
+                                <BR/>
+                                <p>
+                                if success, you should see your group here
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/group/group.png"/>
+                                </p>
+                             </ul>
+                           </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>    
+
+    <record id="fw_bot_group_how_to_action" model="ir.actions.act_window">
+        <field name="name">How to</field>
+        <field name="res_model">fw_bot_group_help</field>
+        <field name="view_mode">form</field>
+        <field name="type">ir.actions.act_window</field>
+        <!--<field name="res_id" ref="fw_bot_group_help_1" />-->
+        <field name="view_id" ref="fw_bot_group_help_form" />
+    </record>
+
+    <menuitem id="fw_bot_group_how_to_menu"
+        name="How to"
+        action="fw_bot_group_how_to_action"
+        parent="mass_mailing_line_menu_root"
+        sequence="200"/>
+
+</data></odoo>  

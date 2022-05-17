@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_channel_group_line,channel_group.line,model_channel_group_line,base.group_user,1,1,1,1
+access_fw_bot_group,fw_bot_group,model_fw_bot_group,base.group_user,1,1,1,1
+access_fw_bot_group_help,fw_bot_group_help,model_fw_bot_group_help,base.group_user,1,1,1,1

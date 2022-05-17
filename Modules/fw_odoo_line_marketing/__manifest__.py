@@ -7,7 +7,7 @@
     'description': '',
     'version': '1.0',
     'category': 'Marketing/LINE Marketing',
-    'sequence': 246,
+    'sequence': 245,
     'depends': [
         'fw_odoo_mail_marketing'
     ],
@@ -15,6 +15,8 @@
         'security/ir.model.access.csv',
         'views/mailing_line_menus.xml',
         'views/mailing_mailing_views.xml',
+        "views/fw_bot_group.xml",
+        "views/fw_bot_group_help.xml",
     ],
     'application': True,
     'license': 'LGPL-3',

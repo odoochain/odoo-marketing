@@ -64,3 +64,4 @@ class page_id(models.Model):
     page_name = fields.Char()
     page_id = fields.Char(required=True)
     facebook_access_token = fields.Text(required=True) 
+

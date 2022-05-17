@@ -18,24 +18,6 @@
         <field name="model">mailing.mailing</field>
         <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
         <field name="arch" type="xml">
-
-            <xpath expr="//field[@name='subject']" position="after">
-                <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'line')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'line')]}"/>
-            </xpath>             
-            <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
-            <page string="line settings" attrs="{'invisible': [('mailing_type', '!=', 'line')]}">
-                <field name="channel_group" >
-                    <tree>
-                        <field name="channel" string="channel : "/>
-                        <field name="Api_key" string="API KEY : "/>
-                    </tree>
-                </field>
-                <field name="body_plaintext" string="Message"/>
-            </page>
-            </xpath>
-            <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
-            </xpath>
             <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
             </xpath>
@@ -45,7 +27,7 @@
                     attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('in_queue', 'done'))]}"
                     confirm="This will schedule an LINE marketing to all group. Do you still want to proceed ?"/>
                 <button name="action_send_now_line" type="object"
-                    class="oe_highlight" string="Send Now"
+                    string="Send Now"
                     attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('done'))]}"
                     confirm="This will send LINE to all group now. Do you still want to proceed ?"/>
             </xpath>
