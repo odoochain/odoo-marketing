@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 import requests
 import tweepy
-from requests_oauthlib import OAuth1Session
+
 
 
 class fw_odoo_twitter_post(models.Model):
@@ -27,15 +27,23 @@ class fw_odoo_twitter_post(models.Model):
         return record
 
     def send_post(self):
-        url_text= "https://api.twitter.com/1.1/statuses/update.json"
-        params= {"status": self.msg}
-        twitter = OAuth1Session(self.CK,self.CS,self.AT,self.AS)
-        req = twitter.post(url_text, params=params)
-        if req.status_code == 200:
-            print("ok")
+        # Authenticate to Twitter
+        auth = tweepy.OAuthHandler(self.CK, self.CS)
+        auth.set_access_token(self.AT, self.AS)
+
+        # Create API object
+        api = tweepy.API(auth)
+        
+        # Create a tweet
+        tweet_text= self.msg
+        if tweet_text==False:
+            tweet_text=""
+        if self.image==False:
+            api.update_status(status=tweet_text)
         else:
-            print("Error: %d" % req.status_code)
-    
+            media = api.media_upload(self.image)
+            api.update_status(status=tweet_text, media_ids=[media.media_id])
+
   
         
 

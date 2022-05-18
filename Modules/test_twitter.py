@@ -1,5 +1,9 @@
 import tweepy
 from requests_oauthlib import OAuth1Session
+import requests
+import base64
+
+
 
 # Authenticate to Twitter
 auth = tweepy.OAuthHandler("1PjCbI9T3Ne060REhBvQUdYmJ", "Hts07ntx9ucLxPsXdvLx3hGUeMBuejizJiQhSoBFQXG2eqxnns")
@@ -10,10 +14,11 @@ api = tweepy.API(auth)
 
 # Create a tweet
 
-twwet_text= "test image"
-image_path="/home/yvan/src/odoo-marketing/Modules/fw_odoo_twitter_post/static/description/icon.png"
-satus= api.update_with_media(image_path, tweet_text)
-api.update_status(status=tweet_text)
+tweet_text= ""
+image="/home/yvan/src/odoo-marketing/Modules/fw_odoo_twitter_post/static/description/icon.png"
+media = api.media_upload(image)
+print(media)
+api.update_status(status=tweet_text, media_ids=[media.media_id])
 
 """
 CK = "1PjCbI9T3Ne060REhBvQUdYmJ"
@@ -37,4 +42,4 @@ if req.status_code == 200:
     print("ok")
 else:
     print("Error: %d" % req.status_code)
-    """
+  """

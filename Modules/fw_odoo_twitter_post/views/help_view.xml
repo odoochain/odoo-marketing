@@ -77,7 +77,17 @@
                             <page string="Tweet from Odoo">
                                 <ul>
                                     <p>
-
+                                        - Go on odoo <BR />
+                                        - Click on fw_odoo_twitter_post <BR />
+                                        - Write the messag for your tweet <BR />
+                                        - Write the path link to your directory where your image is located <BR />
+                                        - Write all your key and access token, in the order: <BR />
+                                        -> API KEY, API KEY SECRET, ACCESS TOKEN, ACCESS TOKEN SECRET <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/odoo_tweet.png" />  <BR />      
+                                        - Click on post on twitter <BR />
+                                        - You can tweet a message, an image or both  <BR />
+                                        - Then go on Twitter and you will see your tweet
+                                        <img src="fw_odoo_twitter_post/static/description/twitter_page.png" /> <BR />       
                                     </p>
                                 </ul>
                             </page>
