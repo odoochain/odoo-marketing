@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="twitter_help_form">
+            <field name="name">twitter_help form</field>
+            <field name="model">twitter.help</field>
+            <field name="arch" type="xml">
+                <form string="How to use it" edit="0" delete="0">
+                    <sheet>
+                        <div>
+                            <img src="fw_odoo_twitter_post/static/description/icon.png" width="100" long="100"/> <BR /> 
+                            Following these steps:
+                        </div>
+                        <ul>
+                            <li>Create an account</li>
+                            <li>Create an app</li>
+                            <li>Change the settings</li>
+                            <li>Tweet from odoo</li>
+                        </ul>
+                        <notebook>
+                            <page string="Create an account">
+                                <div>
+                                    <ul>
+                                        <p>
+                                            - Go on Twitter Developer Platform using this <a href="https://developer.twitter.com/en">link</a> <BR />
+                                            - Ask for a developer account <BR /><BR />
+                                            - It will ask several question to approve your account : <BR />
+                                            -> It will ask what you will do with your apps (Tweet, Retweet, fiollow,..) <BR />
+                                            -> You must complete fill for justify your account <BR />
+                                            - Try to be the clearest as possible because <BR /><BR />
+                                            - Then you must wait the confirmation by e-mail <BR />
+                                            - Sometimes you can receive an e-mail saying they need more details <BR />
+                                            - When you receive your e-mail, go back on your developper account by clicking on the e-mail link <BR />
+                                        </p>
+                                    </ul>
+                                </div>
+                            </page>
+                            <page string="Create an app">
+                                <ul>
+                                    <p>
+                                        - You will be on the settings of your new apps (if not click on new apps in the category Project and apps ) <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/create_apps.png" />   <BR />     
+                                        
+                                        - It will give you three settings : <BR />
+                                        -> Api Key <BR />
+                                        -> API Key Secret <BR />
+                                        -> Bearer Token <BR />
+                                        - Save them!! <BR />
+                                        - Usually it show you an example, for trying your apps with the bearer token <BR />
+                                        - Then click on got to dashboard <BR />
+
+                                    </p>
+                                </ul>
+                            </page>
+                            <page string="Change the settings">
+                                <ul>
+                                    <p>
+                                        - Select your app <BR />
+                                        - Go to the bottom of the page, to change the settings <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/set_up.png" />   <BR />     
+                                        
+                                        - Change the permission to Read, write, and direct message <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/settings.png" />  <BR />      
+                                        
+                                        - Put any URL you want for the required field<BR />
+                                        <img src="fw_odoo_twitter_post/static/description/URL.png" />      <BR />  
+                                      
+                                        - Save your new settings <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/key_settings.png" />   <BR />     
+                                        
+                                        - Generate Access token and Access token secret <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/token.png" />   <BR />     
+                                       
+                                        - Save them!! <BR />
+                                    </p>
+                                </ul>
+                            </page>
+                            <page string="Tweet from Odoo">
+                                <ul>
+                                    <p>
+
+                                    </p>
+                                </ul>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="twitter_help_action_window">
+            <field name="name">How to using it</field>
+            <field name="res_model">twitter.help</field>
+            <field name="view_mode">form</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="twitter_help_form" />
+        </record>
+
+        <menuitem name="How to use it" id="twitter_help" parent="fw_odoo_twitter_post.menu_root" action="twitter_help_action_window"/>
+    
+    
+
+
+
+    </data>
+</odoo>

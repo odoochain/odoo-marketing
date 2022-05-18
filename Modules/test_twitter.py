@@ -1,6 +1,5 @@
 import tweepy
 from requests_oauthlib import OAuth1Session
-import numpy as np
 
 # Authenticate to Twitter
 auth = tweepy.OAuthHandler("1PjCbI9T3Ne060REhBvQUdYmJ", "Hts07ntx9ucLxPsXdvLx3hGUeMBuejizJiQhSoBFQXG2eqxnns")
