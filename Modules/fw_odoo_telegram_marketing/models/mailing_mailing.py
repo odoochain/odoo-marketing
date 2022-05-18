@@ -61,7 +61,8 @@ class Mailing(models.Model):
         if not recipients:
             err = _('no recipient')
             return err 
-         
+        if img==False:
+            img="" 
         send_text = 'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=markdown&text='
         response = requests.get(send_text % (sender, recipients)+"[​​​​​​​​​​​]("+img+")"+msg)
   
@@ -75,7 +76,11 @@ class Mailing(models.Model):
         self._message_log(body=_('send notification to telegram: %s') % msg)                                   
         return err
 
-
+    def action_schedule_telegram(self):
+        self.ensure_one()
+        action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_telegram_marketing.telegram_schedule_date_action")
+        action['context'] = dict(self.env.context, default_mass_mailing_id=self.id)
+        return action
         
 class channel(models.Model):
     _name="channel_group.telegram"

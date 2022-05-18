@@ -41,7 +41,7 @@
             <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
             </xpath>
-            <xpath expr="//button[@name='action_put_in_queue']" position="after">
+            <xpath expr="//button[@name='action_put_in_queue']" position="before">
                 <button name="action_put_in_queue_telegram" type="object"
                     class="oe_highlight" string="Put in Queue"
                     attrs="{'invisible': ['|', ('mailing_type', '!=', 'telegram'), ('state', 'in', ('in_queue', 'done'))]}"
