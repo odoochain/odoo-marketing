@@ -11,8 +11,10 @@
             <field name="image" string="URL image : "/>
             <field name="tt_page_id">
               <tree>
-                <field name="page_id" string="twitter Id Page : "/>
-                <field name="twitter_access_token" string="twitter access token : " invisible="1"/>
+                  <field name="CK" string="twitter API KEY  : "/>
+                  <field name="CS" string="twitter API KEY SECRET : " invisible="1"/>
+                  <field name="AT" string="twitter ACCESS TOKEN : " />
+                  <field name="AS" string="twitter ACCESS TOKEN SECRET : " invisible="1"/>
               </tree>
             </field>
         </tree>
@@ -37,9 +39,10 @@
             <group>
               <field name="tt_page_id">
                 <tree>
-                  <field name="page_name" string = "twitter name Page : "/>
-                  <field name="page_id" string="twitter Id Page : "/>
-                  <field name="twitter_access_token" string="twitter access token : " invisible="1"/>
+                  <field name="CK" string="twitter API KEY  : "/>
+                  <field name="CS" string="twitter API KEY SECRET : " invisible="1"/>
+                  <field name="AT" string="twitter ACCESS TOKEN : " />
+                  <field name="AS" string="twitter ACCESS TOKEN SECRET : " invisible="1"/>
                 </tree>
               </field>
             </group>

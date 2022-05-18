@@ -61,12 +61,7 @@ class Mailing(models.Model):
         if not recipients:
             err = _('no recipient')
             return err 
-            """
-        img=""
-        if (re.search("##(.+?)##", msg).group(1) is True):
-            img=re.search("##(.+?)##", msg).group(1)
-            msg=msg.replace("##"+img+"##","")         
-        """
+         
         send_text = 'https://api.telegram.org/bot%s/sendMessage?chat_id=%s&parse_mode=markdown&text='
         response = requests.get(send_text % (sender, recipients)+"[​​​​​​​​​​​]("+img+")"+msg)
   
