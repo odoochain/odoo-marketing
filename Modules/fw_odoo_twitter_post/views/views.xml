@@ -9,14 +9,10 @@
             <field name="name"/>
             <field name="msg" string="message : "/>
             <field name="image" string="URL image : "/>
-            <field name="tt_page_id">
-              <tree>
-                  <field name="CK" string="twitter API KEY  : "/>
-                  <field name="CS" string="twitter API KEY SECRET : " invisible="1"/>
-                  <field name="AT" string="twitter ACCESS TOKEN : " />
-                  <field name="AS" string="twitter ACCESS TOKEN SECRET : " invisible="1"/>
-              </tree>
-            </field>
+            <field name="CK" string="twitter API KEY  : "/>
+            <field name="CS" string="twitter API KEY SECRET : "/>
+            <field name="AT" string="twitter ACCESS TOKEN : " />
+            <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
         </tree>
       </field>
     </record>
@@ -37,14 +33,12 @@
               <field name="image" string="URL image : "/>
             </group>
             <group>
-              <field name="tt_page_id">
-                <tree>
+
                   <field name="CK" string="twitter API KEY  : "/>
-                  <field name="CS" string="twitter API KEY SECRET : " invisible="1"/>
+                  <field name="CS" string="twitter API KEY SECRET : "/>
                   <field name="AT" string="twitter ACCESS TOKEN : " />
-                  <field name="AS" string="twitter ACCESS TOKEN SECRET : " invisible="1"/>
-                </tree>
-              </field>
+                  <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
+
             </group>
           </sheet>
         </form>

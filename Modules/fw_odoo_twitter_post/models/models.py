@@ -12,6 +12,10 @@ class fw_odoo_twitter_post(models.Model):
     msg = fields.Char()
     image = fields.Char()
 
+    CK = fields.Char(required=True)
+    CS = fields.Char(required=True)
+    AT = fields.Char(required=True)
+    AS = fields.Char(required=True)
     name = fields.Char(string="Reference", required=True, copy=False, readonly=True, default=lambda self: ('New'))  
 
 
@@ -25,7 +29,7 @@ class fw_odoo_twitter_post(models.Model):
     def send_post(self):
         url_text= "https://api.twitter.com/1.1/statuses/update.json"
         params= {"status": self.msg}
-        twitter = OAuth1Session(self.tt_page_id.CK,self.tt_page_id.CS,self.tt_page_id.AT,self.tt_page_id.AS)
+        twitter = OAuth1Session(self.CK,self.CS,self.AT,self.AS)
         req = twitter.post(url_text, params=params)
         if req.status_code == 200:
             print("ok")
@@ -36,11 +40,5 @@ class fw_odoo_twitter_post(models.Model):
         
 
 
-class page_id(models.Model):
-    _name="twitter.page_id"
-    _description="Page Id"
 
-    CK = fields.Char()
-    CS = fields.Char()
-    AT = fields.Char()
-    AS = fields.Char()
+
