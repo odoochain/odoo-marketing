@@ -16,6 +16,13 @@ class fw_odoo_facebook_post(models.Model):
 
     name = fields.Char(string="Reference", required=True, copy=False, readonly=True, default=lambda self: ('New'))  
 
+    state = fields.Selection([                                          
+        ('draft', 'Draft'),
+        ('schedule', 'Scheduling'),
+        ('done', 'Done'),
+        ('cancel', 'Cancelled'),
+        ], string='Status',  default='draft', tracking=True)
+
 
     @api.model
     def create(self, vals):
@@ -51,10 +58,16 @@ class fw_odoo_facebook_post(models.Model):
                 }
                 r = requests.post(image_url, data=img_payload)
         print(r.text)
+        self.state= 'done'
         return r
     
 
-        
+    def action_cancel(self):
+        self.state='cancel'
+
+    def action_retry(self):
+        self.state='draft'
+
 
 
 class page_id(models.Model):

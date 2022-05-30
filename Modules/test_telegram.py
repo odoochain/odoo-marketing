@@ -1,10 +1,22 @@
-import requests   
+import requests 
+from datetime import datetime
+import schedule
+import time
+
+now = datetime.now()
+current_time = now.strftime("%H:%M:%S")
+print("current time :", current_time)
 img="http://image.careers-portal.co.za/f_output.jpg " 
-text="test" 
-r = requests.get('https://api.telegram.org/bot5334866499:AAHmcLwp_Eoz-sy-NqmFFwHdSr1cbhIfurg/sendMessage?chat_id=@yvan_fw_channel&parse_mode=markdown&text='+"[]("+img+")"+text)
 
+def job():
+    text="test" 
+    r = requests.get('https://api.telegram.org/bot5334866499:AAHmcLwp_Eoz-sy-NqmFFwHdSr1cbhIfurg/sendMessage?chat_id=@yvan_fw_channel&parse_mode=markdown&text='+text)
 
+schedule.every(10).seconds.do(job)
 
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 """
 import requests  

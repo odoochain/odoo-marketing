@@ -2,7 +2,8 @@ from odoo import models, fields, api
 import requests
 import tweepy
 
-
+import schedule
+import time
 
 class fw_odoo_twitter_post(models.Model):
     _name = 'fw_odoo_twitter_post'
@@ -18,6 +19,29 @@ class fw_odoo_twitter_post(models.Model):
     AS = fields.Char(required=True)
     name = fields.Char(string="Reference", required=True, copy=False, readonly=True, default=lambda self: ('New'))  
 
+
+    state = fields.Selection([                                          
+        ('draft', 'Draft'),
+        ('schedule', 'Scheduling'),
+        ('done', 'Done'),
+        ('cancel', 'Cancelled'),
+        ], string='Status',  default='draft', tracking=True)
+
+    temp = fields.Char()
+    day = fields.Selection([
+        ('monday', 'monday'),
+        ('tueday', 'tuesday'),
+        ('wednesday', 'wednesday'),
+        ('thursday', 'thursday'),
+        ('friday', 'friday'),
+        ('saturday', 'saturday'),
+        ('sunday', 'sunday'),
+        ('every', 'every'),
+    ], string='Day', default='monday')
+    
+    @api.model
+    def test_cron(self):
+        print("Abc") 
 
     @api.model
     def create(self, vals):
@@ -43,10 +67,30 @@ class fw_odoo_twitter_post(models.Model):
         else:
             media = api.media_upload(self.image)
             api.update_status(status=tweet_text, media_ids=[media.media_id])
+        self.state= 'done'
 
   
-        
+    def action_schedule(self):
+        self.ensure_one()
+        action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_twitter_post.twitter_schedule_date_action")
+        action['context'] = dict(self.env.context, default_twitter_id=self.id)
+        return action
 
+    def action_cancel(self):
+        self.state='cancel'
 
+    def action_retry(self):
+        self.state='draft'
 
+    
+    def schedule(self):
+        date = self.day
+        if date=='every':
+            date="day"
+        schedule.every().day.at(self.temp).do(self.send_post)
+        print(date)
+        print(self.temp)
 
+        while True:
+            schedule.run_pending()
+            time.sleep(1)

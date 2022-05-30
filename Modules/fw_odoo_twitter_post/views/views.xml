@@ -24,7 +24,16 @@
       <field name="arch" type="xml">
         <form string="TT Post">
           <header>
-            <button name="send_post" id="send_twitter_post" type="object" string="post on twitter" class="btn-primary"/>
+            <button name="send_post" id="send_twitter_post" type="object" string="post on twitter" class="btn-primary"
+            attrs="{'invisible': [('state', 'in', ('done', 'schedule', 'cancel'))]}"
+            confirm="Do you still want to tweet ?"/>
+            <button name="action_schedule" type="object" class="btn-secondary" string="Schedule"
+            attrs="{'invisible': [('state', 'in', ('done', 'cancel'))]}"/>
+            <button name="action_cancel" type="object" class="btn-secondary" string="Cancel"
+            attrs="{'invisible': [('state', 'in', ('cancel'))]}"/>
+            <button name="action_retry" type="object" class="btn-secondary" string="Retry"
+            attrs="{'invisible': [('state', 'in', ('draft', 'schedule'))]}"/>
+            <field name="state" widget="statusbar"  statusbar_visible="draft,done"/>
           </header>
           <sheet>
             <field name="name"/>
@@ -32,14 +41,22 @@
               <field name="msg" string="message : "/>
               <field name="image" string="URL image : "/>
             </group>
-            <group>
-
+            <notebook>
+              <page string= "token">
+                <group>
                   <field name="CK" string="twitter API KEY  : "/>
                   <field name="CS" string="twitter API KEY SECRET : "/>
                   <field name="AT" string="twitter ACCESS TOKEN : " />
                   <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
-
-            </group>
+                </group>
+              </page>
+              <page string="Scheduling">
+                <group>
+                  <field name="temp" string="Time : "/>
+                  <field name="day" string="Day : "/>
+                </group>
+              </page>
+            </notebook>
           </sheet>
         </form>
       </field>

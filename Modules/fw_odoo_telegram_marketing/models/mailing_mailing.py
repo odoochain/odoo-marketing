@@ -9,6 +9,7 @@ from odoo.osv import expression
 import requests
 import re
 
+
 _logger = logging.getLogger(__name__)
 
 
@@ -17,8 +18,10 @@ class Mailing(models.Model):
     channel_group= fields.Many2many("channel_group.telegram")
     body_plaintext = fields.Text('Telegram Body')
     image = fields.Char()
-    
-    
+
+    schedule_date = fields.Datetime(string='Scheduled for')
+
+        
 
     telegram_force_send = fields.Boolean(
         'Send Directly', help='Use at your own risks.')
@@ -39,18 +42,27 @@ class Mailing(models.Model):
 
    
 
-
     def action_put_in_queue_telegram(self):
         res = self.action_put_in_queue()
         if self.telegram_force_send:
             self.action_send_mail()
         return res
 
+
     def action_send_now_telegram(self):
         for i in range(len(self.channel_group)):
             self.send_to_tg(self.channel_group[i].Api_key,self.channel_group[i].channel,self.image,self.body_plaintext)
         return self.action_send_mail()
 
+    @api.model
+    def action_send_schedule_telegram(self):
+        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
+        for mass_mailing in mass_mailings:
+            mass_mailing.action_send_now_telegram()
+            
+             
+            
+                 
     def send_to_tg(self, sender, recipients,img, msg):
         """
         send message to tg 
@@ -79,9 +91,15 @@ class Mailing(models.Model):
     def action_schedule_telegram(self):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_telegram_marketing.telegram_schedule_date_action")
-        action['context'] = dict(self.env.context, default_mass_mailing_id=self.id)
+        action['context'] = dict(self.env.context, default_telegram_id=self.id)
         return action
         
+
+
+
+
+    
+
 class channel(models.Model):
     _name="channel_group.telegram"
     _description="channel telegram"

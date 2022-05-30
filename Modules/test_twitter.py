@@ -3,7 +3,8 @@ from requests_oauthlib import OAuth1Session
 import requests
 import base64
 
-
+import schedule
+import time
 
 # Authenticate to Twitter
 auth = tweepy.OAuthHandler("1PjCbI9T3Ne060REhBvQUdYmJ", "Hts07ntx9ucLxPsXdvLx3hGUeMBuejizJiQhSoBFQXG2eqxnns")
@@ -13,12 +14,19 @@ auth.set_access_token("1526392550952554498-oQ4la4UQeo8ywDYDZliuj9JIbv3QTQ", "0K0
 api = tweepy.API(auth)
 
 # Create a tweet
+def tweet():
+    tweet_text= "test"
+    image="/home/yvan/src/odoo-marketing/Modules/fw_odoo_twitter_post/static/description/icon.png"
+    media = api.media_upload(image)
+    print(media)
+    api.update_status(status=tweet_text, media_ids=[media.media_id])
+schedule.every().day.at("13:07").do(tweet)
 
-tweet_text= ""
-image="/home/yvan/src/odoo-marketing/Modules/fw_odoo_twitter_post/static/description/icon.png"
-media = api.media_upload(image)
-print(media)
-api.update_status(status=tweet_text, media_ids=[media.media_id])
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+
+
 
 """
 CK = "1PjCbI9T3Ne060REhBvQUdYmJ"

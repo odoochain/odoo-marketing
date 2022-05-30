@@ -42,14 +42,17 @@
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
             </xpath>
             <xpath expr="//button[@name='action_put_in_queue']" position="before">
-                <button name="action_put_in_queue_telegram" type="object"
+                <!--<button name="action_put_in_queue_telegram" type="object"
                     class="oe_highlight" string="Put in Queue"
                     attrs="{'invisible': ['|', ('mailing_type', '!=', 'telegram'), ('state', 'in', ('in_queue', 'done'))]}"
-                    confirm="This will schedule an telegram marketing to all group. Do you still want to proceed ?"/>
+                    confirm="This will schedule an telegram marketing to all group. Do you still want to proceed ?"/>-->
                 <button name="action_send_now_telegram" type="object"
                     class="oe_highlight" string="Send Now"
-                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'telegram'), ('state', 'in', ('done'))]}"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'telegram'), ('state', 'in', ('sending','done'))]}"
                     confirm="This will send telegram to all group now. Do you still want to proceed ?"/>
+                <button name="action_schedule_telegram" type="object"
+                     string="Schedule"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'telegram'), ('state', 'in', ('done'))]}"/>
             </xpath>
         </field>
     </record>
