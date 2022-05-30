@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_fw_odoo_facebook_post,fw_odoo_facebook_post,model_fw_odoo_facebook_post,base.group_user,1,1,1,1
 access_facebook_page_id,facebook.page_id,model_facebook_page_id,base.group_user,1,1,1,1
 access_facebook_help,facebook.help,model_facebook_help,base.group_user,1,1,1,1
+access_fw_odoo_facebook_post_schedule_date,fw_odoo_facebook_post.schedule.date,model_fw_odoo_facebook_post_schedule_date,base.group_user,1,1,1,1

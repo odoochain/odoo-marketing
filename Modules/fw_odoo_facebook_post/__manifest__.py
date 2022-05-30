@@ -27,6 +27,7 @@
         'data/data.xml',
         'views/views.xml',
         'views/help_views.xml',
+        'wizard/facebook_schedule_date_action.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

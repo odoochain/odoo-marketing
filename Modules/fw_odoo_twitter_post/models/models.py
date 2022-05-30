@@ -2,13 +2,14 @@ from odoo import models, fields, api
 import requests
 import tweepy
 
-import schedule
-import time
+
 
 class fw_odoo_twitter_post(models.Model):
     _name = 'fw_odoo_twitter_post'
     _description = 'fw_odoo_twitter_post'
    
+
+    id =fields.Char()
     tt_page_id = fields.Many2many("twitter.page_id")
     msg = fields.Char()
     image = fields.Char()
@@ -27,21 +28,7 @@ class fw_odoo_twitter_post(models.Model):
         ('cancel', 'Cancelled'),
         ], string='Status',  default='draft', tracking=True)
 
-    temp = fields.Char()
-    day = fields.Selection([
-        ('monday', 'monday'),
-        ('tueday', 'tuesday'),
-        ('wednesday', 'wednesday'),
-        ('thursday', 'thursday'),
-        ('friday', 'friday'),
-        ('saturday', 'saturday'),
-        ('sunday', 'sunday'),
-        ('every', 'every'),
-    ], string='Day', default='monday')
     
-    @api.model
-    def test_cron(self):
-        print("Abc") 
 
     @api.model
     def create(self, vals):
@@ -74,6 +61,7 @@ class fw_odoo_twitter_post(models.Model):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_twitter_post.twitter_schedule_date_action")
         action['context'] = dict(self.env.context, default_twitter_id=self.id)
+        self.state='schedule'
         return action
 
     def action_cancel(self):
@@ -83,14 +71,3 @@ class fw_odoo_twitter_post(models.Model):
         self.state='draft'
 
     
-    def schedule(self):
-        date = self.day
-        if date=='every':
-            date="day"
-        schedule.every().day.at(self.temp).do(self.send_post)
-        print(date)
-        print(self.temp)
-
-        while True:
-            schedule.run_pending()
-            time.sleep(1)

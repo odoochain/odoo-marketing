@@ -5,14 +5,14 @@ from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
-class TwitterScheduleDate(models.TransientModel):
-    _name = 'fw_odoo_twitter_post.schedule.date'
-    _description = 'Twitter Scheduling'
+class FacebookScheduleDate(models.TransientModel):
+    _name = 'fw_odoo_facebook_post.schedule.date'
+    _description = 'Facebook Scheduling'
 
     
-    id = fields.Many2one('fw_odoo_twitter_post')
+
     schedule_date = fields.Datetime(string='Scheduled for')
-    tt_page_id = fields.Many2one('fw_odoo_twitter_post', required=True, ondelete='cascade')
+    fb_page_id = fields.Many2one('fw_odoo_facebook_post', required=True, ondelete='cascade')
     
 
     @api.constrains('schedule_date')
@@ -22,6 +22,6 @@ class TwitterScheduleDate(models.TransientModel):
                 raise ValidationError(_('Please select a date equal/or greater than the current date.'))
 
     def set_schedule_date(self):
-        self.tt_page_id.write({'schedule_date': self.schedule_date, 'state': 'done', 'id': self.id})
+        self.fb_page_id.write({'schedule_date': self.schedule_date, 'state': 'done'})
         
         

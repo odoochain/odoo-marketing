@@ -68,7 +68,12 @@ class fw_odoo_facebook_post(models.Model):
     def action_retry(self):
         self.state='draft'
 
-
+    def action_schedule(self):
+        self.ensure_one()
+        action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_facebook_post.facebook_schedule_date_action")
+        action['context'] = dict(self.env.context, default_facebook_id=self.id)
+        self.state='schedule'
+        return action
 
 class page_id(models.Model):
     _name="facebook.page_id"
