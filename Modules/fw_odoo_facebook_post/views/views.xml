@@ -28,7 +28,7 @@
           <header>
             <button name="send_post" id="send_facebook_post" type="object" string="post on facebook" class="btn-primary"
             attrs="{'invisible': [('state', 'in', ('done','cancel'))]}"
-            confirm="Do you still want to tweet ?"/>
+            confirm="Do you still want to post ?"/>
             <button name="action_schedule" type="object" class="btn-secondary" string="Schedule"
             attrs="{'invisible': [('state', 'in', ('done', 'cancel'))]}"/>
             <button name="action_cancel" type="object" class="btn-secondary" string="Cancel"
@@ -42,6 +42,7 @@
             <group>
               <field name="msg" string="message : "/>
               <field name="image" string="URL image : "/>
+              <field name="schedule_date" string="Send on" required="1"/>
             </group>
             <group>
               <field name="fb_page_id">

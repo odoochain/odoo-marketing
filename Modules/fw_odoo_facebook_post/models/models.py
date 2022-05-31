@@ -23,6 +23,7 @@ class fw_odoo_facebook_post(models.Model):
         ('cancel', 'Cancelled'),
         ], string='Status',  default='draft', tracking=True)
 
+    schedule_date = fields.Datetime(string='Scheduled for')
 
     @api.model
     def create(self, vals):
@@ -32,6 +33,7 @@ class fw_odoo_facebook_post(models.Model):
         return record
 
     def send_post(self):
+        self.state= 'done'
         for i in range(len(self.fb_page_id)):
             if not self.image:
                 payload = {
@@ -40,6 +42,8 @@ class fw_odoo_facebook_post(models.Model):
                 }
                 post_url = 'https://graph.facebook.com/{}/feed'.format(self.fb_page_id[i].page_id) 
                 r = requests.post(post_url, data=payload)
+                print(r.text)
+                return r
             elif not self.msg:
                 image_url = 'https://graph.facebook.com/{}/photos'.format(self.fb_page_id[i].page_id)
                 image_location = self.image
@@ -48,6 +52,8 @@ class fw_odoo_facebook_post(models.Model):
                 'access_token': self.fb_page_id[i].facebook_access_token
                 }
                 r = requests.post(image_url, data=img_payload)
+                print(r.text)
+                return r
             else : 
                 image_url = 'https://graph.facebook.com/{}/photos'.format(self.fb_page_id[i].page_id)
                 image_location = self.image
@@ -57,9 +63,10 @@ class fw_odoo_facebook_post(models.Model):
                 'access_token': self.fb_page_id[i].facebook_access_token
                 }
                 r = requests.post(image_url, data=img_payload)
-        print(r.text)
-        self.state= 'done'
-        return r
+                print(r.text)
+                return r
+        
+        
     
 
     def action_cancel(self):
@@ -74,13 +81,14 @@ class fw_odoo_facebook_post(models.Model):
         action['context'] = dict(self.env.context, default_facebook_id=self.id)
         self.state='schedule'
         return action
-    """
+    
     @api.model
     def action_send_schedule_facebook(self):
-        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
+        mass_mailings = self.search([('state', '=', 'schedule'), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
         for mass_mailing in mass_mailings:
             mass_mailing.send_post()
-    """
+
+
 class page_id(models.Model):
     _name="facebook.page_id"
     _description="Page Id"

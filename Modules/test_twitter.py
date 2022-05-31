@@ -16,15 +16,15 @@ api = tweepy.API(auth)
 # Create a tweet
 def tweet():
     tweet_text= "test"
+
     image="/home/yvan/src/odoo-marketing/Modules/fw_odoo_twitter_post/static/description/icon.png"
     media = api.media_upload(image)
     print(media)
     api.update_status(status=tweet_text, media_ids=[media.media_id])
-schedule.every().day.at("13:07").do(tweet)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+test= True
+if test.find('ijhrg') !=-1:
+    print('yes')
 
 
 
