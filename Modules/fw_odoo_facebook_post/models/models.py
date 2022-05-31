@@ -74,7 +74,13 @@ class fw_odoo_facebook_post(models.Model):
         action['context'] = dict(self.env.context, default_facebook_id=self.id)
         self.state='schedule'
         return action
-
+    """
+    @api.model
+    def action_send_schedule_facebook(self):
+        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
+        for mass_mailing in mass_mailings:
+            mass_mailing.send_post()
+    """
 class page_id(models.Model):
     _name="facebook.page_id"
     _description="Page Id"

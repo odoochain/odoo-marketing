@@ -40,6 +40,7 @@
             <group>
               <field name="msg" string="message : "/>
               <field name="image" string="URL image : "/>
+              <field name="schedule_date" string="Send on" required="1"/>
             </group>
             <group>
               <field name="CK" string="twitter API KEY  : "/>

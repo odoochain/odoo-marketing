@@ -8,9 +8,8 @@ class fw_odoo_twitter_post(models.Model):
     _name = 'fw_odoo_twitter_post'
     _description = 'fw_odoo_twitter_post'
    
+    schedule_date = fields.Datetime(string='Scheduled for')
 
-    id =fields.Char()
-    tt_page_id = fields.Many2many("twitter.page_id")
     msg = fields.Char()
     image = fields.Char()
 
@@ -39,7 +38,8 @@ class fw_odoo_twitter_post(models.Model):
 
     def send_post(self):
         # Authenticate to Twitter
-        auth = tweepy.OAuthHandler(self.CK, self.CS)
+        self.state= 'done'
+        auth = tweepy.OAuth1UserHandler(self.CK, self.CS)
         auth.set_access_token(self.AT, self.AS)
 
         # Create API object
@@ -54,7 +54,7 @@ class fw_odoo_twitter_post(models.Model):
         else:
             media = api.media_upload(self.image)
             api.update_status(status=tweet_text, media_ids=[media.media_id])
-        self.state= 'done'
+        
 
   
     def action_schedule(self):
@@ -71,3 +71,11 @@ class fw_odoo_twitter_post(models.Model):
         self.state='draft'
 
     
+    @api.model
+    def action_send_schedule_twitter(self):
+        mass_mailings = self.search([('state', '=', 'schedule'), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
+        for mass_mailing in mass_mailings:
+            mass_mailing.send_post()
+            
+            
+            

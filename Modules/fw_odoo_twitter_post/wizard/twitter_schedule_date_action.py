@@ -10,10 +10,9 @@ class TwitterScheduleDate(models.TransientModel):
     _description = 'Twitter Scheduling'
 
     
-    id = fields.Many2one('fw_odoo_twitter_post')
     schedule_date = fields.Datetime(string='Scheduled for')
+    page_id = fields.Many2one('fw_odoo_twitter_post', required=True, ondelete='cascade')
     tt_page_id = fields.Many2one('fw_odoo_twitter_post', required=True, ondelete='cascade')
-    
 
     @api.constrains('schedule_date')
     def _check_schedule_date(self):
@@ -22,6 +21,6 @@ class TwitterScheduleDate(models.TransientModel):
                 raise ValidationError(_('Please select a date equal/or greater than the current date.'))
 
     def set_schedule_date(self):
-        self.tt_page_id.write({'schedule_date': self.schedule_date, 'state': 'done', 'id': self.id})
+        self.tt_page_id.write({'schedule_date': self.schedule_date, 'state': 'done'})
         
         

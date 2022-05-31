@@ -1,11 +1,11 @@
 <odoo>
     <data noupdate="1">
 
-        <record id="twitter_schedule_cron" model="ir.cron">
-            <field name="name">Scheduling tweet</field>
-            <field name="model_id" ref="model_fw_odoo_twitter_post"/>
+        <record id="facebook_schedule_cron" model="ir.cron">
+            <field name="name">Scheduling facebook post</field>
+            <field name="model_id" ref="model_fw_odoo_facebook_post"/>
             <field name="state">code</field>
-            <field name="code">model.action_send_schedule_twitter()</field>
+            <field name="code">model.action_send_schedule_facebook()</field>
             <field name="type">ir.actions.server</field>
             <field name="active" eval="True"/>
             <field name="user_id" ref="base.user_root"/>
