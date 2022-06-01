@@ -9,9 +9,7 @@ class TwitterScheduleDate(models.TransientModel):
     _name = 'fw_odoo_twitter_post.schedule.date'
     _description = 'Twitter Scheduling'
 
-    
     schedule_date = fields.Datetime(string='Scheduled for')
-    page_id = fields.Many2one('fw_odoo_twitter_post', required=True, ondelete='cascade')
     tt_page_id = fields.Many2one('fw_odoo_twitter_post', required=True, ondelete='cascade')
 
     @api.constrains('schedule_date')

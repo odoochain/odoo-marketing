@@ -10,6 +10,7 @@
     'sequence': 246,
     'depends': [
         'fw_odoo_mail_marketing',
+        'fw_odoo_sms_marketing',
     ],
     'data': [
         'security/ir.model.access.csv',
