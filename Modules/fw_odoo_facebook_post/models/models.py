@@ -9,6 +9,8 @@ import requests
 class fw_odoo_facebook_post(models.Model):
     _name = 'fw_odoo_facebook_post'
     _description = 'fw_odoo_facebook_post'
+    _inherit = ["mail.thread", "mail.activity.mixin"]
+
    
     fb_page_id = fields.Many2many("facebook.page_id")
     msg = fields.Char()
@@ -78,7 +80,7 @@ class fw_odoo_facebook_post(models.Model):
     def action_schedule(self):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_facebook_post.facebook_schedule_date_action")
-        action['context'] = dict(self.env.context, default_facebook_id=self.id)
+        action['context'] = dict(self.env.context, default_fb_page_id=self.id)
         self.state='schedule'
         return action
     

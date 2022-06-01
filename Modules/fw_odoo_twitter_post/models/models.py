@@ -7,6 +7,7 @@ import tweepy
 class fw_odoo_twitter_post(models.Model):
     _name = 'fw_odoo_twitter_post'
     _description = 'fw_odoo_twitter_post'
+    _inherit = ["mail.thread", "mail.activity.mixin"]
    
     schedule_date = fields.Datetime(string='Scheduled for')
 
@@ -60,7 +61,7 @@ class fw_odoo_twitter_post(models.Model):
     def action_schedule(self):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_twitter_post.twitter_schedule_date_action")
-        action['context'] = dict(self.env.context, default_twitter_id=self.id)
+        action['context'] = dict(self.env.context, default_tt_page_id=self.id)
         self.state='schedule'
         return action
 
@@ -76,6 +77,7 @@ class fw_odoo_twitter_post(models.Model):
         mass_mailings = self.search([('state', '=', 'schedule'), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
         for mass_mailing in mass_mailings:
             mass_mailing.send_post()
+
             
             
             

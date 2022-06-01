@@ -18,7 +18,8 @@ class TwitterScheduleDate(models.TransientModel):
             if scheduler.schedule_date < fields.Datetime.now():
                 raise ValidationError(_('Please select a date equal/or greater than the current date.'))
 
+    
     def set_schedule_date(self):
-        self.tt_page_id.write({'schedule_date': self.schedule_date, 'state': 'done'})
+        self.tt_page_id.write({'schedule_date': self.schedule_date, 'state': 'schedule'})
         
         

@@ -40,7 +40,6 @@
             <group>
               <field name="msg" string="message : "/>
               <field name="image" string="URL image : "/>
-              <field name="schedule_date" string="Send on" required="1"/>
             </group>
             <group>
               <field name="CK" string="twitter API KEY  : "/>
@@ -49,6 +48,11 @@
               <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
             </group>
           </sheet>
+          <div class="oe_chatter">
+            <field name="message_follower_ids"/>
+            <field name="activity_ids"/>
+            <field name="message_ids"/>
+          </div>
         </form>
       </field>
     </record>
