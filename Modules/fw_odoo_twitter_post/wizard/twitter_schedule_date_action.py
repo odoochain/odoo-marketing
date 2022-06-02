@@ -20,6 +20,6 @@ class TwitterScheduleDate(models.TransientModel):
 
     
     def set_schedule_date(self):
-        self.tt_page_id.write({'schedule_date': self.schedule_date, 'state': 'schedule'})
+        self.tt_page_id.write({'schedule_date': self.schedule_date, 'state': 'B-schedule'})
         
         

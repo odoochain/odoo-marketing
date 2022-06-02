@@ -22,6 +22,6 @@ class FacebookScheduleDate(models.TransientModel):
                 raise ValidationError(_('Please select a date equal/or greater than the current date.'))
 
     def set_schedule_date(self):
-        self.fb_page_id.write({'schedule_date': self.schedule_date, 'state': 'schedule'})
+        self.fb_page_id.write({'schedule_date': self.schedule_date, 'state': 'B-schedule'})
         
         
