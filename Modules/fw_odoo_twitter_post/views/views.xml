@@ -30,7 +30,7 @@
             <button name="action_schedule" type="object" class="btn-secondary" string="Schedule"
             attrs="{'invisible': [('state', 'in', ('done', 'cancel'))]}"/>
             <button name="action_cancel" type="object" class="btn-secondary" string="Cancel"
-            attrs="{'invisible': [('state', 'in', ('cancel'))]}"/>
+            attrs="{'invisible': [('state', 'in', ('draft', 'cancel'))]}"/>
             <button name="action_retry" type="object" class="btn-secondary" string="Retry"
             attrs="{'invisible': [('state', 'in', ('draft', 'schedule'))]}"/>
             <field name="state" widget="statusbar"  statusbar_visible="draft,done"/>

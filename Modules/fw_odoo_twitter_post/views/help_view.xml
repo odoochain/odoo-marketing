@@ -24,9 +24,9 @@
                                             - Go on Twitter Developer Platform using this <a href="https://developer.twitter.com/en">link</a> <BR />
                                             - Ask for a developer account <BR /><BR />
                                             - It will ask several question to approve your account : <BR />
-                                            -> It will ask what you will do with your apps (Tweet, Retweet, fiollow,..) <BR />
-                                            -> You must complete fill for justify your account <BR />
-                                            - Try to be the clearest as possible because <BR /><BR />
+                                            -> It will ask what you will do with your apps (Tweet, Retweet, follow,..) <BR />
+                                            -> You must complete fields for justify your account <BR />
+                                            - Try to be the clearest as possible  <BR /><BR />
                                             - Then you must wait the confirmation by e-mail <BR />
                                             - Sometimes you can receive an e-mail saying they need more details <BR />
                                             - When you receive your e-mail, go back on your developper account by clicking on the e-mail link <BR />
@@ -79,13 +79,20 @@
                                     <p>
                                         - Go on odoo <BR />
                                         - Click on fw_odoo_twitter_post <BR />
+                                        - Click on create <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/create.png" />  <BR />  
                                         - Write the messag for your tweet <BR />
                                         - Write the path link to your directory where your image is located <BR />
                                         - Write all your key and access token, in the order: <BR />
                                         -> API KEY, API KEY SECRET, ACCESS TOKEN, ACCESS TOKEN SECRET <BR />
-                                        <img src="fw_odoo_twitter_post/static/description/odoo_tweet.png" />  <BR />      
-                                        - Click on post on twitter <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/odoo_tweet.png" />  <BR />  
                                         - You can tweet a message, an image or both  <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/tweet_post.png" />  <BR />  
+                                        - if you click on "post on twitter" it will ask a confirmation, then click on "OK"  <BR />
+                                        - if you click on "schedule" it will open a small window to choose the date and hour <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/waiting.png" />  <BR />  
+                                        - Now your tweet is post, you can create a new tweet or retry on this one <BR />
+                                        <img src="fw_odoo_twitter_post/static/description/retry.png" />  <BR />                                         
                                         - Then go on Twitter and you will see your tweet
                                         <img src="fw_odoo_twitter_post/static/description/twitter_page.png" /> <BR />       
                                     </p>

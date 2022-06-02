@@ -27,12 +27,12 @@
         <form string="FB Post">
           <header>
             <button name="send_post" id="send_facebook_post" type="object" string="post on facebook" class="btn-primary"
-            attrs="{'invisible': [('state', 'in', ('done','cancel'))]}"
+            attrs="{'invisible': [('state', 'in', ('schedule','done','cancel'))]}"
             confirm="Do you still want to post ?"/>
             <button name="action_schedule" type="object" class="btn-secondary" string="Schedule"
             attrs="{'invisible': [('state', 'in', ('done', 'cancel'))]}"/>
             <button name="action_cancel" type="object" class="btn-secondary" string="Cancel"
-            attrs="{'invisible': [('state', 'in', ('cancel'))]}"/>
+            attrs="{'invisible': [('state', 'in', ('draft','cancel'))]}"/>
             <button name="action_retry" type="object" class="btn-secondary" string="Retry"
             attrs="{'invisible': [('state', 'in', ('draft', 'schedule'))]}"/>
             <field name="state" widget="statusbar"  statusbar_visible="draft,done"/>
