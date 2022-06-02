@@ -134,11 +134,12 @@
                                         - The Page name is optional <BR />
                                         - You can post on several Facebook pages <BR />
                                         - Then after clicking on "post on facebook", you can see the post on all the pages you have chosen <BR /> 
-                                        <img src="fw_odoo_facebook_post/static/description/facebook_post.png" />  <BR />  
+                                        <img src="fw_odoo_facebook_post/static/description/facebook_post.png" />  <BR /> 
                                         - if you click on "post on facebook" it will ask a confirmation, then click on "OK"  <BR />
                                         - if you click on "schedule" it will open a small window to choose the date and hour <BR />
                                         <img src="fw_odoo_facebook_post/static/description/waiting.png" />  <BR />  
                                         - Now your post is on facebook, you can create a new post or retry on this one <BR />
+                                        - Note : you can not send two times the same post <BR /> 
                                         <img src="fw_odoo_facebook_post/static/description/retry.png" />  <BR />                                         
                                         - Then go on facebook and you will see your post
                                         <img src="fw_odoo_facebook_post/static/description/test_post.png" /> <BR /> 
