@@ -35,6 +35,14 @@
             attrs="{'invisible': [('state', 'in', ('draft', 'schedule'))]}"/>
             <field name="state" widget="statusbar"  statusbar_visible="draft,done"/>
           </header>
+          <div class="alert alert-info text-center" role="alert" >
+            <div attrs="{'invisible': [('state', '!=', 'schedule')]}">
+              <strong>
+                <span name="next_departure_text">This Tweet is scheduled for </span>
+                <field name="schedule_date" class="oe_inline"/>.
+              </strong>
+            </div>
+          </div>
           <sheet>
             <field name="name"/>
             <group>
