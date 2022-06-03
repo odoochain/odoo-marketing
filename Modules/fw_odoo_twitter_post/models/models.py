@@ -39,6 +39,7 @@ class fw_odoo_twitter_post(models.Model):
     def send_post(self):
         # Authenticate to Twitter
         self.state= 'C-done'
+        self.schedule_date= fields.Datetime.now()
         auth = tweepy.OAuth1UserHandler(self.CK, self.CS)
         auth.set_access_token(self.AT, self.AS)
 

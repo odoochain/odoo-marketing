@@ -38,6 +38,7 @@ class fw_odoo_facebook_post(models.Model):
 
     def send_post(self):
         self.state= 'C-done'
+        self.schedule_date= fields.Datetime.now()
         for i in range(len(self.fb_page_id)):
             if not self.image:
                 payload = {

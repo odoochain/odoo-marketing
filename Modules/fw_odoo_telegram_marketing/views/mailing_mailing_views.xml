@@ -149,6 +149,5 @@
         <field name="action" ref="mailing_mailing_action_telegram"/>
     </record>
     
-</data
-
-></odoo>
+</data>
+</odoo>

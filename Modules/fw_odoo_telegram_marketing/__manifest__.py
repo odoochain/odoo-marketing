@@ -18,6 +18,7 @@
         'views/mailing_telegram_menus.xml',
         'views/mailing_mailing_views.xml',
         'views/help_views.xml',
+        'views/graph.xml',
         'wizard/telegram_schedule_date_action.xml',
     ],
     'application': True,

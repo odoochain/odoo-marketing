@@ -37,6 +37,12 @@
                 <field name="schedule_date" class="oe_inline" readonly="1"/>.
               </strong>
             </div>
+            <div attrs="{'invisible': [('state', '!=', 'C-done')]}">
+              <strong>
+                <span name="next_departure_text">This is posted the </span>
+                <field name="schedule_date" class="oe_inline" readonly="1"/>.
+              </strong>
+            </div>
           </div>
           <sheet>
             <group>
@@ -80,8 +86,14 @@
                   <field name="name" string="Name : "/><BR />
                   </strong>
                   <field name="ref"/><BR />
-                  <span attrs="{'invisible': [('state', '!=', 'B-schedule')]}">Schedule for :</span>
-                  <field name="schedule_date" attrs="{'invisible': [('state', '!=', 'B-schedule')]}"/>
+                  <div attrs="{'invisible': [('state', '!=', 'B-schedule')]}">
+                    <span >Schedule for :</span>
+                    <field name="schedule_date"/>
+                  </div>
+                  <div attrs="{'invisible': [('state', '!=', 'C-done')]}">
+                    <span >Posted the :</span>
+                    <field name="schedule_date"/>
+                  </div>
                 </div>
               </div>
             </t>
