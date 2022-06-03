@@ -40,7 +40,7 @@
             <div attrs="{'invisible': [('state', '!=', 'B-schedule')]}">
               <strong>
                 <span name="next_departure_text">This Tweet is scheduled for </span>
-                <field name="schedule_date" class="oe_inline"/>.
+                <field name="schedule_date" class="oe_inline" readonly="1"/>.
               </strong>
             </div>
           </div>
@@ -75,13 +75,16 @@
       <field name="model">fw_odoo_twitter_post</field>
       <field name="arch" type="xml">
         <kanban default_group_by="state" quick_create="false" sample="1">
-        <field name="state"/>
+        <field name="state" readonly="1"/>
           <templates>
             <t t-name="kanban-box">
               <div t-attf-class="oe_kanban_global_click">
-                <li><field name="reference"/></li>
-                <li><field name="name" string="Name : "/></li>
-                <li><field name="schedule_date" /></li>
+                <strong>
+                <field name="name" string="Name : "/><BR />
+                </strong>
+                <field name="reference"/><BR />
+                <span attrs="{'invisible': [('state', '!=', 'B-schedule')]}">Schedule for :</span>
+                <field name="schedule_date" attrs="{'invisible': [('state', '!=', 'B-schedule')]}"/>
               </div>
             </t>
           </templates>
