@@ -102,14 +102,22 @@
       </field>
     </record>
 
-
+    <record id="view_fw_odoo_facebook_post_graph" model="ir.ui.view">
+      <field name="name">fw_odoo_facebook_post graph</field>
+      <field name="model">fw_odoo_facebook_post</field>
+      <field name="arch" type="xml">
+        <graph>
+          <field name="state"/>
+        </graph>
+      </field>
+    </record>
     
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="fw_odoo_facebook_post.action_window">
       <field name="name">fw_odoo_facebook_post window</field>
       <field name="res_model">fw_odoo_facebook_post</field>
-      <field name="view_mode">kanban,tree,form</field>
+      <field name="view_mode">kanban,tree,form,graph</field>
     </record>
 
     
