@@ -3,6 +3,7 @@
     <record id="mailing_trace_report_sms_view_pivot" model="ir.ui.view">
         <field name="name">mailing.sms.trace.report.view.pivot</field>
         <field name="model">mailing.trace.report</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_trace_report_view_pivot"/>
         <field name="priority" eval="50"/>
         <field name="mode">primary</field>
         <field name="type">pivot</field>
@@ -16,6 +17,7 @@
     <record id="mailing_trace_report_sms_view_graph" model="ir.ui.view">
         <field name="name">mailing.sms.trace.report.view.graph</field>
         <field name="model">mailing.trace.report</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_trace_report_view_graph"/>
         <field name="priority" eval="50"/>
         <field name="mode">primary</field>
         <field name="type">graph</field>

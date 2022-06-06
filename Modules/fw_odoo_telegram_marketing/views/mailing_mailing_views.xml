@@ -20,7 +20,7 @@
         <field name="name">mailing.mailing.view.form.inherit.telegram</field>
         <field name="model">mailing.mailing</field>
         <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
-        <field name="arch" type="xml">        
+        <field name="arch" type="xml">      
             <xpath expr="//field[@name='subject']" position="after">
                 <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'telegram')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'telegram')]}"/>
             </xpath>             
@@ -88,6 +88,9 @@
         <field name="arch" type="xml">
             <xpath expr="//div[@name='stat_opened']" position="attributes">
                 <attribute name="attrs">{'invisible': [('mailing_type', '!=', 'telegram')]}</attribute>
+            </xpath>
+            <xpath expr="//div[@class='o_kanban_record_body']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>
