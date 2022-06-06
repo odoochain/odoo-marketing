@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    
+    <record id="view_marketing_type_graph" model="ir.ui.view">
+      <field name="name">marketing_type graph</field>
+      <field name="model">mailing.mailing</field>
+      <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_graph"/>
+      <field name="arch" type="xml">
+        <graph>
+          <field name="mailing_type" type="row"/>
+        </graph>
+      </field>
+    </record>
+
+    <record id="view_post_type_graph" model="ir.ui.view">
+      <field name="name">marketing_type graph</field>
+      <field name="model">fw_odoo_twitter_post</field>
+      <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_graph"/>
+      <field name="arch" type="xml">
+        <graph>
+          <field name="name" type="row"/>
+        </graph>
+      </field>
+    </record>
+
+
+        <!-- actions -->
+
+
+    <record id="mailing_mailing_action_telegram" model="ir.actions.act_window">
+        <field name="name">Statistic Marketing</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+        <field name="domain">[('mailing_type', 'in', ('mail','sms','telegram'))]</field>
+    </record>
+
+
+    <record id="mailing_mailing_action_post_telegram" model="ir.actions.act_window">
+        <field name="name">Statistic Marketing</field>
+        <field name="res_model">fw_odoo_twitter_post</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+    </record>
+
+
+        <!-- telegram Marketing / telegram Marketing -->
+    <record id="mass_mailing_marketing_menu_mass_marketing" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_telegram"/>
+    </record>
+    
+    <record id="mass_mailing_marketing_menu_configuration" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_post_telegram"/>
+    </record>
+  
+
+  
+  </data>
+</odoo>
