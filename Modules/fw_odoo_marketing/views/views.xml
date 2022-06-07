@@ -1,0 +1,79 @@
+<odoo>
+  <data>
+    
+    <record id="view_marketing_type_graph" model="ir.ui.view">
+      <field name="name">marketing_type graph</field>
+      <field name="model">mailing.mailing</field>
+      <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_graph"/>
+      <field name="arch" type="xml">
+        <graph>
+          <field name="mailing_type" type="row"/>
+        </graph>
+      </field>
+    </record>
+
+
+    <record id="view_marketing_type_graph_twitter" model="ir.ui.view">
+      <field name="name">marketing_type graph</field>
+      <field name="model">fw_odoo_twitter_post</field>
+      <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_graph"/>
+      <field name="arch" type="xml">
+        <graph>
+          <field name="state" type="row"/>
+        </graph>
+      </field>
+    </record>
+
+    <record id="view_marketing_type_graph_facebook" model="ir.ui.view">
+      <field name="name">marketing_type graph</field>
+      <field name="model">fw_odoo_facebook_post</field>
+      <field name="inherit_id" ref="fw_odoo_facebook_post.view_fw_odoo_facebook_post_graph"/>
+      <field name="arch" type="xml">
+        <graph>
+          <field name="state" type="row"/>
+        </graph>
+      </field>
+    </record>
+
+        <!-- actions -->
+
+
+    <record id="mailing_mailing_action_type" model="ir.actions.act_window">
+        <field name="name">Statistic Mailing</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+        <field name="domain">[('mailing_type', 'in', ('mail','sms','telegram'))]</field>
+    </record>
+
+
+    <record id="mailing_mailing_action_twitter" model="ir.actions.act_window">
+        <field name="name">Statistic Twitter</field>
+        <field name="res_model">fw_odoo_twitter_post</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+        <field name="domain">[('mailing_type', '=', 'twitter')]</field>
+    </record>
+
+  <record id="mailing_mailing_action" model="ir.actions.act_window">
+        <field name="name">Statistic Facebook</field>
+        <field name="res_model">fw_odoo_facebook_post</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+        <field name="domain">[('mailing_type', '=', 'facebook')]</field>
+    </record>
+
+        <!-- telegram Marketing / telegram Marketing -->
+    <record id="mass_mailing_marketing_menu_mass_marketing" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_type"/>
+    </record>
+    
+    <record id="mass_mailing_marketing_menu_twitter" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_twitter"/>
+    </record>
+
+    <record id="mass_mailing_marketing_menu_facebook" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action"/>
+    </record>
+  
+
+  
+  </data>
+</odoo>

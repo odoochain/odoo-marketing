@@ -2,22 +2,28 @@
 <odoo>
     <!-- marketing Marketing -->
     <menuitem id="mass_mailing_marketing_menu_root"
-        name="marketing Marketing"
+        name="Marketing Statistics"
         sequence="70"
         web_icon="fw_odoo_marketing_marketing,static/description/icon.png"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <!-- marketing Marketing / marketing Marketing -->
     <menuitem id="mass_mailing_marketing_menu_mass_marketing"
-        name="Marketing Statistics"
+        name="Mailing Statistics"
         parent="mass_mailing_marketing_menu_root"
         sequence="1"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <!-- marketing Marketing / Configuration -->
-    <menuitem id="mass_mailing_marketing_menu_configuration"
-        name="Configuration"
+    <menuitem id="mass_mailing_marketing_menu_twitter"
+        name="Twitter"
         parent="mass_mailing_marketing_menu_root"
         sequence="100"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <menuitem id="mass_mailing_marketing_menu_facebook"
+        name="Facebook"
+        parent="mass_mailing_marketing_menu_root"
+        sequence="101"
         groups="mass_mailing.group_mass_mailing_user"/>
 </odoo>

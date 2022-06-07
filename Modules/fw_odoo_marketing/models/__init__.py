@@ -2,3 +2,4 @@
 
 from . import mailing_mailing
 from . import twitter
+from . import facebook

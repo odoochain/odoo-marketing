@@ -104,7 +104,7 @@
       </field>
     </record>
 
-    <record id="view_fw_odoo_twitter_post_graph" model="ir.ui.view">
+    <record id="view_fw_odoo_twitter_postgraph" model="ir.ui.view">
       <field name="name">fw_odoo_twitter_post graph</field>
       <field name="model">fw_odoo_twitter_post</field>
       <field name="arch" type="xml">
@@ -113,6 +113,7 @@
         </graph>
       </field>
     </record>
+    
 
 
     
