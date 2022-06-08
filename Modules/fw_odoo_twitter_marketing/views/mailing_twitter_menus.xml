@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- twitter Marketing -->
+    <menuitem id="mass_mailing_twitter_menu_root"
+        name="twitter Marketing"
+        sequence="70"
+        web_icon="fw_odoo_twitter_marketing,static/description/icon.png"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <!-- twitter Marketing / twitter Marketing -->
+    <menuitem id="mass_mailing_twitter_menu_mass_twitter"
+        name="twitter Marketing"
+        parent="mass_mailing_twitter_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <!-- twitter Marketing / Configuration -->
+    <menuitem id="mass_mailing_twitter_menu_configuration"
+        name="Configuration"
+        parent="mass_mailing_twitter_menu_root"
+        sequence="100"
+        groups="mass_mailing.group_mass_mailing_user"/>
+</odoo>

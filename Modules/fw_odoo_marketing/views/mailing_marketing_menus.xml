@@ -27,5 +27,11 @@
         sequence="101"
         groups="mass_mailing.group_mass_mailing_user"/>
 
+    <menuitem id="mass_mailing_marketing_menu_done"
+        name="Mailing Statistics Done"
+        parent="mass_mailing_marketing_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
    
 </odoo>

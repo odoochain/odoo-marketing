@@ -27,9 +27,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
         'views/mailing_marketing_menus.xml',
-        'views/social_media.xml',
+        #'views/social_media.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

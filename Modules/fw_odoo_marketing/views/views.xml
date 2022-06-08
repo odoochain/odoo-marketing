@@ -8,7 +8,14 @@
         <field name="name">Statistic Mailing</field>
         <field name="res_model">mailing.mailing</field>
         <field name="view_mode">graph</field>
-        <field name="domain">[('mailing_type', 'in', ('mail','sms','telegram'))]</field>
+        <field name="domain">[]</field>
+    </record>
+
+    <record id="mailing_mailing_action_type_done" model="ir.actions.act_window">
+        <field name="name">Statistic Mailing</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">graph</field>
+        <field name="domain">[('state', '=', 'done')]</field>
     </record>
 
 
@@ -19,7 +26,7 @@
         <field name="domain">[('mailing_type', '=', 'twitter')]</field>
     </record>
 
-  <record id="mailing_mailing_action" model="ir.actions.act_window">
+  <record id="mailing_mailing_action_facebook" model="ir.actions.act_window">
         <field name="name">Statistic Facebook</field>
         <field name="res_model">fw_odoo_facebook_post</field>
         <field name="view_mode">graph</field>
@@ -36,8 +43,13 @@
     </record>
 
     <record id="mass_mailing_marketing_menu_facebook" model="ir.ui.menu">
-        <field name="action" ref="mailing_mailing_action"/>
+        <field name="action" ref="mailing_mailing_action_facebook"/>
     </record>
+
+    <record id="mass_mailing_marketing_menu_done" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_type_done"/>
+    </record>
+  
   
 
   

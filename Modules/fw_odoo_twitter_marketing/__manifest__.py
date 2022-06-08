@@ -2,11 +2,11 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 {
-    'name': 'Telegram Marketing',
-    'summary': 'Design, send Telegram group',
+    'name': 'Twitter Marketing',
+    'summary': 'Design, send twitter group',
     'description': '',
     'version': '1.0',
-    'category': 'Marketing/Telegram Marketing',
+    'category': 'Marketing/twitter Marketing',
     'sequence': 246,
     'depends': [
         'fw_odoo_mail_marketing',
@@ -15,10 +15,9 @@
     'data': [
         'security/ir.model.access.csv',
         'data/cron.xml',
-        'views/mailing_telegram_menus.xml',
+        'views/mailing_twitter_menus.xml',
         'views/mailing_mailing_views.xml',
-        'views/help_views.xml',
-        'wizard/telegram_schedule_date_action.xml',
+        'wizard/twitter_schedule_date_action.xml',
     ],
     'application': True,
     'license': 'LGPL-3',
