@@ -26,4 +26,6 @@
         parent="mass_mailing_marketing_menu_root"
         sequence="101"
         groups="mass_mailing.group_mass_mailing_user"/>
+
+   
 </odoo>
