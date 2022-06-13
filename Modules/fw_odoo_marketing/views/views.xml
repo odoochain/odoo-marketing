@@ -1,9 +1,6 @@
 <odoo>
   <data>
 
-        <!-- actions -->
-
-
     <record id="mailing_mailing_action_type" model="ir.actions.act_window">
         <field name="name">Statistic Mailing</field>
         <field name="res_model">mailing.mailing</field>
@@ -15,35 +12,13 @@
         <field name="name">Statistic Mailing</field>
         <field name="res_model">mailing.mailing</field>
         <field name="view_mode">graph</field>
+        <field name="context">{'graph_mode':'pie'}</field>
         <field name="domain">[('state', '=', 'done')]</field>
     </record>
 
 
-    <record id="mailing_mailing_action_twitter" model="ir.actions.act_window">
-        <field name="name">Statistic Twitter</field>
-        <field name="res_model">fw_odoo_twitter_post</field>
-        <field name="view_mode">graph</field>
-        <field name="domain">[('mailing_type', '=', 'twitter')]</field>
-    </record>
-
-  <record id="mailing_mailing_action_facebook" model="ir.actions.act_window">
-        <field name="name">Statistic Facebook</field>
-        <field name="res_model">fw_odoo_facebook_post</field>
-        <field name="view_mode">graph</field>
-        <field name="domain">[('mailing_type', '=', 'facebook')]</field>
-    </record>
-
-        <!-- telegram Marketing / telegram Marketing -->
     <record id="mass_mailing_marketing_menu_mass_marketing" model="ir.ui.menu">
         <field name="action" ref="mailing_mailing_action_type"/>
-    </record>
-    
-    <record id="mass_mailing_marketing_menu_twitter" model="ir.ui.menu">
-        <field name="action" ref="mailing_mailing_action_twitter"/>
-    </record>
-
-    <record id="mass_mailing_marketing_menu_facebook" model="ir.ui.menu">
-        <field name="action" ref="mailing_mailing_action_facebook"/>
     </record>
 
     <record id="mass_mailing_marketing_menu_done" model="ir.ui.menu">

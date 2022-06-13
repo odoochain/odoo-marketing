@@ -11,20 +11,7 @@
     <menuitem id="mass_mailing_marketing_menu_mass_marketing"
         name="Mailing Statistics"
         parent="mass_mailing_marketing_menu_root"
-        sequence="1"
-        groups="mass_mailing.group_mass_mailing_user"/>
-
-    <!-- marketing Marketing / Configuration -->
-    <menuitem id="mass_mailing_marketing_menu_twitter"
-        name="Twitter"
-        parent="mass_mailing_marketing_menu_root"
-        sequence="100"
-        groups="mass_mailing.group_mass_mailing_user"/>
-
-    <menuitem id="mass_mailing_marketing_menu_facebook"
-        name="Facebook"
-        parent="mass_mailing_marketing_menu_root"
-        sequence="101"
+        sequence="2"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <menuitem id="mass_mailing_marketing_menu_done"

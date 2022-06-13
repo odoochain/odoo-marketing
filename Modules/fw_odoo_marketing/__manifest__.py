@@ -21,17 +21,16 @@
 
     # any module necessary for this one to work correctly
     'depends': ['base','fw_odoo_mail_marketing',
-        'fw_odoo_sms_marketing', 'fw_odoo_twitter_post', 'fw_odoo_facebook_post'],
+        'fw_odoo_sms_marketing'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/mailing_marketing_menus.xml',
-        #'views/social_media.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        'demo/demo.xml',
+
     ],
 }
