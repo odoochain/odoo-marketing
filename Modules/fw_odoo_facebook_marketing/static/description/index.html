@@ -1,17 +1,18 @@
 <html>
     <header>
-        <h1>Help for Twitter Post</h1>
+        <h1>Help for Facebook Post</h1>
     </header>
     <br>
     <body>
         <p>
             <h2>
-                 <br>
+                Before using this modules, you must be administrator in the page you want to post on facebook! <br>
                 Then their are few step to use this module : <br>
-                - First : create an account on Twitter Developer Platform <br>
-                - Second : create your apps  <br>
-                - Third : change the settings <br>
-                - Fourth : Post on Twitter from Odoo <br>
+                - First : create an app on Facebook for developers <br>
+                - Second : connect your app to your account <br>
+                - Third : try your app <br>
+                - Fourth : extend your acces token <br>
+                - Fifth : Post on Facebook from odoo <br>
             </h2>
             <br>
             <h2>
@@ -19,102 +20,153 @@
                     First : 
                 </div>
             </h2>
+            <br>
             <h3>
-                - Go on Twitter Developer Platform using this <a href="https://developer.twitter.com/en">link</a> <br>
-                - Ask for a developer account <br><br>
-                - It will ask several question to approve your account : <br>
-                -> It will ask what you will do with your apps (Tweet, Retweet, fiollow,..) <br>
-                -> You must complete fill for justify your account <br>
-                - Try to be the clearest as possible because <br><br>
-                - Then you must wait the confirmation by e-mail <br>
-                - Sometimes you can receive an e-mail saying they need more details <br>
-                - When you receive your e-mail, go back on your developper account by clicking on the e-mail link <br>
+                - Go creating your app <br>
+                - Connect you on <b>Facebook for developers</b> by clicking on this <a href= "https://www.facebook.com/login.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Fapps%2F" > link</a>  <br>
+                - Login with your email address and password of your account <br>
+                - You should arrive on a page like that (without apps for you if you never been here before)
+                <div class="oe_slogan text-center"> 
+                    <img src="host.png" />        
+                </div>
+                - So click on create an app <br>
+                - You should arrive on this page 
+                <div class="oe_slogan text-center"> 
+                    <img src="choose.png" />        
+                </div>
+                - Choose business type <br>
+                - It will ask a name for your app and your mail contact <br>
+                - Usually it will ask your password account <br>
+                - Then you have created your apps <br><br><br>
+
             </h3>
             <h2>
                 <div class="oe_slogan text-center"> 
-                    Second : 
-                </div>
-            </h2>
-            <h3>
-                - You will be on the settings of your new apps (if not click on new apps in the category Project and apps ) <br>
-                <div class="oe_slogan text-center"> 
-                    <img src="create_apps.png" />        
-                </div>
-                - It will give you three settings : <br>
-                -> Api Key <br>
-                -> API Key Secret <br>
-                -> Bearer Token <br>
-                - Save them!! <br>
-                - Usually it show you an example, for trying your apps with the bearer token <br>
-                - Then click on got to dashboard <br>
-            </h3>
-            <h2>
-                <div class="oe_slogan text-center"> 
-                    Third : 
-                </div>
-            </h2>
-            <h3>
-                - Select your app <br>
-                - Go to the bottom of the page, to change the settings <br>
-                <div class="oe_slogan text-center"> 
-                    <img src="set_up.png" />        
-                </div>
-                - Change the permission to Read, write, and direct message <br>
-                <div class="oe_slogan text-center"> 
-                    <img src="settings.png" />        
-                </div>
-                - Put any URL you want for the required field<br>
-                <div class="oe_slogan text-center"> 
-                    <img src="URL.png" />        
-                </div>
-                - Save your new settings <br>
-                <div class="oe_slogan text-center"> 
-                    <img src="key_settings.png" />        
-                </div>
-                - Generate Access token and Access token secret <br>
-                <div class="oe_slogan text-center"> 
-                    <img src="token.png" />        
-                </div>
-                - Save them!! <br>
-            </h3>
-            <h2>
-                <div class="oe_slogan text-center"> 
-                    Fourth : 
+                    Second :     
                 </div>
             </h2>
             <br>
             <h3>
-                - Go on odoo <br>
-                - Click on fw_odoo_twitter_post <br>
-                - Click on create <br>
+                - Now click on <b>Tools</b> in the top <br>
+                - And click on <b>Graph API Explorer</b> 
+                <div class="oe_slogan text-center"> 
+                    <img src="tools.png" />        
+                </div>
+                - You should get here
+                <div class="oe_slogan text-center"> 
+                    <img src="explorer.png" />        
+                </div>
+                - Click on <b>"Get the token"</b> :  choose  <b>"Obtain a Page acces token"</b> <br>
+                - Then it will open a new window for choosing your account <br>
+                - Next it will ask which page you want to connect to the apps ( you must be administrator and you can choose several) <br>
+                - Next you should arrive on another page without importance click on done <br>
+                <div class="oe_slogan text-center"> 
+                    <img src="window.png" />        
+                </div>
+                - Then you have associated your apps to facebook <br><br>
+            </h3>
+            <h2>
+                <div class="oe_slogan text-center"> 
+                    Third :       
+                </div>
+            </h2>
+            <br>
+            <h3>
+                - Now you have another category on the right side :  <br>
+                - You can see that their are automatically three permissions : public_profile, pages_show_list and pages_read_engagement <br>
+                - Click on <b>"add permission"</b> : <b>"choose pages_manage_posts"</b> <br>
+                - That's the only permissions we need (you can add others if you want) <br><br>
+                <div class="oe_slogan text-center"> 
+                    <img src="permissions.png" />        
+                </div>
+                - Go on facebook, on the page where you want post <br>
+                - Click on <b>"more"</b> and choose <b>"in regards to"</b> <br>
+                - Go to the bottom of the page <br>
+                <div class="oe_slogan text-center"> 
+                    <img src="about.png" />        
+                </div>
+                - You will see your ID PAGE, copy it <br>
+                - Go back on <b>Graph API Explorer</b> <br>
+                - Test if your apps works : <br>
+                <div class="oe_slogan text-center"> 
+                    <img src="test.png" />        
+                </div>
+                - Then click on "send" <br>
+                - If you have the same message "id" : "......" means that your message has been send, else it will appear an error message <br>
+                - Go on your Facebook Page
+                - So you see that your app is working
+                <div class="oe_slogan text-center"> 
+                    <img src="fb_page.png" />        
+                </div>
+                
+            </h3>   
+            <h2>
+                <div class="oe_slogan text-center"> 
+                    Fourth :       
+                </div>
+            </h2>
+            <br>
+            <h3>
+                - The problem is that the Access token did not last long, so you must extend it <br>
+                - Copy your Access token <br>
+                - Now click on <b>"Tools"</b> in the top <br>
+                - And click on <b>"Access token debugger"</b>
+                <div class="oe_slogan text-center"> 
+                    <img src="tools_debug.png" />        
+                </div>
+                <div class="oe_slogan text-center"> 
+                    <img src="extend.png" />        
+                </div>
+                - Another time they will ask your password <br>
+                - Then you have a new Access token with the expiry date <br>
+            </h3>
+            <h2>
+                <div class="oe_slogan text-center"> 
+                    Fifth :     
+                </div>
+            </h2>
+            <h3>
+                <br>
+                - It's almost over!<br>
+                - Go on odoo    <br>
+                - Go on your <b>"fw_odoo_facebook_post" module</b> <br>
+                - Click on create
                 <div class="oe_slogan text-center"> 
                     <img src="create.png" />        
-                </div>
-                - Write the messag for your tweet <br>
-                - Write the path link to your directory where your image is located <br>
-                - Write all your key and access token, in the order: <br>
-                -> API KEY, API KEY SECRET, ACCESS TOKEN, ACCESS TOKEN SECRET <br>
-                <div class="oe_slogan text-center"> 
-                    <img src="odoo_tweet.png" />        
                 </div>  
-                - You can tweet a message, an image or both  <br>
+                - Complete the field <br>
+                - 1) Name of the post <br>
+                - 2) Message of the post <br>
+                - 3) URL image of the post <br>
+                - 4) Name of the page <br>
+                - 5) ID of the post <br>
+                - 6) Facebook access token  <br>
+                - 7) Save your page information <br>
                 <div class="oe_slogan text-center"> 
-                    <img src="tweet_post.png" />        
+                    <img src="facebook_send.png" />        
                 </div>  
-                - if you click on "post on twitter" it will ask a confirmation, then click on "OK"  <br>
+                - Note :  <br>    
+                - So you can post a message or an image or both <br>
+                - For the moment you can only post image from internet (begin by "http") <br>
+                - You must inform the ID Page and the Access_token (try to use the extend acces token)
+                - The Page name is optional <br>
+                - You can post on several Facebook pages <br>
+                - All the settings are already done, but you can change it if you want <br>   
+
+                - if you click on "post on facebook" it will ask a confirmation, then click on "OK"  <br>
                 - if you click on "schedule" it will open a small window to choose the date and hour <br>
                 <div class="oe_slogan text-center"> 
                     <img src="waiting.png" />        
                 </div>  
-                - Now your tweet is post, you can create a new tweet or retry on this one <br>
+                - Now your post is on facebook, you can create a new post or retry on this one <br>
                 - Note : you can not send two times the same post <br>
                 <div class="oe_slogan text-center"> 
                     <img src="retry.png" />        
                 </div>                                         
-                - Then go on Twitter and you will see your tweet
+                - Then go on facebook and you will see your post
                 <div class="oe_slogan text-center"> 
-                    <img src="twitter_page.png" />        
-                </div> <br>
+                    <img src="test_post.png" />        
+                </div> 
             </h3>
             <img src="frontware.png"/>
         </p>

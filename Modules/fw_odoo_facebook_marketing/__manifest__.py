@@ -18,6 +18,7 @@
         'data/utm_data.xml',
         'views/mailing_facebook_menus.xml',
         'views/mailing_mailing_views.xml',
+        'views/help_view.xml',
         'wizard/facebook_schedule_date_action.xml',
     ],
     'application': True,
