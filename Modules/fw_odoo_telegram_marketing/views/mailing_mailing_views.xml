@@ -25,18 +25,18 @@
                 <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'telegram')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'telegram')]}"/>
             </xpath>             
             <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
-            <page string="Telegram settings" attrs="{'invisible': [('mailing_type', '!=', 'telegram')]}">
-                <field name="channel_group" >
-                    <tree>
-                        <field name="channel" string="channel : "/>
-                        <field name="Api_key" string="API KEY : "/>
-                    </tree>
-                </field>
-                <group>
-                    <field name="body_plaintext" string="Message"/>
-                    <field name="image" string="URL Image :"/>
-                </group>
-            </page>
+                <page string="Telegram settings" attrs="{'invisible': [('mailing_type', '!=', 'telegram')]}">
+                    <field name="channel_group" >
+                        <tree>
+                            <field name="channel" string="channel : "/>
+                            <field name="Api_key" string="API KEY : "/>
+                        </tree>
+                    </field>
+                    <group>
+                        <field name="body_plaintext" string="Message"/>
+                        <field name="image" string="URL Image :"/>
+                    </group>
+                </page>
             </xpath>
             <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
@@ -45,7 +45,7 @@
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
             </xpath>
             <xpath expr="//page[@name='dynamic_placeholder_generator']" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', ('state', '=', 'done'),  ('mailing_type', '!=', 'mail')]}</attribute>
+                    <attribute name="attrs">{'invisible': ['|', ('state', '=', 'sending'),  ('mailing_type', '!=', 'mail')]}</attribute>
             </xpath>
             <xpath expr="//button[@name='action_test']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
@@ -102,6 +102,9 @@
         <field name="arch" type="xml">
             <tree string="telegram Marketing" sample="1">
                 <field name="mailing_type" invisible="1"/>
+                <field name="subject"/>
+                <field name="state"/>
+                <field name="schedule_date"/>
             </tree>
         </field>
     </record>
