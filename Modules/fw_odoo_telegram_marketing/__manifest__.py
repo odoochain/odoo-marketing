@@ -15,6 +15,7 @@
     'data': [
         'security/ir.model.access.csv',
         'data/cron.xml',
+        'data/utm_data.xml',
         'views/mailing_telegram_menus.xml',
         'views/mailing_mailing_views.xml',
         'views/help_views.xml',

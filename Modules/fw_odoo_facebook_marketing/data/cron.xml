@@ -2,7 +2,7 @@
     <data noupdate="1">
 
         <record id="facebook_schedule_cron" model="ir.cron">
-            <field name="name">Scheduling Facebook post</field>
+            <field name="name">Scheduling facebook post</field>
             <field name="model_id" ref="model_mailing_mailing"/>
             <field name="state">code</field>
             <field name="code">model.action_send_schedule_facebook()</field>

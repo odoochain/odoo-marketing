@@ -4,7 +4,7 @@
     <menuitem id="mass_mailing_marketing_menu_root"
         name="Marketing Statistics"
         sequence="70"
-        web_icon="fw_odoo_marketing_marketing,static/description/icon.png"
+        web_icon="fw_odoo_marketing,static/description/icon.png"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <!-- marketing Marketing / marketing Marketing -->

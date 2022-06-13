@@ -27,8 +27,8 @@
             <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
             <page string="facebook settings" attrs="{'invisible': [('mailing_type', '!=', 'facebook')]}">
                 <group>
-                    <field name="msg" string="message : "/>
-                    <field name="image" string="URL image : "/>
+                    <field name="fmsg" string="message : "/>
+                    <field name="fimage" string="URL image : "/>
                 </group>
                 <group>
                     <field name="fb_page_id">

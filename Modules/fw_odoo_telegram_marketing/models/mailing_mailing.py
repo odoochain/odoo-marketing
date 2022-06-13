@@ -56,11 +56,16 @@ class Mailing(models.Model):
 
     @api.model
     def action_send_schedule_telegram(self):
-        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
+        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), ('mailing_type', '=', 'telegram'),'|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
         for mass_mailing in mass_mailings:
             mass_mailing.action_send_now_telegram()
             
-             
+    @api.depends('mailing_type')
+    def _compute_medium_id(self):
+        super(Mailing, self)._compute_medium_id()
+        for mailing in self:
+            if mailing.mailing_type == 'telegram' and (not mailing.medium_id or mailing.medium_id == self.env.ref('fw_odoo_telegram_marketing.utm_medium_telegram')):
+                mailing.medium_id = self.env.ref('fw_odoo_telegram_marketing.utm_medium_telegram').id
             
                  
     def send_to_tg(self, sender, recipients,img, msg):

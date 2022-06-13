@@ -17,7 +17,6 @@ _logger = logging.getLogger(__name__)
 class Mailing(models.Model):
     _inherit = 'mailing.mailing'
 
-    schedule_date = fields.Datetime(string='Scheduled for', tracking=True)
     msg = fields.Char()
     image = fields.Char()
 
@@ -74,11 +73,16 @@ class Mailing(models.Model):
 
     @api.model
     def action_send_schedule_twitter(self):
-        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
+        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), ('mailing_type', '=', 'twitter'),'|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
         for mass_mailing in mass_mailings:
             mass_mailing.action_send_now_twitter()
             
-             
+    @api.depends('mailing_type')
+    def _compute_medium_id(self):
+        super(Mailing, self)._compute_medium_id()
+        for mailing in self:
+            if mailing.mailing_type == 'twitter' and (not mailing.medium_id or mailing.medium_id == self.env.ref('fw_odoo_twitter_marketing.utm_medium_twitter')):
+                mailing.medium_id = self.env.ref('fw_odoo_twitter_marketing.utm_medium_twitter').id         
         
 
     def action_schedule_twitter(self):

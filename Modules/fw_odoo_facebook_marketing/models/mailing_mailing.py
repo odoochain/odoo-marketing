@@ -17,17 +17,16 @@ _logger = logging.getLogger(__name__)
 class Mailing(models.Model):
     _inherit = 'mailing.mailing'
 
-    schedule_date = fields.Datetime(string='Scheduled for', tracking=True)
     fb_page_id = fields.Many2many("facebook.page_id")
-    msg = fields.Char()
-    image = fields.Char()
+    fmsg = fields.Char()
+    fimage = fields.Char()
 
     facebook_force_send = fields.Boolean(
         'Send Directly', help='Use at your own risks.')
 
     # mailing options
     mailing_type = fields.Selection(selection_add=[
-        ('facebook', 'facebook')
+        ('facebook', 'Facebook')
     ], ondelete={'facebook': 'set default'})
 
     @api.model
@@ -52,18 +51,18 @@ class Mailing(models.Model):
         self.state= 'done'
         self.schedule_date= fields.Datetime.now()
         for i in range(len(self.fb_page_id)):
-            if not self.image:
+            if not self.fimage:
                 payload = {
-                'message' : self.msg,
+                'message' : self.fmsg,
                 'access_token' : self.fb_page_id[i].facebook_access_token
                 }
                 post_url = 'https://graph.facebook.com/{}/feed'.format(self.fb_page_id[i].page_id) 
                 r = requests.post(post_url, data=payload)
                 print(r.text)
                 return r
-            elif not self.msg:
+            elif not self.fmsg:
                 image_url = 'https://graph.facebook.com/{}/photos'.format(self.fb_page_id[i].page_id)
-                image_location = self.image
+                image_location = self.fimage
                 img_payload = {
                 'url' : image_location,
                 'access_token': self.fb_page_id[i].facebook_access_token
@@ -73,24 +72,24 @@ class Mailing(models.Model):
                 return r
             else : 
                 image_url = 'https://graph.facebook.com/{}/photos'.format(self.fb_page_id[i].page_id)
-                image_location = self.image
+                image_location = self.fimage
                 img_payload = {
-                'message' : self.msg,
+                'message' : self.fmsg,
                 'url' : image_location,
                 'access_token': self.fb_page_id[i].facebook_access_token
                 }
                 r = requests.post(image_url, data=img_payload)
                 print(r.text)
                 return r
-        
+
+            
     @api.model
     def action_send_schedule_facebook(self):
-        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
+        mass_mailings = self.search([('state', 'in', ('in_queue', 'sending')), ('mailing_type', '=', 'facebook'), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
         for mass_mailing in mass_mailings:
-            mass_mailing.action_send_now_facebook()
-            
-             
+            mass_mailing.action_send_now_facebook()         
         
+
 
     def action_schedule_facebook(self):
         self.ensure_one()
@@ -99,7 +98,12 @@ class Mailing(models.Model):
         return action
         
 
-
+    @api.depends('mailing_type')
+    def _compute_medium_id(self):
+        super(Mailing, self)._compute_medium_id()
+        for mailing in self:
+            if mailing.mailing_type == 'facebook' and (not mailing.medium_id or mailing.medium_id == self.env.ref('fw_odoo_facebook_marketing.utm_medium_facebook')):
+                mailing.medium_id = self.env.ref('fw_odoo_facebook_marketing.utm_medium_facebook').id
 
 
 class page_id(models.Model):
