@@ -18,6 +18,7 @@
         'data/utm_data.xml',
         'views/mailing_twitter_menus.xml',
         'views/mailing_mailing_views.xml',
+        'views/help_view.xml',
         'wizard/twitter_schedule_date_action.xml',
     ],
     'application': True,

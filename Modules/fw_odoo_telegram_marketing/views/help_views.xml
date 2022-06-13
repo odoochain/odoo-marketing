@@ -98,9 +98,9 @@
                                     Note :  <BR />  
                                     - You can send message to several channel   <BR />  
                                     - You can only post image from internet (begin by "http")   <BR />  
-                                    - You can not put a image without text and you can not put several image <BR />                                          
+                                    - You can not put a image without text and you can not put several image <BR /> 
+                                    - All the settings are already done, but you can change it if you want <BR />                                           
 
-                                    <img src="fw_odoo_telegram_marketing/static/description/telegram_marketing.png" />  <BR />  
                                     - if you click on "send Now" it will ask a confirmation, then click on "OK"  <BR />
                                     - if you click on "schedule" it will open a small window to choose the date and hour <BR />
 
