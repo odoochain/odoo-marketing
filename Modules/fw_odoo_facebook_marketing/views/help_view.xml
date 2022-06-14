@@ -17,6 +17,7 @@
                             <li>Try your app</li>
                             <li>Extend access token</li>
                             <li>Post from odoo</li>
+                            <li>Settings for scheduling (optional)</li>
                         </ul>
                         <notebook>
                             <page string="Create an app">
@@ -153,7 +154,9 @@
                                         <img src="fw_odoo_facebook_marketing/static/description/waiting.png" />        
                                          
                                         - Now your post is on facebook, you can create a new post or retry on this one <BR />
-                                        - Note : you can not send two times the same post <BR />
+                                        - Note : <BR />
+                                        - You can not send two times the same post <BR />
+                                        
                                         
                                         <img src="fw_odoo_facebook_marketing/static/description/retry.png" />        
                                                                                  
@@ -161,6 +164,20 @@
                                         
                                         <img src="fw_odoo_facebook_marketing/static/description/test_post.png" />        
                                          
+                                    </p>
+                                </ul>
+                            </page>
+                            <page string="Settings for scheduling (optional)">
+                                <ul>
+                                    <p>
+                                        - The scheduler action is initialize to be executed every minute, if you want to post to the nearest second :<BR />
+                                        -> go in the settings <BR />
+                                        -> activate the developper mode <BR />
+                                        <img src="fw_odoo_facebook_marketing/static/description/developper_mode.png" />     <BR />
+                                        -> then go back in the settings, click on technical in the menu and chose Schedule action <BR /> 
+                                        <img src="fw_odoo_facebook_marketing/static/description/action.png" />     <BR />
+                                        -> click on scheduling facebook post, click on edit and here you can choose when to execute your action <BR />
+                                        <img src="fw_odoo_facebook_marketing/static/description/execute.png" />     <BR />
                                     </p>
                                 </ul>
                             </page>
