@@ -49,7 +49,7 @@ class Mailing(models.Model):
 
     def action_send_now_facebook(self):
         self.state= 'done'
-        self.schedule_date= fields.Datetime.now()
+        self.sent_date= fields.Datetime.now()
         for i in range(len(self.fb_page_id)):
             if not self.fimage:
                 payload = {

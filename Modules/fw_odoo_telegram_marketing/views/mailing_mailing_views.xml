@@ -103,8 +103,9 @@
             <tree string="telegram Marketing" sample="1">
                 <field name="mailing_type" invisible="1"/>
                 <field name="subject"/>
-                <field name="state"/>
-                <field name="schedule_date"/>
+                <field name="schedule_date" string="Scheduled" widget="remaining_days"/>
+                <field name="sent_date" widget="date"/>
+                <field name="state" decoration-info="state == 'draft' or state == 'in_queue'" decoration-success="state == 'sending' or state == 'done'" widget="badge"/>
             </tree>
         </field>
     </record>

@@ -24,7 +24,6 @@ class Mailing(models.Model):
     CS = fields.Char()
     AT = fields.Char()
     AS = fields.Char()
-
     twitter_force_send = fields.Boolean(
         'Send Directly', help='Use at your own risks.')
 
@@ -54,7 +53,7 @@ class Mailing(models.Model):
     def action_send_now_twitter(self):
         # Authenticate to Twitter
         self.state= 'done'
-        self.schedule_date= fields.Datetime.now()
+        self.sent_date= fields.Datetime.now()
         auth = tweepy.OAuth1UserHandler(self.CK, self.CS)
         auth.set_access_token(self.AT, self.AS)
 

@@ -25,18 +25,18 @@
                 <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'twitter')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'twitter')]}"/>
             </xpath>             
             <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
-            <page string="twitter settings" attrs="{'invisible': [('mailing_type', '!=', 'twitter')]}">
-                <group>
-                <field name="msg" string="message : "/>
-                <field name="image" string="URL image : "/>
-                </group>
-                <group>
-                <field name="CK" string="twitter API KEY  : "/>
-                <field name="CS" string="twitter API KEY SECRET : "/>
-                <field name="AT" string="twitter ACCESS TOKEN : " />
-                <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
-                </group>
-            </page>
+                <page string="twitter settings" attrs="{'invisible': [('mailing_type', '!=', 'twitter')]}">
+                    <group>
+                    <field name="msg" string="message : "/>
+                    <field name="image" string="URL image : "/>
+                    </group>
+                    <group>
+                    <field name="CK" string="twitter API KEY  : "/>
+                    <field name="CS" string="twitter API KEY SECRET : "/>
+                    <field name="AT" string="twitter ACCESS TOKEN : " />
+                    <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
+                    </group>
+                </page>
             </xpath>
             <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
@@ -103,8 +103,9 @@
             <tree string="twitter Marketing" sample="1">
                 <field name="mailing_type" invisible="1"/>
                 <field name="subject"/>
-                <field name="state"/>
-                <field name="schedule_date"/>
+                <field name="schedule_date" string="Scheduled" widget="remaining_days"/>
+                <field name="sent_date" widget="date"/>
+                <field name="state" decoration-info="state == 'draft' or state == 'in_queue'" decoration-success="state == 'sending' or state == 'done'" widget="badge"/>
             </tree>
         </field>
     </record>
