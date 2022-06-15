@@ -9,11 +9,7 @@ class MassSMSTest(models.TransientModel):
     _name = 'mailing.line.test'
     _description = 'Test LINE Mailing'
 
-    def _default_numbers(self):
-        return self.env.user.partner_id.phone_sanitized or ""
-
-    group_ids = fields.Char(string='Number(s)', required=True,
-                          default=_default_numbers, help='Comma-separated list of phone numbers')
+    group_id = fields.Many2one('fw_bot_group', string='Group', required=True)
 
     def action_send_line(self):
         # self.ensure_one()

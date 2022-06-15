@@ -4,12 +4,12 @@
         <field name="name">mailing.line.test.view.form</field>
         <field name="model">mailing.line.test</field>
         <field name="arch" type="xml">
-            <form string="Send a Sample SMS">
+            <form string="Send a Sample LINE message">
                 <p class="text-muted">
                     Send a sample Message for testing purpose to the group below.
                 </p>
                 <group>
-                    <field name="group_ids" />
+                    <field name="group_id" />
                 </group>
                 <footer>
                     <button string="Send" name="action_send_line" type="object" class="btn-primary"/>

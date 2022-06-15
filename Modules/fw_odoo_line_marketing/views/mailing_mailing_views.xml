@@ -31,7 +31,6 @@
                     attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('done'))]}"
                     confirm="This will send LINE to all group now. Do you still want to proceed ?"/>
             </xpath>
-
             <xpath expr="//field[@name='active']" position="after">
                 <field name="line_group_ids" widget="many2many_tags" />
                 <label for="line_message" />
