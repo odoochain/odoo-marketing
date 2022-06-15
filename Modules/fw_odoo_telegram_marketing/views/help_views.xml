@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+    <!-- save settings wizard -->
+    <record model="ir.ui.view" id="telegram_help_form">
+        <field name="name">telegram_help_form</field>
+        <field name="model">telegram.help</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="How to" edit="0" delete="0">
+                <sheet>
+                    <div>
+                    <img src="fw_odoo_telegram_marketing/static/description/icon.png" width="100" long="100"/> <BR />
+                        Following these steps:
+                    </div>
+                    <ul>
+                        <li>Creating a bot</li>
+                        <li>Connecting your bot</li>
+                        <li>Sendinging message</li>
+                        <li>Settings for scheduling (optional)</li>
+                    </ul>
+                    <notebook>
+                       <page string="Creating a bot">
+                           <div>                            
+                             <ul>
+                                <p>
+                                - go on telegram <BR />
+                                - in the research bar typing "BotFather" <BR /> 
+
+                                <img src="fw_odoo_telegram_marketing/static/description/bot.png" />    <BR />    
+
+                                - click on the first link <BR />
+                                - write "/start" as message <BR />
+                                - the bot will respond a long message <BR />
+                                - click on newbot (or respond "/newbot")  
+
+                                <img src="fw_odoo_telegram_marketing/static/description/botfather.png" />   <BR />      
+
+                                - type your bot name (should end by "bot") <BR />
+                                - a bot will be create with a <b>KEY</b> number! <BR />
+                                - if you don't remember the  <b>KEY</b> number, type "/mybots" <BR />
+                                </p>
+                             </ul>
+                           </div>
+                        </page>
+
+                        <page string="Connecting your bot">
+                           <div>                            
+                             <ul>
+                                <p>
+                                    - go on telegram <BR />
+                                    - click on the option (next to the research bar) <BR />
+
+                                <img src="fw_odoo_telegram_marketing/static/description/option_telegram.png" width="1000" />   <BR />             
+
+                                    - click on "new channel" <BR />       
+                                    - write a name for the channel <BR />
+                                    - go in the channel option (right top corner)  : 
+                                           
+                                    <img src="fw_odoo_telegram_marketing/static/description/channel_manage.png" />   <BR />
+
+                                    - click on "manage channel" <BR />
+                                    - put the channel public (if it's not already done ) <BR />
+                                    - create the link <b>this link is important!</b> <BR />
+
+                                    <img src="fw_odoo_telegram_marketing/static/description/link.png" /> <BR />       
+
+                                    <div class="oe_slogan text-center"> 
+                                    <img src="fw_odoo_telegram_marketing/static/description/edit_channel.png" />       <BR />       
+                                    </div>
+                                    - click on administrator <BR />
+                                    - add your bot as administrator 
+                                    <BR />
+
+                                </p>
+                             </ul>
+                           </div>
+                        </page>
+
+                        <page string="Sending message">
+                           <div>                            
+                             <ul>
+                                <p>
+                                    - go on odoo <BR />
+                                    - go in Telegram Marketing <BR />
+                                    - click on create <BR />
+                                    
+                                    <img src="fw_odoo_telegram_marketing/static/description/create.png" width="1000"/> <BR />   
+
+                                    - in the Telegram settings : <BR />   
+                                    -> write the <b>link of the channel</b> in channel (begin by "@")  <BR />
+                                    -> write the <b>key of your bot</b> in API_Key <BR /> 
+                                    -> write your text in the Message field<BR />
+                                    -> if you want to put an image write the URL image field  <BR />    
+                                    
+
+                                    <img src="fw_odoo_telegram_marketing/static/description/send_telegram.png" width="1000"/> <BR />   
+
+                                    Note :  <BR />  
+                                    - You can send message to several channel   <BR />  
+                                    - You can only post image from internet (begin by "http")   <BR />  
+                                    - You can not put a image without text and you can not put several image <BR /> 
+                                    - All the settings are already done, but you can change it if you want <BR />                                           
+
+                                    - if you click on "send Now" it will ask a confirmation, then click on "OK"  <BR />
+                                    - if you click on "schedule" it will open a small window to choose the date and hour <BR />
+
+                                    <img src="fw_odoo_telegram_marketing/static/description/Waiting.png" />  <BR />  
+
+                                    - Now your message is sent, you can create a new message or retry on this one <BR />
+
+                                    <img src="fw_odoo_telegram_marketing/static/description/retryed.png" />  <BR />  
+
+                                    <img src="fw_odoo_telegram_marketing/static/description/resultat.png" />  <BR /> 
+                                </p>
+                             </ul>
+                           </div>
+                        </page>
+                        <page string="Settings for scheduling (optional)">
+                                <ul>
+                                    <p>
+                                        - The scheduler action is initialize to be executed every minute, if you want to post to the nearest second :<BR />
+                                        -> go in the settings <BR />
+                                        -> activate the developper mode <BR />
+                                        <img src="fw_odoo_telegram_marketing/static/description/developper_mode.png" />  <BR />   
+                                        -> then go back in the settings, click on technical in the menu and chose Schedule action <BR /> 
+                                        <img src="fw_odoo_telegram_marketing/static/description/action.png" />     <BR />
+                                        -> click on scheduling telegram post, click on edit and here you can choose when to execute your action <BR />
+                                        <img src="fw_odoo_telegram_marketing/static/description/execute.png" />     <BR />
+                                    </p>
+                                </ul>
+                            </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>    
+
+    <record id="telegram_how_to_action" model="ir.actions.act_window">
+        <field name="name">How to</field>
+        <field name="res_model">telegram.help</field>
+        <field name="view_mode">form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_id" ref="telegram_help_form" />
+    </record>
+
+    <menuitem id="telegram_how_to_menu"
+        name="How to"
+        action="telegram_how_to_action"
+        parent="mass_mailing_telegram_menu_root"
+        sequence="200"/>
+
+</data></odoo>  

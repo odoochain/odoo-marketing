@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo><data>
+
+
+        <!-- searching view -->
+    <record model="ir.ui.view" id="mailing_mailing_view_search_facebook">
+        <field name="name">mailing_mailing_view_search_facebook</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_search"/>
+        <field name="mode">primary</field>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='assigned_to_me']" position="attributes">
+                <attribute name="string">My facebook Marketing</attribute>
+            </xpath>
+        </field>
+    </record>
+
+        <!-- inharited form view -->
+    <record id="mailing_mailing_view_form_facebook" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.form.inherit.facebook</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+        <field name="arch" type="xml">      
+            <xpath expr="//field[@name='subject']" position="after">
+                <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'facebook')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'facebook')]}"/>
+            </xpath>             
+            <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
+            <page string="facebook settings" attrs="{'invisible': [('mailing_type', '!=', 'facebook')]}">
+                <group>
+                    <field name="fmsg" string="message : "/>
+                    <field name="fimage" string="URL image : "/>
+                </group>
+                <group>
+                    <field name="fb_page_id">
+                        <tree>
+                        <field name="page_name" string = "Facebook name Page : "/>
+                        <field name="page_id" string="Facebook Id Page : "/>
+                        <field name="facebook_access_token" string="Facebook access token : " invisible="1"/>
+                        </tree>
+                    </field>
+                </group>
+            </page>
+            </xpath>
+            <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_schedule']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
+            </xpath>
+            <xpath expr="//page[@name='dynamic_placeholder_generator']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', '=', 'sending'),  ('mailing_type', '!=', 'mail')]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_test']" position="attributes">
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_put_in_queue']" position="before">
+                <button name="action_send_now_facebook" type="object"
+                    class="oe_highlight" string="Send Now"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'facebook'), ('state', 'in', ('sending','done'))]}"
+                    confirm="This will post now. Do you still want to proceed ?"/>
+                <button name="action_schedule_facebook" type="object"
+                     string="Schedule"
+                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'facebook'), ('state', 'in', ('done'))]}"/>
+            </xpath>
+        </field>
+    </record>
+
+
+
+    <record id="mailing_mailing_view_form_mixed_facebook" model="ir.ui.view">
+        <!-- View allowign to display the mailing type and therefore choosing
+        the way of mailing: not prioritized one, used in some specific cases
+        like "contacting people" without predefining mail or facebook or facebook -->
+        <field name="name">mailing.mailing.view.form.mixed.facebook</field>
+        <field name="model">mailing.mailing</field>
+        <field name="mode">primary</field>
+        <field name="priority">30</field>
+        <field name="inherit_id" ref="fw_odoo_facebook_marketing.mailing_mailing_view_form_facebook"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mailing_type']" position="attributes">
+                <attribute name="invisible">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="mailing_mailing_view_kanban_facebook" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.kanban.inherit.facebook</field>
+        <field name="model">mailing.mailing</field>
+        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='stat_opened']" position="attributes">
+                <attribute name="attrs">{'invisible': [('mailing_type', '!=', 'facebook')]}</attribute>
+            </xpath>
+            <xpath expr="//div[@class='o_kanban_record_body']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="mailing_mailing_view_tree_facebook" model="ir.ui.view">
+        <field name="name">mailing.mailing.view.tree.facebook</field>
+        <field name="model">mailing.mailing</field>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <tree string="facebook Marketing" sample="1">
+                <field name="mailing_type" invisible="1"/>
+                <field name="subject"/>
+                <field name="schedule_date" string="Scheduled" widget="remaining_days"/>
+                <field name="sent_date" widget="date"/>
+                <field name="state" decoration-info="state == 'draft' or state == 'in_queue'" decoration-success="state == 'sending' or state == 'done'" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+
+        <!-- actions -->
+
+
+    <record id="mailing_mailing_action_facebook" model="ir.actions.act_window">
+        <field name="name">facebook Marketing</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+        <field name="search_view_id" ref="mailing_mailing_view_search_facebook"/>
+        <field name="domain">[('mailing_type', '=', 'facebook')]</field>
+        <field name="context">{
+                'search_default_assigned_to_me': 1,
+                'default_user_id': uid,
+                'default_mailing_type': 'facebook',
+                'mailing_facebook': True
+        }</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new facebook Marketing
+          </p><p>
+            You can easily send facebook to any contact saved in other Odoo apps.
+          </p>
+        </field>
+    </record>
+    
+
+    <record id="mailing_mailing_action_facebook_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence">1</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="mailing_mailing_view_kanban_facebook"/>
+        <field name="act_window_id" ref="mailing_mailing_action_facebook"/>
+    </record>
+
+
+    <record id="mailing_mailing_action_facebook_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence">2</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="mailing_mailing_view_tree_facebook"/>
+        <field name="act_window_id" ref="mailing_mailing_action_facebook"/>
+    </record>
+
+        <!-- facebook Marketing / facebook Marketing -->
+    <record id="mass_mailing_facebook_menu_mass_facebook" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_facebook"/>
+    </record>
+    
+</data>
+</odoo>

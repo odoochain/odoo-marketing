@@ -1,0 +1,206 @@
+<odoo>
+    <data>
+    
+        <record model="ir.ui.view" id="facebook_help_form">
+            <field name="name">facebook_help form</field>
+            <field name="model">facebook.help</field>
+            <field name="arch" type="xml">
+                <form string="How to use it" edit="0" delete="0">
+                    <sheet>
+                        <div>
+                            <img src="fw_odoo_facebook_marketing/static/description/icon.png" width="100" long="100"/> <BR /> 
+                            Following these steps:
+                        </div>
+                        <ul>
+                            <li>Create an app</li>
+                            <li>Connect your app</li>
+                            <li>Try your app</li>
+                            <li>Extend access token</li>
+                            <li>Post from odoo</li>
+                            <li>Settings for scheduling (optional)</li>
+                        </ul>
+                        <notebook>
+                            <page string="Create an app">
+                                <div>
+                                    <ul>
+                                        <p>
+                                            - Go creating your app <BR />
+                                            - Connect you on <b>Facebook for developers</b> by clicking on this <a href= "https://www.facebook.com/login.php?next=https%3A%2F%2Fdevelopers.facebook.com%2Fapps%2F" > link</a>  <BR />
+                                            - Login with your email address and password of your account <BR />
+                                            - You should arrive on a page like that (without apps for you if you never been here before)
+                                        
+                                            <img class="w-100" src="fw_odoo_facebook_marketing/static/description/host.png"/>
+                                        
+                                            - So click on create an app <BR />
+                                            - You should arrive on this page 
+
+                                            <img class="w-100" src="fw_odoo_facebook_marketing/static/description/choose.png" />  
+
+                                            - Choose business type <BR />
+                                            - It will ask a name for your app and your mail contact <BR />
+                                            - Usually it will ask your password account <BR />
+                                            - Then you have created your apps <BR />
+                                        </p>
+                                    </ul>
+                                </div>
+                            </page>
+                            <page string="Connect your app">
+                                <ul>
+                                    <p>
+                                        - Now click on <b>Tools</b> in the top <BR />
+                                        - And click on <b>Graph API Explorer</b> 
+ 
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/tools.png" />        
+
+                                        - You should get here
+
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/explorer.png" />        
+
+                                        - Click on <b>"Get the token"</b> :  choose  <b>"Obtain a Page acces token"</b> <BR />>
+                                        - Then it will open a new window for choosing your account <BR />>
+                                        - Next it will ask which page you want to connect to the apps ( you must be administrator and you can choose several) <BR />>
+                                        - Next you should arrive on another page without importance click on done 
+
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/window.png" />        
+
+                                        - Then you have associated your apps to facebook <BR />
+
+
+                                    </p>
+                                </ul>
+                            </page>
+                            <page string="Try your app">
+                                <ul>
+                                    <p>
+                                        - Now you have another category on the right side :  <BR />
+                                        - You can see that their are automatically three permissions : public_profile, pages_show_list and pages_read_engagement <BR />
+                                        - Click on <b>"add permission"</b> : <b>"choose pages_manage_posts"</b> <BR />
+                                        - That's the only permissions we need (you can add others if you want) <BR /><BR />
+
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/permissions.png" />        
+
+                                        - Go on facebook, on the page where you want post <BR />
+                                        - Click on <b>"more"</b> and choose <b>"in regards to"</b> <BR />
+                                        - Go to the bottom of the page <BR />
+
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/about.png" />        
+
+                                        - You will see your ID PAGE, copy it <BR />
+                                        - Go back on <b>Graph API Explorer</b> <BR />
+                                        - Test if your apps works : <BR />
+
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/test.png" />        
+
+                                        - Then click on "send" <BR />
+                                        - If you have the same message "id" : "......" means that your message has been send, else it will appear an error message <BR />
+                                        - Go on your Facebook Page
+                                        - So you see that your app is working
+
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/fb_page.png" />  
+                                    </p>
+                                </ul>
+                            </page>
+                            <page string="Extend access token">
+                                <ul>
+                                    <p>
+                                        - The problem is that the Access token did not last long, so you must extend it <BR />
+                                        - Copy your Access token <BR />
+                                        - Now click on <b>"Tools"</b> in the top <BR />
+                                        - And click on <b>"Access token debugger"</b>
+ 
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/tools_debug.png" />        
+
+
+                                        <img class="w-100" src="fw_odoo_facebook_marketing/static/description/extend.png" />        
+
+                                        - Another time they will ask your password <BR />
+                                        - Then you have a new Access token with the expiry date <BR />
+                                    </p>
+                                </ul>
+                            </page>
+                            <page string="Post from odoo">
+                                <ul>
+                                    <p>
+                                        
+                                        - It's almost over!<BR />
+                                        - Go on odoo    <BR />
+                                        - Go on your Facebook marketing<BR />
+                                        - Click on create
+                                        
+                                        <img src="fw_odoo_facebook_marketing/static/description/create.png" />        
+                                         
+                                        - Complete the field <BR />
+                                        - 1) Name of the post <BR />
+                                        - 2) Message of the post <BR />
+                                        - 3) URL image of the post <BR />
+                                        - 4) Name of the page <BR />
+                                        - 5) ID of the post <BR />
+                                        - 6) Facebook access token  <BR />
+                                        - 7) Save your page information <BR />
+                                        
+                                        <img src="fw_odoo_facebook_marketing/static/description/facebook_send.png" />        
+                                         
+                                        - Note :  <BR />    
+                                        - So you can post a message or an image or both <BR />
+                                        - For the moment you can only post image from internet (begin by "http") <BR />
+                                        - You must inform the ID Page and the Access_token (try to use the extend acces token)
+                                        - The Page name is optional <BR />
+                                        - You can post on several Facebook pages <BR />
+                                        - All the settings are already done, but you can change it if you want <BR />   
+
+                                        - if you click on "post on facebook" it will ask a confirmation, then click on "OK"  <BR />
+                                        - if you click on "schedule" it will open a small window to choose the date and hour <BR />
+                                        
+                                        <img src="fw_odoo_facebook_marketing/static/description/waiting.png" />        
+                                         
+                                        - Now your post is on facebook, you can create a new post or retry on this one <BR />
+                                        - Note : <BR />
+                                        - You can not send two times the same post <BR />
+                                        
+                                        
+                                        <img src="fw_odoo_facebook_marketing/static/description/retry.png" />        
+                                                                                 
+                                        - Then go on facebook and you will see your post
+                                        
+                                        <img src="fw_odoo_facebook_marketing/static/description/test_post.png" />        
+                                         
+                                    </p>
+                                </ul>
+                            </page>
+                            <page string="Settings for scheduling (optional)">
+                                <ul>
+                                    <p>
+                                        - The scheduler action is initialize to be executed every minute, if you want to post to the nearest second :<BR />
+                                        -> go in the settings <BR />
+                                        -> activate the developper mode <BR />
+                                        <img src="fw_odoo_facebook_marketing/static/description/developper_mode.png" />     <BR />
+                                        -> then go back in the settings, click on technical in the menu and chose Schedule action <BR /> 
+                                        <img src="fw_odoo_facebook_marketing/static/description/action.png" />     <BR />
+                                        -> click on scheduling facebook post, click on edit and here you can choose when to execute your action <BR />
+                                        <img src="fw_odoo_facebook_marketing/static/description/execute.png" />     <BR />
+                                    </p>
+                                </ul>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="facebook_how_to_action" model="ir.actions.act_window">
+            <field name="name">How to</field>
+            <field name="res_model">facebook.help</field>
+            <field name="view_mode">form</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="facebook_help_form" />
+        </record>
+
+        <menuitem id="facebook_how_to_menu"
+            name="How to"
+            action="facebook_how_to_action"
+            parent="mass_mailing_facebook_menu_root"
+            sequence="200"/>
+
+    </data>
+</odoo>
