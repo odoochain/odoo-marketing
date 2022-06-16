@@ -14,7 +14,6 @@
         'fw_odoo_mail_marketing'
     ],
     'data': [
-        'security/ir.model.access.csv',
         "data/fw_bot_group_help.xml",
 
         'views/mailing_line_menus.xml',
