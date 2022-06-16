@@ -15,11 +15,10 @@
         sequence="1"
         groups="mass_mailing.group_mass_mailing_user"/>
 
-    <!-- telegram Marketing / Configuration -->
-    <menuitem id="mass_mailing_telegram_menu_configuration"
-        name="Configuration"
+    <menuitem id="telegram_how_to_menu"
+        name="How to"
+        action="telegram_how_to_action"
         parent="mass_mailing_telegram_menu_root"
-        sequence="100"
-        groups="mass_mailing.group_mass_mailing_user"/>
+        sequence="200"/>
 
 </odoo>
