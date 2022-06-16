@@ -21,9 +21,10 @@ class Mailing(models.Model):
             res['keep_archives'] = True
         if fields is not None and 'mailing_model_name' in fields and res.get('mailing_type') == 'line':
             res['mailing_model_name'] = 'line.list'
-        
-        res['name'] = 'line marketing %s' % datetime.now().strftime('%d/%m/%Y')
-        res['subject'] = res['name']
+
+        if res.get('mailing_type') == 'line':
+           res['name'] = 'line marketing %s' % datetime.now().strftime('%d/%m/%Y')
+           res['subject'] = res['name']
         return res
 
     # mailing options

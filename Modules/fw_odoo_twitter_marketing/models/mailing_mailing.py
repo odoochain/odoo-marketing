@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import logging
-
+from datetime import datetime
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
@@ -35,6 +35,9 @@ class Mailing(models.Model):
             res['keep_archives'] = True
         if fields is not None and 'mailing_model_name' in fields and res.get('mailing_type') == 'twitter':
             res['mailing_model_name'] = 'twitter.list'
+        if res.get('mailing_type') == 'twitter':
+           res['name'] = 'twitter marketing %s' % datetime.now().strftime('%d/%m/%Y')
+           res['subject'] = res['name']
         return res   
 
     def action_put_in_queue_twitter(self):

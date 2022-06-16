@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "fw_odoo_Marketing",
+    'name': "Statistic Marketing",
 
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+    'summary': """show mail, sms marketing statistic    
+        """,
 
     'description': """
-        Long description of module's purpose
+        show mail, sms marketing statistic
     """,
 
     'website': 'https://github.com/Frontware/odoo-marketing',
@@ -16,7 +15,7 @@
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
-    'category': 'Uncategorized',
+    'category': 'Marketing',
     'version': '0.1',
 
     # any module necessary for this one to work correctly
@@ -25,9 +24,9 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/views.xml',
         'views/mailing_marketing_menus.xml',
+
+        'views/views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

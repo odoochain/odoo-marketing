@@ -23,6 +23,6 @@
         "views/fw_bot_group_help.xml",
 
     ],
-    'application': False,
+    'application': True,
     'license': 'LGPL-3',
 }

@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import logging
 
+from datetime import datetime
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
@@ -31,6 +32,9 @@ class Mailing(models.Model):
             res['keep_archives'] = True
         if fields is not None and 'mailing_model_name' in fields and res.get('mailing_type') == 'facebook':
             res['mailing_model_name'] = 'facebook.list'
+        if res.get('mailing_type') == 'facebook':
+           res['name'] = 'facebook marketing %s' % datetime.now().strftime('%d/%m/%Y')
+           res['subject'] = res['name']
         return res
 
    

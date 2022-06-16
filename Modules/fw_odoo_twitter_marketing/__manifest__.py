@@ -14,6 +14,9 @@
         'fw_odoo_mail_marketing',
         'fw_odoo_sms_marketing',
     ],
+    'external_dependencies': {
+        'python': ['tweepy']
+    },    
     'data': [
         'security/ir.model.access.csv',
         'data/cron.xml',
