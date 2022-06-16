@@ -18,6 +18,8 @@
         'security/ir.model.access.csv',
         'data/cron.xml',
         'data/utm_data.xml',
+        'data/help.xml',
+        
         'views/mailing_mailing_views.xml',
         'views/help_view.xml',
         'wizard/twitter_schedule_date_action.xml',
