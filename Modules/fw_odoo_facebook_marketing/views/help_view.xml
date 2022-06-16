@@ -6,7 +6,7 @@
             <field name="name">facebook_help form</field>
             <field name="model">facebook.help</field>
             <field name="arch" type="xml">
-                <form string="How to use it" edit="0" delete="0">
+                <form string="How to use it" create="0" edit="0" delete="0">
                     <sheet>
                         <div>
                             <img src="fw_odoo_facebook_marketing/static/description/icon.png" width="100" long="100"/> <BR /> 
@@ -194,6 +194,7 @@
             <field name="res_model">facebook.help</field>
             <field name="view_mode">form</field>
             <field name="type">ir.actions.act_window</field>
+            <field name="res_id" ref="facebook_help_1"/>
             <field name="view_id" ref="facebook_help_form" />
         </record>
     </data>
