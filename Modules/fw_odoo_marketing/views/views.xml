@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+
+    <record id="mailing_mailing_action_type" model="ir.actions.act_window">
+        <field name="name">Statistic Mailing</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">graph</field>
+        <field name="domain">[]</field>
+    </record>
+
+    <record id="mailing_mailing_action_type_done" model="ir.actions.act_window">
+        <field name="name">Statistic Mailing done</field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{'graph_mode':'pie'}</field>
+        <field name="domain">[('state', '=', 'done')]</field>
+    </record>
+
+    <record id="mailing_mailing_action_type_draft" model="ir.actions.act_window">
+        <field name="name">Statistic Mailing draft </field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{'graph_mode':'pie'}</field>
+        <field name="domain">[('state', '=', 'draft')]</field>
+    </record>
+
+    <record id="mailing_mailing_action_type_in_queue" model="ir.actions.act_window">
+        <field name="name">Statistic Mailing in queue </field>
+        <field name="res_model">mailing.mailing</field>
+        <field name="view_mode">graph</field>
+        <field name="context">{'graph_mode':'pie'}</field>
+        <field name="domain">[('state', '=', 'in_queue')]</field>
+    </record>
+
+
+    <record id="mass_mailing_marketing_menu_mass_marketing" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_type"/>
+    </record>
+
+    <record id="mass_mailing_marketing_menu_done" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_type_done"/>
+    </record>
+  
+    <record id="mass_mailing_marketing_menu_draft" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_type_draft"/>
+    </record>
+
+    <record id="mass_mailing_marketing_menu_in_queue" model="ir.ui.menu">
+        <field name="action" ref="mailing_mailing_action_type_in_queue"/>
+    </record>
+  
+  </data>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- marketing Marketing -->
+    <menuitem id="mass_mailing_marketing_menu_root"
+        name="Marketing Statistics"
+        sequence="70"
+        web_icon="fw_odoo_marketing,static/description/icon.png"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <!-- marketing Marketing / marketing Marketing -->
+    <menuitem id="mass_mailing_marketing_menu_mass_marketing"
+        name="Mailing Statistics"
+        parent="mass_mailing_marketing_menu_root"
+        sequence="4"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <menuitem id="mass_mailing_marketing_menu_done"
+        name="Mailing Statistics Done"
+        parent="mass_mailing_marketing_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <menuitem id="mass_mailing_marketing_menu_draft"
+        name="Mailing Statistics Draft"
+        parent="mass_mailing_marketing_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <menuitem id="mass_mailing_marketing_menu_in_queue"
+        name="Mailing Statistics In Queue"
+        parent="mass_mailing_marketing_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+   
+</odoo>
