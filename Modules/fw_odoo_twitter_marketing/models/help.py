@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 from odoo import models, fields, api
 
-class telegram_help(models.Model):
-    _name="telegram.help"
-    _description="Telegram help"
+class twitter_help(models.Model):
+    _name="twitter.help"
+    _description="Twitter help"
 
     name=fields.Char()

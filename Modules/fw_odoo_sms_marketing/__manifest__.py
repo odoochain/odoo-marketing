@@ -7,6 +7,8 @@
     'description': '',
     'version': '1.0',
     'category': 'Marketing/SMS Marketing',
+    'website': 'https://github.com/Frontware/odoo-marketing',
+    'author': 'Frontware International',
     'sequence': 245,
     'depends': [
         'mass_mailing_sms'

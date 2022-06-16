@@ -9,8 +9,6 @@ class TwitterScheduleDate(models.TransientModel):
     _name = 'fw_odoo_twitter_marketing.schedule.date'
     _description = 'Twitter Scheduling'
 
-    
-
     schedule_date = fields.Datetime(string='Scheduled for')
     twitter_id = fields.Many2one('mailing.mailing', required=True, ondelete='cascade')
 

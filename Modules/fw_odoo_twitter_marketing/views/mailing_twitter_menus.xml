@@ -12,6 +12,7 @@
         name="twitter Marketing"
         parent="mass_mailing_twitter_menu_root"
         sequence="1"
+        action="mailing_mailing_action_twitter"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <!-- twitter Marketing / Configuration -->
@@ -20,4 +21,11 @@
         parent="mass_mailing_twitter_menu_root"
         sequence="100"
         groups="mass_mailing.group_mass_mailing_user"/>
+
+    <menuitem id="twitter_how_to_menu"
+        name="How to"
+        action="twitter_how_to_action"
+        parent="mass_mailing_twitter_menu_root"
+        sequence="200"/>
+
 </odoo>

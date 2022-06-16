@@ -7,6 +7,8 @@
     'description': '',
     'version': '1.0',
     'category': 'Marketing/Telegram Marketing',
+    'website': 'https://github.com/Frontware/odoo-marketing',
+    'author': 'Frontware International',
     'sequence': 246,
     'depends': [
         'fw_odoo_mail_marketing',

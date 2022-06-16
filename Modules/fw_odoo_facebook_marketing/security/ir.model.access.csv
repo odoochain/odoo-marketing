@@ -1,4 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_fw_odoo_facebook_marketing_schedule_date,fw_odoo_facebook_marketing.schedule.date,model_fw_odoo_facebook_marketing_schedule_date,base.group_user,1,1,1,1
-access_facebook_page_id,facebook.page_id,model_facebook_page_id,base.group_user,1,1,1,1
 access_telegram.help,access_telegram.help,model_telegram_help,,base.group_user,1,0,0,0

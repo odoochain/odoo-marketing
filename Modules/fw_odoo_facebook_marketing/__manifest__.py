@@ -7,6 +7,8 @@
     'description': '',
     'version': '1.0',
     'category': 'Marketing/facebook Marketing',
+    'website': 'https://github.com/Frontware/odoo-marketing',
+    'author': 'Frontware International',
     'sequence': 246,
     'depends': [
         'fw_odoo_mail_marketing',
@@ -16,10 +18,11 @@
         'security/ir.model.access.csv',
         'data/cron.xml',
         'data/utm_data.xml',
-        'views/mailing_facebook_menus.xml',
         'views/mailing_mailing_views.xml',
         'views/help_view.xml',
         'wizard/facebook_schedule_date_action.xml',
+
+        'views/mailing_facebook_menus.xml',
     ],
     'application': True,
     'license': 'LGPL-3',

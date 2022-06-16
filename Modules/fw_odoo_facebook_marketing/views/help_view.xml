@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
     
@@ -195,12 +196,5 @@
             <field name="type">ir.actions.act_window</field>
             <field name="view_id" ref="facebook_help_form" />
         </record>
-
-        <menuitem id="facebook_how_to_menu"
-            name="How to"
-            action="facebook_how_to_action"
-            parent="mass_mailing_facebook_menu_root"
-            sequence="200"/>
-
     </data>
 </odoo>

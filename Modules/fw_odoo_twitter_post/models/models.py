@@ -1,14 +1,11 @@
+# -*- coding: utf-8 -*-
 from odoo import models, fields, api
-import requests
 import tweepy
-
-
 
 class fw_odoo_twitter_post(models.Model):
     _name = 'fw_odoo_twitter_post'
     _description = 'fw_odoo_twitter_post'
     _inherit = ["mail.thread", "mail.activity.mixin"]
-
 
     schedule_date = fields.Datetime(string='Scheduled for', tracking=True)
     msg = fields.Char()
@@ -78,7 +75,3 @@ class fw_odoo_twitter_post(models.Model):
         mass_mailings = self.search([('state', '=', 'B-schedule'), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
         for mass_mailing in mass_mailings:
             mass_mailing.send_post()
-
-            
-            
-            

@@ -6,13 +6,9 @@ import logging
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
-import requests
-import re
 import tweepy
 
-
 _logger = logging.getLogger(__name__)
-
 
 class Mailing(models.Model):
     _inherit = 'mailing.mailing'
@@ -39,9 +35,7 @@ class Mailing(models.Model):
             res['keep_archives'] = True
         if fields is not None and 'mailing_model_name' in fields and res.get('mailing_type') == 'twitter':
             res['mailing_model_name'] = 'twitter.list'
-        return res
-
-   
+        return res   
 
     def action_put_in_queue_twitter(self):
         res = self.action_put_in_queue()
@@ -89,10 +83,3 @@ class Mailing(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_twitter_marketing.twitter_schedule_date_action")
         action['context'] = dict(self.env.context, default_twitter_id=self.id)
         return action
-        
-
-
-
-    
-
-    

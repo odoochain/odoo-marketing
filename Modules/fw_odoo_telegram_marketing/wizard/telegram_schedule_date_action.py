@@ -7,9 +7,7 @@ from odoo.exceptions import ValidationError
 
 class TwitterScheduleDate(models.TransientModel):
     _name = 'fw_odoo_telegram_marketing.schedule.date'
-    _description = 'Twitter Scheduling'
-
-    
+    _description = 'Twitter Scheduling'    
 
     schedule_date = fields.Datetime(string='Scheduled for')
     telegram_id = fields.Many2one('mailing.mailing', required=True, ondelete='cascade')

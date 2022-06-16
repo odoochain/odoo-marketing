@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data>
     <!-- explicit list view definition -->
@@ -6,12 +7,11 @@
       <field name="model">fw_odoo_facebook_post</field>
       <field name="arch" type="xml">
         <tree string="FB Post">
-            <field name="ref"/>
-            <field name="name"/>    
+          <field name="ref"/>
+          <field name="name"/>
         </tree>
       </field>
     </record>
-
 
     <record model="ir.ui.view" id="fw_odoo_facebook_post.form">
       <field name="name">fw_odoo_facebook_post form</field>
@@ -19,28 +19,25 @@
       <field name="arch" type="xml">
         <form string="FB Post">
           <header>
-            <button name="send_post" id="send_facebook_post" type="object" string="post on facebook" class="btn-primary"
-            attrs="{'invisible': [('state', 'in', ('B-schedule','C-done','cancel'))]}"
-            confirm="Do you still want to post ?"/>
-            <button name="action_schedule" type="object" class="btn-secondary" string="Schedule"
-            attrs="{'invisible': [('state', 'in', ('C-done', 'D-cancel'))]}"/>
-            <button name="action_cancel" type="object" class="btn-secondary" string="Cancel"
-            attrs="{'invisible': [('state', 'in', ('A-draft','D-cancel'))]}"/>
-            <button name="action_retry" type="object" class="btn-secondary" string="Retry"
-            attrs="{'invisible': [('state', 'in', ('A-draft', 'B-schedule'))]}"/>
-            <field name="state" widget="statusbar"  statusbar_visible="A-draft,C-done"/>
+            <button name="send_post" id="send_facebook_post" type="object" string="post on facebook" class="btn-primary" attrs="{'invisible': [('state', 'in', ('B-schedule','C-done','cancel'))]}" confirm="Do you still want to post ?"/>
+            <button name="action_schedule" type="object" class="btn-secondary" string="Schedule" attrs="{'invisible': [('state', 'in', ('C-done', 'D-cancel'))]}"/>
+            <button name="action_cancel" type="object" class="btn-secondary" string="Cancel" attrs="{'invisible': [('state', 'in', ('A-draft','D-cancel'))]}"/>
+            <button name="action_retry" type="object" class="btn-secondary" string="Retry" attrs="{'invisible': [('state', 'in', ('A-draft', 'B-schedule'))]}"/>
+            <field name="state" widget="statusbar" statusbar_visible="A-draft,C-done"/>
           </header>
-          <div class="alert alert-info text-center" role="alert" >
+          <div class="alert alert-info text-center" role="alert">
             <div attrs="{'invisible': [('state', '!=', 'B-schedule')]}">
               <strong>
                 <span name="next_departure_text">This Post is scheduled for </span>
-                <field name="schedule_date" class="oe_inline" readonly="1"/>.
+                <field name="schedule_date" class="oe_inline" readonly="1"/>
+.
               </strong>
             </div>
             <div attrs="{'invisible': [('state', '!=', 'C-done')]}">
               <strong>
                 <span name="next_departure_text">This is posted the </span>
-                <field name="schedule_date" class="oe_inline" readonly="1"/>.
+                <field name="schedule_date" class="oe_inline" readonly="1"/>
+.
               </strong>
             </div>
           </div>
@@ -77,15 +74,17 @@
       <field name="model">fw_odoo_facebook_post</field>
       <field name="arch" type="xml">
         <kanban default_group_by="state" quick_create="false" sample="1">
-        <field name="state" readonly="1"/>
+          <field name="state" readonly="1"/>
           <templates>
             <t t-name="kanban-box">
               <div t-attf-class="oe_kanban_global_click oe_kanban_fw_odoo_facebook_post">
                 <div class="oe_kanban_content">
                   <strong>
-                  <field name="name" string="Name : "/><BR />
+                    <field name="name" string="Name : "/>
+                    <BR />
                   </strong>
-                  <field name="ref"/><BR />
+                  <field name="ref"/>
+                  <BR />
                   <div attrs="{'invisible': [('state', '!=', 'B-schedule')]}">
                     <span >Schedule for :</span>
                     <field name="schedule_date"/>
@@ -111,7 +110,7 @@
         </graph>
       </field>
     </record>
-    
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="fw_odoo_facebook_post.action_window">
@@ -119,20 +118,6 @@
       <field name="res_model">fw_odoo_facebook_post</field>
       <field name="view_mode">kanban,tree,form,graph</field>
     </record>
-
-    
-
-
-
-    <!-- Top menu item -->
-
-    <menuitem name="fw_odoo_facebook_post" id="fw_odoo_facebook_post.menu_root" web_icon="fw_odoo_facebook_post,static/description/icon.png"/>
-
-    <!-- menu categories -->
-
-    <menuitem name="Facebook Post" id="fw_odoo_facebook_post.menu_1" parent="fw_odoo_facebook_post.menu_root" action="fw_odoo_facebook_post.action_window"/>
-
-
 
   </data>
 </odoo>

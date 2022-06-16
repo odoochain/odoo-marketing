@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record model="ir.ui.view" id="twitter_help_form">
@@ -113,12 +114,6 @@
             <field name="type">ir.actions.act_window</field>
             <field name="view_id" ref="twitter_help_form" />
         </record>
-
-        <menuitem name="How to use it" id="twitter_help" parent="fw_odoo_twitter_post.menu_root" action="twitter_help_action_window"/>
-    
-    
-
-
 
     </data>
 </odoo>

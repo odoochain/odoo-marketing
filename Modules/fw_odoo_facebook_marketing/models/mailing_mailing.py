@@ -1,18 +1,13 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 import logging
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
 import requests
-import re
-
-
 
 _logger = logging.getLogger(__name__)
-
 
 class Mailing(models.Model):
     _inherit = 'mailing.mailing'
@@ -105,13 +100,3 @@ class Mailing(models.Model):
             if mailing.mailing_type == 'facebook' and (not mailing.medium_id or mailing.medium_id == self.env.ref('fw_odoo_facebook_marketing.utm_medium_facebook')):
                 mailing.medium_id = self.env.ref('fw_odoo_facebook_marketing.utm_medium_facebook').id
 
-
-class page_id(models.Model):
-    _name="facebook.page_id"
-    _description="Page Id"
-
-    page_name = fields.Char()
-    page_id = fields.Char(required=True)
-    facebook_access_token = fields.Text(required=True) 
-
-    

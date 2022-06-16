@@ -11,6 +11,7 @@
     <menuitem id="mass_mailing_telegram_menu_mass_telegram"
         name="Telegram Marketing"
         parent="mass_mailing_telegram_menu_root"
+        action="mailing_mailing_action_telegram"
         sequence="1"
         groups="mass_mailing.group_mass_mailing_user"/>
 
@@ -20,4 +21,5 @@
         parent="mass_mailing_telegram_menu_root"
         sequence="100"
         groups="mass_mailing.group_mass_mailing_user"/>
+
 </odoo>

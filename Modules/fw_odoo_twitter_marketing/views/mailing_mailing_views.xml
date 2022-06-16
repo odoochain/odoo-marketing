@@ -1,160 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo><data>
-
+<odoo>
+    <data>
 
         <!-- searching view -->
-    <record model="ir.ui.view" id="mailing_mailing_view_search_twitter">
-        <field name="name">mailing_mailing_view_search_twitter</field>
-        <field name="model">mailing.mailing</field>
-        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_search"/>
-        <field name="mode">primary</field>
-        <field name="arch" type="xml">
-            <xpath expr="//filter[@name='assigned_to_me']" position="attributes">
-                <attribute name="string">My twitter Marketing</attribute>
-            </xpath>
-        </field>
-    </record>
+        <record model="ir.ui.view" id="mailing_mailing_view_search_twitter">
+            <field name="name">mailing_mailing_view_search_twitter</field>
+            <field name="model">mailing.mailing</field>
+            <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_search"/>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='assigned_to_me']" position="attributes">
+                    <attribute name="string">My twitter Marketing</attribute>
+                </xpath>
+            </field>
+        </record>
 
         <!-- inharited form view -->
-    <record id="mailing_mailing_view_form_twitter" model="ir.ui.view">
-        <field name="name">mailing.mailing.view.form.inherit.twitter</field>
-        <field name="model">mailing.mailing</field>
-        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
-        <field name="arch" type="xml">      
-            <xpath expr="//field[@name='subject']" position="after">
-                <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'twitter')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'twitter')]}"/>
-            </xpath>             
-            <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
-                <page string="twitter settings" attrs="{'invisible': [('mailing_type', '!=', 'twitter')]}">
-                    <group>
-                    <field name="msg" string="message : "/>
-                    <field name="image" string="URL image : "/>
-                    </group>
-                    <group>
-                    <field name="CK" string="twitter API KEY  : "/>
-                    <field name="CS" string="twitter API KEY SECRET : "/>
-                    <field name="AT" string="twitter ACCESS TOKEN : " />
-                    <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
-                    </group>
-                </page>
-            </xpath>
-            <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
+        <record id="mailing_mailing_view_form_twitter" model="ir.ui.view">
+            <field name="name">mailing.mailing.view.form.inherit.twitter</field>
+            <field name="model">mailing.mailing</field>
+            <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='subject']" position="after">
+                    <field name="subject" string="Title" attrs="{'invisible': [('mailing_type', '!=', 'twitter')], 'readonly': [('state', 'in', ('sending', 'done'))], 'required': [('mailing_type', '=', 'twitter')]}"/>
+                </xpath>
+                <xpath expr="//page[@name='dynamic_placeholder_generator']" position="before">
+                    <page string="twitter settings" attrs="{'invisible': [('mailing_type', '!=', 'twitter')]}">
+                        <group>
+                            <field name="msg" string="message : "/>
+                            <field name="image" string="URL image : "/>
+                        </group>
+                        <group>
+                            <field name="CK" string="twitter API KEY  : "/>
+                            <field name="CS" string="twitter API KEY SECRET : "/>
+                            <field name="AT" string="twitter ACCESS TOKEN : " />
+                            <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//button[@name='action_put_in_queue']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
-            </xpath>
-            <xpath expr="//button[@name='action_schedule']" position="attributes">
+                </xpath>
+                <xpath expr="//button[@name='action_schedule']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
-            </xpath>
-            <xpath expr="//page[@name='dynamic_placeholder_generator']" position="attributes">
+                </xpath>
+                <xpath expr="//page[@name='dynamic_placeholder_generator']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', '=', 'sending'),  ('mailing_type', '!=', 'mail')]}</attribute>
-            </xpath>
-            <xpath expr="//button[@name='action_test']" position="attributes">
+                </xpath>
+                <xpath expr="//button[@name='action_test']" position="attributes">
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
-            </xpath>
-            <xpath expr="//button[@name='action_put_in_queue']" position="before">
-                <button name="action_send_now_twitter" type="object"
-                    class="oe_highlight" string="Send Now"
-                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'twitter'), ('state', 'in', ('sending','done'))]}"
-                    confirm="This will tweet now. Do you still want to proceed ?"/>
-                <button name="action_schedule_twitter" type="object"
-                     string="Schedule"
-                    attrs="{'invisible': ['|', ('mailing_type', '!=', 'twitter'), ('state', 'in', ('done'))]}"/>
-            </xpath>
-        </field>
-    </record>
+                </xpath>
+                <xpath expr="//button[@name='action_put_in_queue']" position="before">
+                    <button name="action_send_now_twitter" type="object" class="oe_highlight" string="Send Now" attrs="{'invisible': ['|', ('mailing_type', '!=', 'twitter'), ('state', 'in', ('sending','done'))]}" confirm="This will tweet now. Do you still want to proceed ?"/>
+                    <button name="action_schedule_twitter" type="object" string="Schedule" attrs="{'invisible': ['|', ('mailing_type', '!=', 'twitter'), ('state', 'in', ('done'))]}"/>
+                </xpath>
+            </field>
+        </record>
 
-
-
-    <record id="mailing_mailing_view_form_mixed_twitter" model="ir.ui.view">
-        <!-- View allowign to display the mailing type and therefore choosing
+        <record id="mailing_mailing_view_form_mixed_twitter" model="ir.ui.view">
+            <!-- View allowign to display the mailing type and therefore choosing
         the way of mailing: not prioritized one, used in some specific cases
         like "contacting people" without predefining mail or twitter or twitter -->
-        <field name="name">mailing.mailing.view.form.mixed.twitter</field>
-        <field name="model">mailing.mailing</field>
-        <field name="mode">primary</field>
-        <field name="priority">30</field>
-        <field name="inherit_id" ref="fw_odoo_twitter_marketing.mailing_mailing_view_form_twitter"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='mailing_type']" position="attributes">
-                <attribute name="invisible">0</attribute>
-            </xpath>
-        </field>
-    </record>
+            <field name="name">mailing.mailing.view.form.mixed.twitter</field>
+            <field name="model">mailing.mailing</field>
+            <field name="mode">primary</field>
+            <field name="priority">30</field>
+            <field name="inherit_id" ref="fw_odoo_twitter_marketing.mailing_mailing_view_form_twitter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='mailing_type']" position="attributes">
+                    <attribute name="invisible">0</attribute>
+                </xpath>
+            </field>
+        </record>
 
 
-    <record id="mailing_mailing_view_kanban_twitter" model="ir.ui.view">
-        <field name="name">mailing.mailing.view.kanban.inherit.twitter</field>
-        <field name="model">mailing.mailing</field>
-        <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_kanban"/>
-        <field name="arch" type="xml">
-            <xpath expr="//div[@name='stat_opened']" position="attributes">
-                <attribute name="attrs">{'invisible': [('mailing_type', '!=', 'twitter')]}</attribute>
-            </xpath>
-            <xpath expr="//div[@class='o_kanban_record_body']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-        </field>
-    </record>
+        <record id="mailing_mailing_view_kanban_twitter" model="ir.ui.view">
+            <field name="name">mailing.mailing.view.kanban.inherit.twitter</field>
+            <field name="model">mailing.mailing</field>
+            <field name="inherit_id" ref="mass_mailing.view_mail_mass_mailing_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='stat_opened']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('mailing_type', '!=', 'twitter')]}</attribute>
+                </xpath>
+                <xpath expr="//div[@class='o_kanban_record_body']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
 
-    <record id="mailing_mailing_view_tree_twitter" model="ir.ui.view">
-        <field name="name">mailing.mailing.view.tree.twitter</field>
-        <field name="model">mailing.mailing</field>
-        <field name="priority">20</field>
-        <field name="arch" type="xml">
-            <tree string="twitter Marketing" sample="1">
-                <field name="mailing_type" invisible="1"/>
-                <field name="subject"/>
-                <field name="schedule_date" string="Scheduled" widget="remaining_days"/>
-                <field name="sent_date" widget="date"/>
-                <field name="state" decoration-info="state == 'draft' or state == 'in_queue'" decoration-success="state == 'sending' or state == 'done'" widget="badge"/>
-            </tree>
-        </field>
-    </record>
+        <record id="mailing_mailing_view_tree_twitter" model="ir.ui.view">
+            <field name="name">mailing.mailing.view.tree.twitter</field>
+            <field name="model">mailing.mailing</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <tree string="twitter Marketing" sample="1">
+                    <field name="mailing_type" invisible="1"/>
+                    <field name="subject"/>
+                    <field name="schedule_date" string="Scheduled" widget="remaining_days"/>
+                    <field name="sent_date" widget="date"/>
+                    <field name="state" decoration-info="state == 'draft' or state == 'in_queue'" decoration-success="state == 'sending' or state == 'done'" widget="badge"/>
+                </tree>
+            </field>
+        </record>
 
 
         <!-- actions -->
-
-
-    <record id="mailing_mailing_action_twitter" model="ir.actions.act_window">
-        <field name="name">twitter Marketing</field>
-        <field name="res_model">mailing.mailing</field>
-        <field name="view_mode">kanban,tree,form,graph</field>
-        <field name="search_view_id" ref="mailing_mailing_view_search_twitter"/>
-        <field name="domain">[('mailing_type', '=', 'twitter')]</field>
-        <field name="context">{
+        <record id="mailing_mailing_action_twitter" model="ir.actions.act_window">
+            <field name="name">twitter Marketing</field>
+            <field name="res_model">mailing.mailing</field>
+            <field name="view_mode">kanban,tree,form,graph</field>
+            <field name="search_view_id" ref="mailing_mailing_view_search_twitter"/>
+            <field name="domain">[('mailing_type', '=', 'twitter')]</field>
+            <field name="context">{
                 'search_default_assigned_to_me': 1,
                 'default_user_id': uid,
                 'default_mailing_type': 'twitter',
                 'mailing_twitter': True
         }</field>
-        <field name="help" type="html">
-          <p class="o_view_nocontent_smiling_face">
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
             Create a new twitter Marketing
-          </p><p>
+                </p>
+                <p>
             You can easily send twitter to any contact saved in other Odoo apps.
-          </p>
-        </field>
-    </record>
-    
+                </p>
+            </field>
+        </record>
 
-    <record id="mailing_mailing_action_twitter_view_kanban" model="ir.actions.act_window.view">
-        <field name="sequence">1</field>
-        <field name="view_mode">kanban</field>
-        <field name="view_id" ref="mailing_mailing_view_kanban_twitter"/>
-        <field name="act_window_id" ref="mailing_mailing_action_twitter"/>
-    </record>
+        <record id="mailing_mailing_action_twitter_view_kanban" model="ir.actions.act_window.view">
+            <field name="sequence">1</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="mailing_mailing_view_kanban_twitter"/>
+            <field name="act_window_id" ref="mailing_mailing_action_twitter"/>
+        </record>
 
 
-    <record id="mailing_mailing_action_twitter_view_tree" model="ir.actions.act_window.view">
-        <field name="sequence">2</field>
-        <field name="view_mode">tree</field>
-        <field name="view_id" ref="mailing_mailing_view_tree_twitter"/>
-        <field name="act_window_id" ref="mailing_mailing_action_twitter"/>
-    </record>
+        <record id="mailing_mailing_action_twitter_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence">2</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="mailing_mailing_view_tree_twitter"/>
+            <field name="act_window_id" ref="mailing_mailing_action_twitter"/>
+        </record>
 
-        <!-- twitter Marketing / twitter Marketing -->
-    <record id="mass_mailing_twitter_menu_mass_twitter" model="ir.ui.menu">
-        <field name="action" ref="mailing_mailing_action_twitter"/>
-    </record>
-    
-</data>
+    </data>
 </odoo>

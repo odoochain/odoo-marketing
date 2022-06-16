@@ -12,6 +12,7 @@
         name="facebook Marketing"
         parent="mass_mailing_facebook_menu_root"
         sequence="1"
+        action="mailing_mailing_action_facebook"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <!-- facebook Marketing / Configuration -->
@@ -20,4 +21,11 @@
         parent="mass_mailing_facebook_menu_root"
         sequence="100"
         groups="mass_mailing.group_mass_mailing_user"/>
+
+    <menuitem id="facebook_how_to_menu"
+            name="How to"
+            action="facebook_how_to_action"
+            parent="mass_mailing_facebook_menu_root"
+            sequence="200"/>
+
 </odoo>

@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_fw_odoo_twitter_marketing_schedule_date,fw_odoo_twitter_marketing.schedule.date,model_fw_odoo_twitter_marketing_schedule_date,base.group_user,1,1,1,1
+access_twitter_help,twitter_help,model_twitter_help,base.group_user,1,1,1,1

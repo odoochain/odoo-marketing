@@ -7,22 +7,17 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
 import requests
-import re
-
 
 _logger = logging.getLogger(__name__)
 
-
 class Mailing(models.Model):
     _inherit = 'mailing.mailing'
+
     channel_group= fields.Many2many("channel_group.telegram")
     body_plaintext = fields.Text('Telegram Body')
     image = fields.Char()
-
     schedule_date = fields.Datetime(string='Scheduled for')
-
-        
-
+          
     telegram_force_send = fields.Boolean(
         'Send Directly', help='Use at your own risks.')
 
@@ -98,19 +93,3 @@ class Mailing(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("fw_odoo_telegram_marketing.telegram_schedule_date_action")
         action['context'] = dict(self.env.context, default_telegram_id=self.id)
         return action
-        
-
-
-
-
-    
-
-class channel(models.Model):
-    _name="channel_group.telegram"
-    _description="channel telegram"
-
-    channel=fields.Char()
-    Api_key = fields.Char()
-    
-
-    

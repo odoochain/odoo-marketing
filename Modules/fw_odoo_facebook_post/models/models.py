@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
-
 from odoo import models, fields, api
 import requests
-
-
-
 
 class fw_odoo_facebook_post(models.Model):
     _name = 'fw_odoo_facebook_post'
@@ -93,13 +89,3 @@ class fw_odoo_facebook_post(models.Model):
         mass_mailings = self.search([('state', '=', 'B-schedule'), '|', ('schedule_date', '<', fields.Datetime.now()), ('schedule_date', '=', False)])
         for mass_mailing in mass_mailings:
             mass_mailing.send_post()
-
-
-class page_id(models.Model):
-    _name="facebook.page_id"
-    _description="Page Id"
-
-    page_name = fields.Char()
-    page_id = fields.Char(required=True)
-    facebook_access_token = fields.Text(required=True) 
-

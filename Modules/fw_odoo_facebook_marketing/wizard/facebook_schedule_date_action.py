@@ -1,15 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
 
 class facebookScheduleDate(models.TransientModel):
     _name = 'fw_odoo_facebook_marketing.schedule.date'
-    _description = 'facebook Scheduling'
-
-    
+    _description = 'facebook Scheduling' 
 
     schedule_date = fields.Datetime(string='Scheduled for')
     facebook_id = fields.Many2one('mailing.mailing', required=True, ondelete='cascade')
