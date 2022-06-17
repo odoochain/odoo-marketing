@@ -13,12 +13,12 @@
                         Following these steps:
                     </div>
                     <ul>
-                        <li>Create LINE Bot</li>
-                        <li>Setup webhook to LINE Bot</li>
+                        <li>Create LINE bot</li>
+                        <li>Setup webhook to LINE bot</li>
                         <li>Create LINE group</li>
                     </ul>
                     <notebook>
-                       <page string="create LINE bot">
+                       <page string="Create LINE bot">
                            <div>                            
                              <ul>
                                 <li>goto https://account.line.biz</li>
@@ -67,16 +67,31 @@
                            </div>
                         </page>
 
+                        <page string="Example of webhook for LINE bot">
+                           <div>                                      
+                             <ul>
+                                <li>1. <b>recommend</b> https://github.com/Frontware/line-bot-webhook-python</li>
+                                <p>You need to setup and run it or use with heroku</p>                                
+                                <BR />
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/webhook/webhook-prg.png"/>
+                                <li>2. create your own webhook</li>
+                                <p>
+                                see https://developers.line.biz/en/reference/messaging-api/#webhooks</p>
+                             </ul>
+                           </div>
+                        </page>
+
                         <page string="Create LINE group">
                            <div>                            
                              <ul>
                                 <li>with your LINE application, create group</li>
-                                <li>add LINE bot to your group</li>
                                 <BR/>
-                                <p>
-                                if success, you should see your group here
-                                <img class="w-100" src="fw_odoo_line_marketing/static/images/group/group.png"/>
-                                </p>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/group/create_group.png"/>
+                                <li>with your LINE application, add LINE bot to your group</li>
+                                
+                                <li>if success, you will see your group here</li>
+                                <BR/>
+                                <img class="w-100" src="fw_odoo_line_marketing/static/images/group/group.png"/>                                
                              </ul>
                            </div>
                         </page>

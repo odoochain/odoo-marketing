@@ -32,4 +32,11 @@
         parent="mass_mailing_line_menu_configuration"
         sequence="100"/>
 
+    <menuitem id="fw_odoo_line_marketing_settings_menu"
+        name="Settings"
+        action="fw_odoo_line_marketing_settings_action"
+        parent="mass_mailing_line_menu_configuration"
+        groups="fw_odoo_line_marketing_group_man"
+        sequence="101"/>
+        
 </odoo>

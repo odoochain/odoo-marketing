@@ -3,6 +3,7 @@
 
 from datetime import datetime
 import logging
+import requests
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
@@ -36,8 +37,28 @@ class Mailing(models.Model):
     line_message = fields.Text(string='Message',help='limit 5000')
 
     def action_send_now_line(self):
+        accesstk = self.env['fw_odoo_line_marketing_settings'].get_access_token()
+        if not accesstk:
+           raise UserError(_('You must setup LINE access token at Configuration -> Settings')) 
+
         self.state= 'done'
         self.sent_date= fields.Datetime.now()
+
+        for g in self.line_group_ids:
+            try:
+                r = requests.post(
+                    url='https://api.line.me/v2/bot/message/push',json={
+                    "to": g.group_id,
+                    "messages":[{
+                        "type":"text",
+                        "text": self.line_message,
+                    }]},headers={'content-type': 'application/json',\
+                    'Authorization':'Bearer %s' % accesstk})
+                
+                if r.json()['message']:
+                   raise UserError(r.json()['message'])  
+            except Exception as e:
+                raise UserError(e)          
 
     @api.model
     def action_send_schedule_line(self):

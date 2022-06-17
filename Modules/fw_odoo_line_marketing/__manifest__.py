@@ -25,6 +25,7 @@
         "views/fw_bot_group_help.xml",
 
         "wizard/schedule_date.xml",
+        "wizard/settings.xml",
 
         'views/mailing_line_menus.xml',
     ],
