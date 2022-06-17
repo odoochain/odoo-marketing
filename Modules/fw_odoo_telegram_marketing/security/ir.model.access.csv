@@ -1,4 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_channel_group_telegram,channel_group.telegram,model_channel_group_telegram,base.group_user,1,1,1,1
-access_telegram_help,telegram.help,model_telegram_help,base.group_user,1,1,1,1
-access_fw_odoo_telegram_marketing_schedule_date,fw_odoo_telegram_marketing.schedule.date,model_fw_odoo_telegram_marketing_schedule_date,base.group_user,1,1,1,1
+access_channel_group_telegram,channel_group.telegram,model_channel_group_telegram,fw_odoo_telegram_marketing_group_user,1,1,1,1
+access_telegram_help,telegram.help,model_telegram_help,fw_odoo_telegram_marketing_group_user,1,1,1,1
+access_fw_odoo_telegram_marketing_schedule_date,fw_odoo_telegram_marketing.schedule.date,model_fw_odoo_telegram_marketing_schedule_date,fw_odoo_telegram_marketing_group_user,1,1,1,1

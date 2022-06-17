@@ -5,15 +5,14 @@
         name="facebook Marketing"
         sequence="70"
         web_icon="fw_odoo_facebook_marketing,static/description/icon.png"
-        groups="mass_mailing.group_mass_mailing_user"/>
+        groups="fw_odoo_facebook_marketing.fw_odoo_facebook_marketing_group_user"/>
 
     <!-- facebook Marketing / facebook Marketing -->
     <menuitem id="mass_mailing_facebook_menu_mass_facebook"
         name="facebook Marketing"
         parent="mass_mailing_facebook_menu_root"
         sequence="1"
-        action="mailing_mailing_action_facebook"
-        groups="mass_mailing.group_mass_mailing_user"/>
+        action="mailing_mailing_action_facebook"/>
 
     <menuitem id="facebook_how_to_menu"
         name="How to"

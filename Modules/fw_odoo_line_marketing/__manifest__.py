@@ -14,14 +14,19 @@
         'fw_odoo_mail_marketing'
     ],
     'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
         "data/fw_bot_group_help.xml",
+        "data/utm.xml",
+        "data/cron.xml",
 
-        'views/mailing_line_menus.xml',
         'views/mailing_mailing_views.xml',
-
         "views/fw_bot_group.xml",
         "views/fw_bot_group_help.xml",
 
+        "wizard/schedule_date.xml",
+
+        'views/mailing_line_menus.xml',
     ],
     'application': False,
     'license': 'LGPL-3',

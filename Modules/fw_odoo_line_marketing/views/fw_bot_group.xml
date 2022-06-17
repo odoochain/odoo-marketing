@@ -19,10 +19,5 @@
         <field name="view_mode">tree</field>
     </record>
 
-    <menuitem id="fw_bot_group_menu"
-        name="LINE Groups"
-        action="fw_bot_group_action"
-        parent="mass_mailing_line_menu_configuration"
-        sequence="100"/>
-
-</data></odoo>    
+</data>
+</odoo>    

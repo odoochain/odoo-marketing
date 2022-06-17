@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fw_odoo_line_marketing_schedule_date,fw_odoo_line_marketing.schedule.date,model_fw_odoo_line_marketing_schedule_date,fw_odoo_line_marketing_group_user,1,1,1,1
+access_fw_bot_group_help_all,access_fw_bot_group_help_all,model_fw_bot_group_help,fw_odoo_line_marketing_group_user,1,0,0,0
+access_fw_bot_group_all,access_fw_bot_group_all,model_fw_bot_group,fw_odoo_line_marketing_group_user,1,1,1,1

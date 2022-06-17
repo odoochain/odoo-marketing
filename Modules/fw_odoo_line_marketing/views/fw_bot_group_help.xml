@@ -95,10 +95,5 @@
         <field name="view_id" ref="fw_bot_group_help_form" />
     </record>
 
-    <menuitem id="fw_bot_group_how_to_menu"
-        name="How to"
-        action="fw_bot_group_how_to_action"
-        parent="mass_mailing_line_menu_root"
-        sequence="200"/>
-
-</data></odoo>    
+</data>
+</odoo>    

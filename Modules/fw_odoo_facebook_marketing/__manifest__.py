@@ -15,6 +15,7 @@
         'fw_odoo_sms_marketing',
     ],
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'data/cron.xml',
         'data/utm_data.xml',

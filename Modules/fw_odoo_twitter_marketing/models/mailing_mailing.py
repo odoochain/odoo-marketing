@@ -20,8 +20,6 @@ class Mailing(models.Model):
     CS = fields.Char()
     AT = fields.Char()
     AS = fields.Char()
-    twitter_force_send = fields.Boolean(
-        'Send Directly', help='Use at your own risks.')
 
     # mailing options
     mailing_type = fields.Selection(selection_add=[
@@ -39,13 +37,6 @@ class Mailing(models.Model):
            res['name'] = 'twitter marketing %s' % datetime.now().strftime('%d/%m/%Y')
            res['subject'] = res['name']
         return res   
-
-    def action_put_in_queue_twitter(self):
-        res = self.action_put_in_queue()
-        if self.twitter_force_send:
-            self.action_send_mail()
-        return res
-
 
     def action_send_now_twitter(self):
         # Authenticate to Twitter

@@ -5,15 +5,14 @@
         name="Telegram Marketing"
         sequence="70"
         web_icon="fw_odoo_telegram_marketing,static/description/icon.png"
-        groups="mass_mailing.group_mass_mailing_user"/>
+        groups="fw_odoo_telegram_marketing_group_user"/>
 
     <!-- telegram Marketing / telegram Marketing -->
     <menuitem id="mass_mailing_telegram_menu_mass_telegram"
         name="Telegram Marketing"
         parent="mass_mailing_telegram_menu_root"
         action="mailing_mailing_action_telegram"
-        sequence="1"
-        groups="mass_mailing.group_mass_mailing_user"/>
+        sequence="1"/>
 
     <menuitem id="telegram_how_to_menu"
         name="How to"

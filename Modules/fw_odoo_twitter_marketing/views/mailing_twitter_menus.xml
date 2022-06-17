@@ -5,15 +5,14 @@
         name="twitter Marketing"
         sequence="70"
         web_icon="fw_odoo_twitter_marketing,static/description/icon.png"
-        groups="mass_mailing.group_mass_mailing_user"/>
+        groups="fw_odoo_twitter_marketing_group_user"/>
 
     <!-- twitter Marketing / twitter Marketing -->
     <menuitem id="mass_mailing_twitter_menu_mass_twitter"
         name="twitter Marketing"
         parent="mass_mailing_twitter_menu_root"
         sequence="1"
-        action="mailing_mailing_action_twitter"
-        groups="mass_mailing.group_mass_mailing_user"/>
+        action="mailing_mailing_action_twitter"/>
 
     <menuitem id="twitter_how_to_menu"
         name="How to"

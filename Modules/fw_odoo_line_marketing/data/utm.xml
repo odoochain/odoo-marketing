@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record model="utm.medium" id="fw_odoo_utm_medium_line">
+            <field name="name">LINE</field>
+        </record>
+
+    </data>
+</odoo>

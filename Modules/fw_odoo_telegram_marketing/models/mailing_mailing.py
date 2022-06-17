@@ -18,9 +18,6 @@ class Mailing(models.Model):
     image = fields.Char()
     schedule_date = fields.Datetime(string='Scheduled for')
           
-    telegram_force_send = fields.Boolean(
-        'Send Directly', help='Use at your own risks.')
-
     # mailing options
     mailing_type = fields.Selection(selection_add=[
         ('telegram', 'Telegram')
@@ -37,15 +34,6 @@ class Mailing(models.Model):
            res['name'] = 'telegram marketing %s' % datetime.now().strftime('%d/%m/%Y')
            res['subject'] = res['name']
         return res
-
-   
-
-    def action_put_in_queue_telegram(self):
-        res = self.action_put_in_queue()
-        if self.telegram_force_send:
-            self.action_send_mail()
-        return res
-
 
     def action_send_now_telegram(self):
         for i in range(len(self.channel_group)):

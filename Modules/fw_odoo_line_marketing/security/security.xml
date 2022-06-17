@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.module.category" id="fw_odoo_line_marketing_group_category">
+        <field name="name">LINE Marketing</field>
+        <field name="parent_id" ref="base.module_category_marketing" />
+        <field name="sequence">30</field>
+        <field name="description">Helps you manage your LINE marketing</field>
+    </record>
+
+    <record id="fw_odoo_line_marketing_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="fw_odoo_line_marketing_group_category"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+</odoo>
