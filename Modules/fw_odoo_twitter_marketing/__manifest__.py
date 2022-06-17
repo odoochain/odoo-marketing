@@ -28,6 +28,6 @@
         'wizard/twitter_schedule_date_action.xml',
         'views/mailing_twitter_menus.xml',
     ],
-    'application': True,
+    'application': False,
     'license': 'LGPL-3',
 }

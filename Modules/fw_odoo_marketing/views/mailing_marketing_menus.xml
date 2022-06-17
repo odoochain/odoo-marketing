@@ -9,27 +9,27 @@
 
     <!-- marketing Marketing / marketing Marketing -->
     <menuitem id="mass_mailing_marketing_menu_mass_marketing"
-        name="Mailing Statistics"
+        name="All"
+        parent="mass_mailing_marketing_menu_root"
+        sequence="1"
+        groups="mass_mailing.group_mass_mailing_user"/>
+
+    <menuitem id="mass_mailing_marketing_menu_done"
+        name="Done"
         parent="mass_mailing_marketing_menu_root"
         sequence="4"
         groups="mass_mailing.group_mass_mailing_user"/>
 
-    <menuitem id="mass_mailing_marketing_menu_done"
-        name="Mailing Statistics Done"
-        parent="mass_mailing_marketing_menu_root"
-        sequence="1"
-        groups="mass_mailing.group_mass_mailing_user"/>
-
     <menuitem id="mass_mailing_marketing_menu_draft"
-        name="Mailing Statistics Draft"
+        name="Draft"
         parent="mass_mailing_marketing_menu_root"
-        sequence="1"
+        sequence="2"
         groups="mass_mailing.group_mass_mailing_user"/>
 
     <menuitem id="mass_mailing_marketing_menu_in_queue"
-        name="Mailing Statistics In Queue"
+        name="In Queue"
         parent="mass_mailing_marketing_menu_root"
-        sequence="1"
+        sequence="3"
         groups="mass_mailing.group_mass_mailing_user"/>
 
    

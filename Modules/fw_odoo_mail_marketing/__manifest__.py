@@ -16,6 +16,6 @@
     'data': [
         'views/mailing_mailing_views.xml',
     ],
-    'application': True,
+    'application': False,
     'license': 'LGPL-3',
 }

@@ -26,6 +26,6 @@
 
         'views/mailing_telegram_menus.xml',
     ],
-    'application': True,
+    'application': False,
     'license': 'LGPL-3',
 }

@@ -26,6 +26,6 @@
 
         'views/mailing_facebook_menus.xml',
     ],
-    'application': True,
+    'application': False,
     'license': 'LGPL-3',
 }
