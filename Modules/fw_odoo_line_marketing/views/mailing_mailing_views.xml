@@ -26,10 +26,10 @@
                 <button name="action_schedule_line" type="object" string="Schedule" attrs="{'invisible': ['|', ('mailing_type', '!=', 'line'), ('state', 'in', ('done'))]}"/>
             </xpath>
             <xpath expr="//field[@name='active']" position="after">
-                <field name="line_group_ids" widget="many2many_tags" attrs="{'invisible':[('mailing_type','!=','line')]}"/>
+                <field name="line_group_ids" required="1" widget="many2many_tags" attrs="{'invisible':[('mailing_type','!=','line')]}"/>
                 <label for="line_message"  attrs="{'invisible':[('mailing_type','!=','line')]}"/>
                 <div attrs="{'invisible':[('mailing_type','!=','line')]}">
-                    <field name="line_message" />
+                    <field name="line_message" required="1"/>
                 </div>
             </xpath>
         </field>
