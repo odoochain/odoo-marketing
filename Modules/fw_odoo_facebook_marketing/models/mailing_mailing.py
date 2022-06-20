@@ -105,12 +105,19 @@ class Mailing(models.Model):
             if mailing.mailing_type == 'facebook' and (not mailing.medium_id or mailing.medium_id == self.env.ref('fw_odoo_facebook_marketing.utm_medium_facebook')):
                 mailing.medium_id = self.env.ref('fw_odoo_facebook_marketing.utm_medium_facebook').id
 
+    @api.model
+    def create(self, vals):
+        if vals.get('mailing_type') == 'facebook':
+            if not vals.get('fmsg'):
+                if not vals.get('fimage'):
+                    raise UserError(_('Error : message or URL Image field is required'))
+        return super(Mailing,self).create(vals)
 
 class page_id(models.Model):
     _name="facebook.page_id"
     _description="Page Id"
 
-    page_name = fields.Char()
+    page_name = fields.Char(required=True)
     page_id = fields.Char(required=True)
     facebook_access_token = fields.Text(required=True) 
 

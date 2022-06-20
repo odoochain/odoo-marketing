@@ -100,7 +100,10 @@
                                     - You can send message to several channel   <BR />  
                                     - You can only post image from internet (begin by "http")   <BR />  
                                     - You can not put a image without text and you can not put several image <BR /> 
-                                    - All the settings are already done, but you can change it if you want <BR />                                           
+                                    - All the settings are already done, but you can change it if you want : <BR />
+                                    -> go in the settings <BR />
+                                    -> activate the developper mode <BR />
+                                    -> then go back on your message     <BR /><BR />                                            
 
                                     - if you click on "send Now" it will ask a confirmation, then click on "OK"  <BR />
                                     - if you click on "schedule" it will open a small window to choose the date and hour <BR />

@@ -1,7 +1,7 @@
 from odoo import models, fields, api
 
-class telegram_help(models.Model):
-    _name="telegram.help"
-    _description="Telegram help"
+class facebook_help(models.Model):
+    _name="facebook.help"
+    _description="facebook help"
 
     name=fields.Char()

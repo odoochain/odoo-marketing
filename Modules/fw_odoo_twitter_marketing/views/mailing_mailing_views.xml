@@ -31,10 +31,14 @@
                     <field name="image" string="URL image : "/>
                     </group>
                     <group>
-                    <field name="CK" string="twitter API KEY  : "/>
-                    <field name="CS" string="twitter API KEY SECRET : "/>
-                    <field name="AT" string="twitter ACCESS TOKEN : " />
-                    <field name="AS" string="twitter ACCESS TOKEN SECRET : "/>
+                        <field name="twitter_page_id">
+                            <tree>
+                                <field name="CK" string="twitter API KEY  : " invisible="1"/>
+                                <field name="CS" string="twitter API KEY SECRET : " invisible="1"/>
+                                <field name="AT" string="twitter ACCESS TOKEN : " invisible="1"/>
+                                <field name="AS" string="twitter ACCESS TOKEN SECRET : " invisible="1"/>
+                            </tree>
+                        </field>
                     </group>
                 </page>
             </xpath>

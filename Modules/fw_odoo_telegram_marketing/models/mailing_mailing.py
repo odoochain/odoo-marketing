@@ -6,6 +6,7 @@ import logging
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
+from odoo.osv import osv
 import requests
 import re
 
@@ -100,8 +101,13 @@ class Mailing(models.Model):
         return action
         
 
-
-
+    @api.model
+    def create(self, vals):
+        if vals.get('mailing_type') == 'telegram':
+            if not vals.get('body_plaintext'):
+                if not vals.get('image'):
+                    raise UserError(_('Error : message or URL Image field is required'))
+        return super(Mailing,self).create(vals)
 
     
 
@@ -109,8 +115,8 @@ class channel(models.Model):
     _name="channel_group.telegram"
     _description="channel telegram"
 
-    channel=fields.Char()
-    Api_key = fields.Char()
+    channel=fields.Char(required=True)
+    Api_key = fields.Char(required=True)
     
 
     

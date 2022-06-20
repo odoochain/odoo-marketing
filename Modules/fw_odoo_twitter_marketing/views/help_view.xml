@@ -89,7 +89,11 @@
                                         <img src="fw_odoo_twitter_marketing/static/description/odoo_tweet.png" />  <BR />  
                                         Note :  <BR />
                                         - You can tweet a message, an image or both  <BR />
-                                        - All the settings are already done, but you can change it if you want <BR />   
+                                        - All the settings are already done, but you can change it if you want : <BR />
+                                        -> go in the settings <BR />
+                                        -> activate the developper mode <BR />
+                                        -> then go back on your tweet     <BR /><BR />
+
                                         - if you click on "send now" it will ask a confirmation, then click on "OK"  <BR />
                                         - if you click on "schedule" it will open a small window to choose the date and hour <BR />
                                         <img src="fw_odoo_twitter_marketing/static/description/waiting.png" />  <BR />

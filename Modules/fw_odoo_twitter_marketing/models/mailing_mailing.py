@@ -20,10 +20,7 @@ class Mailing(models.Model):
     msg = fields.Char()
     image = fields.Char()
 
-    CK = fields.Char()
-    CS = fields.Char()
-    AT = fields.Char()
-    AS = fields.Char()
+    twitter_page_id = fields.Many2many("twitter.page_id")
     twitter_force_send = fields.Boolean(
         'Send Directly', help='Use at your own risks.')
 
@@ -54,21 +51,22 @@ class Mailing(models.Model):
         # Authenticate to Twitter
         self.state= 'done'
         self.sent_date= fields.Datetime.now()
-        auth = tweepy.OAuth1UserHandler(self.CK, self.CS)
-        auth.set_access_token(self.AT, self.AS)
+        for i in range(len(self.twitter_page_id)):
+            auth = tweepy.OAuth1UserHandler(self.twitter_page_id[i].CK, self.twitter_page_id[i].CS)
+            auth.set_access_token(self.twitter_page_id[i].AT, self.twitter_page_id[i].AS)
 
-        # Create API object
-        api = tweepy.API(auth)
+            # Create API object
+            api = tweepy.API(auth)
         
-        # Create a tweet
-        tweet_text= self.msg
-        if tweet_text==False:
-            tweet_text=""
-        if self.image==False:
-            api.update_status(status=tweet_text)
-        else:
-            media = api.media_upload(self.image)
-            api.update_status(status=tweet_text, media_ids=[media.media_id])
+            # Create a tweet
+            tweet_text= self.msg
+            if tweet_text==False:
+                tweet_text=""
+            if self.image==False:
+                api.update_status(status=tweet_text)
+            else:
+                media = api.media_upload(self.image)
+                api.update_status(status=tweet_text, media_ids=[media.media_id])
 
     @api.model
     def action_send_schedule_twitter(self):
@@ -90,9 +88,24 @@ class Mailing(models.Model):
         action['context'] = dict(self.env.context, default_twitter_id=self.id)
         return action
         
+    @api.model
+    def create(self, vals):
+        if vals.get('mailing_type') == 'twitter':
+            if not vals.get('msg'):
+                if not vals.get('image'):
+                    raise UserError(_('Error : message or URL Image filed is required'))
+        return super(Mailing,self).create(vals)
 
 
 
     
+class page_id(models.Model):
+    _name="twitter.page_id"
+    _description="Page Id"
+
+    CK = fields.Char(required=True)
+    CS = fields.Char(required=True)
+    AT = fields.Char(required=True)
+    AS = fields.Char(required=True)
 
     
