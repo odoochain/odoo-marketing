@@ -46,13 +46,13 @@
                     <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
             </xpath>
             <xpath expr="//button[@name='action_schedule']" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', 'not in', ('mail', 'sms'))]}</attribute>
             </xpath>
             <xpath expr="//page[@name='dynamic_placeholder_generator']" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', ('state', '=', 'sending'),  ('mailing_type', '!=', 'mail')]}</attribute>
+                    <attribute name="attrs">{'invisible': ['|', ('state', '=', 'sending'),  ('mailing_type', 'not in', ('mail', 'sms'))]}</attribute>
             </xpath>
             <xpath expr="//button[@name='action_test']" position="attributes">
-                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', '!=', 'mail')]}</attribute>
+                    <attribute name="attrs">{'invisible': ['|', ('state', 'in', ('in_queue', 'done')), ('mailing_type', 'not in', ('mail', 'sms'))]}</attribute>
             </xpath>
             <xpath expr="//button[@name='action_put_in_queue']" position="before">
                 <button name="action_send_now_twitter" type="object"
