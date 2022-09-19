@@ -20,8 +20,10 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','fw_odoo_mail_marketing',
-        'fw_odoo_sms_marketing'],
+    'depends': ['base',
+                'fw_odoo_mail_marketing',
+                'fw_odoo_sms_marketing',
+                ],
 
     # always loaded
     'data': [
